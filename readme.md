@@ -1,6 +1,6 @@
 
 #San Jose State University
-##Senior Project - CMPE 195A/E  *Fall 2020 - Spring 2021*
+##Senior Project - CMPE 195A/E  Fall 2020 - Spring 2021
 ##Authors: Tien Pham, Huynh Phan, Nhi Truong, Yenni Lam
 
 ### Project Introduction:
