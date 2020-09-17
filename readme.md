@@ -5,6 +5,7 @@
 ## Team mentor: Kelvin Nguyen
 ## Project adviser: Ronald Mak 
 
+
 ### Project Introduction:
 Looking at how useful technology can help people overcome challenges in their lives, 
 typically the disabilities. The team of engineers are innovating in solutions to make
