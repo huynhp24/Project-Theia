@@ -2,6 +2,9 @@
 # San Jose State University
 ## Senior Project - CMPE 195A/E  Fall 2020 - Spring 2021
 ## Authors: Tien Pham, Huynh Phan, Nhi Truong, Yenni Lam
+## Team mentor: Kelvin Nguyen
+## Project adviser: Ronald Mak 
+
 
 ### Project Introduction:
 Looking at how useful technology can help people overcome challenges in their lives, 
@@ -30,4 +33,4 @@ typically the disabilities. The team of engineers are innovating in solutions to
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 2020
