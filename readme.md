@@ -32,4 +32,4 @@ typically the disabilities. The team of engineers are innovating in solutions to
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 2020
