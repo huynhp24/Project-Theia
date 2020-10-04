@@ -2,7 +2,7 @@
 # San Jose State University
 ## Senior Project - CMPE 195A/E  Fall 2020 - Spring 2021
 ## Authors: Tien Pham, Huynh Phan, Nhi Truong, Yenni Lam
-## Team mentor: Kelvin Nguyen
+## Team mentor: Kevin Nguyen
 ## Project adviser: Ronald Mak 
 
 
