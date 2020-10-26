@@ -1,32 +1,45 @@
 import boto3
-from pprint import pprint
-import image_helper
+
+def detect_labels(photo, bucket):
+
+    client=boto3.client('rekognition', 'us-west-1')
+
+    response = client.detect_labels(Image={'S3Object':{'Bucket':bucket,'Name':photo}},
+        MaxLabels=10)
+
+    print('Detected labels for ' + photo)
+    print()
+    for label in response['Labels']:
+        print ("Label: " + label['Name'])
+        print ("Confidence: " + str(label['Confidence']))
+        print ("Instances:")
+        for instance in label['Instances']:
+            print ("  Bounding box")
+            print ("    Top: " + str(instance['BoundingBox']['Top']))
+            print ("    Left: " + str(instance['BoundingBox']['Left']))
+            print ("    Width: " +  str(instance['BoundingBox']['Width']))
+            print ("    Height: " +  str(instance['BoundingBox']['Height']))
+            print ("  Confidence: " + str(instance['Confidence']))
+            print()
+
+        print ("Parents:")
+        for parent in label['Parents']:
+            print ("   " + parent['Name'])
+        print ("----------")
+        print ()
+    return len(response['Labels'])
 
 
-client = boto3.client('rekognition')
-#  local storage
-# imgfilename = 'Images/chevysonic.jpg'
-# imgbytes = image_helper.get_image_from_file(imgfilename)
-#
-# rekresp = client.detect_labels(Image={'Bytes': imgbytes},
-#                                MinConfidence = 90
-#                                )
-#
-# print("List all the items in the image:")
-#
-# for label in rekresp['Labels']:
-#     pprint(label['Named'])
+# def main():
+s3 = boto3.resource('s3')
+print(s3.buckets.all())
+for bucket in s3.buckets.all():
+    print(bucket)
+photo='artworks.jpg'
+bucket='bucket-image'
+label_count=detect_labels(photo, bucket)
+print("Labels detected: " + str(label_count))
 
 
- # recognition from aws S3 bucket
-photo = 'ams-repair-iss-640x353.jpg'
-response = client.detect_labels(Image = {'S3Object': {
-                                'Bucket' : 'seniorpj',
-                                'Name' : photo
-                }},
-                MinConfidence = 95)
-
-# for label in
-print(response)
-for label in response['Labels']:
-    print(label['Name'])
+# if __name__ == "__main__":
+#     main()
