@@ -1,0 +1,46 @@
+s3.bucketsCollection(s3.ServiceResource(), s3.Bucket)
+s3.Bucket(name='bucket-image')
+s3.Bucket(name='project-theia-test')
+s3.Bucket(name='vhsbackup')
+Detected labels for coffeeText.JPG
+Label: Beverage
+Confidence: 99.90109252929688
+Instances:
+Parents:
+----------
+Label: Cup
+Confidence: 99.90109252929688
+Instances:
+Parents:
+----------
+Label: Latte
+Confidence: 99.90109252929688
+Instances:
+Parents:
+   Coffee Cup
+   Beverage
+   Cup
+----------
+Label: Drink
+Confidence: 99.90109252929688
+Instances:
+Parents:
+----------
+Label: Coffee Cup
+Confidence: 99.90109252929688
+Instances:
+Parents:
+   Cup
+----------
+Label: Milk
+Confidence: 89.26606750488281
+Instances:
+  Bounding box
+    Top: 0.210745707154274
+    Left: 0.11075667291879654
+    Width: 0.37004056572914124
+    Height: 0.643181562423706
+  Confidence: 89.26606750488281Parents:
+   Beverage
+----------
+Labels detected: 6
