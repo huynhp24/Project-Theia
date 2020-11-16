@@ -6,12 +6,7 @@ dbname="theia_db"
 user="admin"
 password=""
 
-try:
-    conn = pymysql.connect(host, user=user,port=port,passwd=password, db=dbname)
-    if conn:
-        print('Connected to database')
-except Exception as e:
-        print("Error Connecting to Database: {}".format(e))
+conn = pymysql.connect(host, user=user,port=port,passwd=password, db=dbname)
 
 
 def insertTest():
@@ -43,4 +38,4 @@ def queryTest():
     finally:
         conn.close()
 
-#queryTest()
+queryTest()
