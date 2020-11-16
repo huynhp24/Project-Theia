@@ -73,13 +73,16 @@ class fullProcess(Resource):
         #Run Nat Lang Gen
         head, sum = Nat_Lang_Gen.RunFull(labels)
 
+        #Upload title and summary to RDS
+        #parser
+
         return {'title': head, 'summary':sum}
 
 """
 This is the RDS connector object
 """
 class rdsConnector(Resource):
-    def get():
+    def get(self):
         rdsConnect.insertTest()
 
 api.add_resource(rekog, '/rekog')
