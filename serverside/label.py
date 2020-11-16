@@ -7,11 +7,6 @@ def detect_labels(photo, bucket):
     response = client.detect_labels(Image={'S3Object':{'Bucket':bucket,'Name':photo}},
         MaxLabels=10)
 
-    pretty_print(response, bucket, photo)
-
-    return response['Labels']
-
-def pretty_print(response, bucket, photo):
     print('Detected labels for ' + photo)
     print()
     for label in response['Labels']:
@@ -31,11 +26,16 @@ def pretty_print(response, bucket, photo):
         for parent in label['Parents']:
             print ("   " + parent['Name'])
         print ("----------")
-        label_count=len(response['Labels'])
-        print("Labels detected: " + str(label_count))
-        
+        print ()
+    return len(response['Labels'])
+
+
 # def main():
 s3 = boto3.resource('s3')
-#print(s3.buckets.all())
-#for bucket in s3.buckets.all():
-#    print(bucket)
+print(s3.buckets.all())
+for bucket in s3.buckets.all():
+    print(bucket)
+photo='artworks.jpg'
+bucket='bucket-image'
+label_count=detect_labels(photo, bucket)
+print("Labels detected: " + str(label_count))
