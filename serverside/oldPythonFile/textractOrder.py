@@ -15,7 +15,7 @@ import json
 textract = boto3.client('textract')
 s3 = boto3.resource('s3')
 
-imgfilename = 'Images/donutSign.jpg'
+imgfilename = 'Images/coffeeText.JPG'
 imgbytes = image_helper.get_image_from_file(imgfilename)
 
 response = textract.detect_document_text(
@@ -24,9 +24,13 @@ pprint(response)
 text = ''
 for item in response['Blocks']:
     if item["BlockType"] == "LINE":
-        # print('\033[94m' + item["Text"] + '\033[0m')
-        print(item['Text'])
-        text = text + " " +item["Text"]
+        print('\033[94m' + item["Text"] + '\033[0m')
+        # print(item['Text'])
+        # text = text + " " +item["Text"]
+#################################################
+
+
+
 # -------------------------------------------------------------
 # columns = []
 # lines = []
