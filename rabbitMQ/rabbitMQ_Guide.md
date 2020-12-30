@@ -39,3 +39,9 @@ sudo apt-get install rabbitmq-server -y --fix-missing
 
 ### Looking at the queues
 `sudo rabbitmqctl list_queues`
+
+### Starting
+`sudo service rabbitmq-server start`
+
+### Stopping
+`sudo service rabbitmq-server stop`
