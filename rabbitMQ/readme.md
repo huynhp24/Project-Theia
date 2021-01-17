@@ -63,6 +63,15 @@ However, with a `basic_consume` command, hooked up to a proper callback function
 
 In this case, the script waits for an item in the queue, and runs the callback method to print it whenver it happens.
 
+# Ports
+```
+beam.smp     458        rabbitmq   81u  IPv4   22265      0t0  TCP *:25672 (LISTEN)
+beam.smp     458        rabbitmq   94u  IPv6   22761      0t0  TCP *:5672 (LISTEN)
+epmd         841        rabbitmq    3u  IPv4   22198      0t0  TCP *:4369 (LISTEN)
+epmd         841        rabbitmq    4u  IPv6   22199      0t0  TCP *:4369 (LISTEN)
+```
+These are the ports being used for rabbitmq. However, the command line and the python connection both make the connection automatically. The beam.smp are the rabbitmq service ports, while the epmd are just supplementary ones to manage nodes.
+
 # Documentation
 Please refer to the official documentation for connecting to rabbitMQ at the command line (rabbitmqctl) or more library functions to use in python.
 
