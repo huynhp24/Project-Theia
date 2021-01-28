@@ -1,6 +1,6 @@
 from azure.cognitiveservices.speech import AudioDataStream, SpeechConfig, SpeechSynthesizer, SpeechSynthesisOutputFormat
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
-speech_config = SpeechConfig(subscription="b309e2b3-fba4-4c27-9bcd-47f41ccba6a3", region="westus2s")
+speech_config = SpeechConfig(subscription="", region="")
 audio_config = AudioOutputConfig(use_default_speaker=True)
 synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
