@@ -8,4 +8,4 @@ ssml_string = open("ssml.xml", "r").read()
 result = synthesizer.speak_ssml_async(ssml_string).get()
 
 stream = AudioDataStream(result)
-stream.save_to_wav_file("./file2.wav")
+stream.save_to_wav_file("./file3.wav")
