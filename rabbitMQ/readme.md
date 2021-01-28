@@ -45,3 +45,34 @@ sudo apt-get install rabbitmq-server -y --fix-missing
 
 ### Stopping
 `sudo service rabbitmq-server stop`
+
+# Usage
+
+## Overall
+rabbitmq is used through python commands, as depicted in the python files rabbit-setup.py and rabbit-uploads-printer.py
+
+### rabbit-setup.py
+In this file, a connection is made using pika to the rabbitMQ server. Then, that channel is declared. With commands like `queue_declare`, queues are initialized within the rabbitMQ server and are ready to be used.
+
+With a simple `basic_publish` command, data can be loaded into the queue, as you can see in the file.
+
+### rabbit-uploads-printer.py
+This file makes a connection the same as the setup.
+
+However, with a `basic_consume` command, hooked up to a proper callback function, the script can start processing the data within the queue. 
+
+In this case, the script waits for an item in the queue, and runs the callback method to print it whenver it happens.
+
+# Ports
+```
+beam.smp     458        rabbitmq   81u  IPv4   22265      0t0  TCP *:25672 (LISTEN)
+beam.smp     458        rabbitmq   94u  IPv6   22761      0t0  TCP *:5672 (LISTEN)
+epmd         841        rabbitmq    3u  IPv4   22198      0t0  TCP *:4369 (LISTEN)
+epmd         841        rabbitmq    4u  IPv6   22199      0t0  TCP *:4369 (LISTEN)
+```
+These are the ports being used for rabbitmq. However, the command line and the python connection both make the connection automatically. The beam.smp are the rabbitmq service ports, while the epmd are just supplementary ones to manage nodes.
+
+# Documentation
+Please refer to the official documentation for connecting to rabbitMQ at the command line (rabbitmqctl) or more library functions to use in python.
+
+https://www.rabbitmq.com/documentation.html
