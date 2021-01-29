@@ -5,9 +5,6 @@ import azure.cognitiveservices.speech as speechsdk
 speech_key=""
 service_region = ""
 
-print("Type a string here: ")
-text = input()
-
 #text to speech function, input is a string, output is audio from your speaker
 def text_to_speech_function(text):
     speech_config = speechsdk.SpeechConfig(subscription=speech_key,region=service_region)
@@ -17,4 +14,5 @@ def text_to_speech_function(text):
 
 
 #call text_to_speech_function for testing
+text = "speak this string"
 text_to_speech_function(text)
