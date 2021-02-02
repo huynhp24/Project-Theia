@@ -1,0 +1,17 @@
+import mysql.connector
+
+
+mydb = mysql.connector.connect(
+    host = '127.0.0.1',
+    user = 'root',
+    password= '',
+    database = 'theia'
+)
+
+table = 'testtable'
+mycursor = mydb.cursor()
+sql = 'INSERT INTO' + table + '(id, text) VALUES (%s, %s)'
+val = ('a', 'git branch')
+
+mycursor.execute(sql, val)
+mydb.commit()

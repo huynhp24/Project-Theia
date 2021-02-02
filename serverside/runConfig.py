@@ -69,8 +69,8 @@ def main():
     print('doc: ', photo)
     bucket= config['account']['path']
     print('bucket name: ', bucket)
-    # label_count = detect_labels(photo, bucket)
-    # print("Labels detected for rekognition: " + str(label_count))
+    label_count = detect_labels(photo, bucket)
+    print("Labels detected for rekognition: " + str(label_count))
 
     detectText(photo, bucket)
 

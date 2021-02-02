@@ -1,0 +1,21 @@
+import mysql.connector
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read('config.ini')
+
+# mydb = mysql.connector.connect(
+#     host = config.get('database', 'host'),
+#     user = config.get('database', 'user'),
+#     password= config.get('database', 'password'),
+#     database = config.get('database', 'dbname')
+# )
+
+mydb = mysql.connector.connect(
+    host = '127.0.0.1',
+    user = 'root',
+    password= '',
+    database = 'theia'
+)
+
+print(mydb)
