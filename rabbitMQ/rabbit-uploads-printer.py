@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import pika, sys, os
 
+
 def main():
     connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
     channel = connection.channel()
@@ -8,7 +9,8 @@ def main():
     channel.queue_declare(queue='uploads')
 
     def callback(ch, method, properties, body):
-        print(" [x] Received %r" % body)
+        print(" [x] Received %s" % body)
+
 
     channel.basic_consume(queue='uploads', on_message_callback=callback, auto_ack=True)
 

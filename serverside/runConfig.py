@@ -72,7 +72,7 @@ def main():
     # label_count = detect_labels(photo, bucket)
     # print("Labels detected for rekognition: " + str(label_count))
 
-    detectText(photo, bucket)
+    detect_labels(photo, bucket)
 
 if __name__ == "__main__":
     main()
