@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THEIA</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- FONT GOOGLE -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header__content">
+            <p>THEIA</p>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- CAROUSEL -->
+    <section class="carousel">
+        <div class="carousel__content">
+            <h1>Object Detection Assistant</h1>
+            <p>Automate your image analysis with machine learning.</p>
+
+            <form method="POST" action="test.php">
+                <input name="uploadFile" type="file" onchange="this.form.submit()">
+            </form>
+
+            <!-- <form method="POST" action="">
+                <input type="file" name="inpFile" id="inpFile" accept=".jpg, .jpeg, .png" hidden="hidden">
+                <button type="submit" class="btn btn-primary" id="submit-image">UPLOAD AN IMAGE</button>
+                <div class="image-preview" id="imagePreview">
+                    <img src="" alt="Preview" class="image-preview__image" id="imgPreview">
+                    <span class="image-preview__default-text">Image Preview</span>
+                </div>
+            </form> -->
+            
+
+
+            <!-- <button>PASTE IMAGE URL</button> -->
+            <!-- <form method="POST" action="/send_image/">
+                USER INPUT URL: <input type="text" name="urlAdress" id="userinput"><br>
+                <input type="button" onclick="myFunction()" value="Submit">
+            </form> -->
+
+
+        </div>
+    </section>
+
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+
+    <!-- <script src="./js/send.js"></script> -->
+
+    <!-- <script> 
+        const inpFile = document.getElementById("inpFile");
+        const uploadBtn = document.getElementById("submit-image");
+
+        const previewContainer = document.getElementById("imagePreview");
+        const previewImage = previewContainer.querySelector(".image-preview__image");
+        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+        uploadBtn.addEventListener("click", function() {
+            inpFile.click();
+        });
+    
+    
+        inpFile.addEventListener("change", function() {
+            const file = this.files[0];
+
+            console.log(file);
+
+            if (file) {
+                const reader = new FileReader();
+
+                previewDefaultText.style.display = "none";
+                previewImage.style.display = "block";
+
+                reader.addEventListener("load", function(){
+                    // console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                });
+
+                reader.addEventListener("load", () => {
+                    console.log(reader.result);
+                    localStorage.setItem("recent-image", reader.result);
+                });
+
+                reader.readAsDataURL(file);
+
+            } else {
+                previewDefaultText.style.display = "null";
+                previewImage.style.display = "null";
+                previewImage.setAttribute("src", "");
+            }
+        });
+    </script> -->
+
+</body>
+</html>

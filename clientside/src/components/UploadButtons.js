@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 import ReactS3, { uploadFile } from 'react-s3';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ( {
     root: {
       '& > *': {
         margin: theme.spacing(1),
@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     input: {
       display: 'none',
     },
-  }));
 
+  }));
 
 const config = {
   bucketName: 'project-theia-test',
@@ -35,6 +35,7 @@ const config = {
       ReactS3.uploadFile( e.target.files[0] , config)
       .then( (data)=>{
         console.log(data.location);
+        
       })
       .catch( (err)=>{
         alert(err);
@@ -61,3 +62,9 @@ const config = {
       </div>
     );
   }
+
+
+
+
+
+
