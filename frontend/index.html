@@ -85,7 +85,7 @@
             formData.append("file", photo);
             
             xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
-            xhr.open("POST", "http://localhost:5000/theia/api/v1.0/img_path", true);    
+            xhr.open("POST", "http://theia.levantine.io:5000/theia/api/v1.0/img_path", true);    
             // xhr.setRequestHeader("Content-Type","multipart/form-data");
             xhr.send(formData);
         }
@@ -96,7 +96,7 @@
             const img_url = document.querySelector('#pasteURL').value;
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:5000/theia/api/v1.0/img_url', true);
+            xhr.open('POST', 'http://theia.levantine.io:5000/theia/api/v1.0/img_url', true);
             xhr.setRequestHeader('Content-Type', 'plain/text');
             xhr.send(img_url);
         }

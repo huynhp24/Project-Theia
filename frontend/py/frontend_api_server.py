@@ -5,6 +5,7 @@ from flask_cors import CORS, cross_origin
 import pika
 from werkzeug.utils import secure_filename
 import os
+import time
 
 #File upload parameters
 UPLOAD_FOLDER = ''
@@ -23,8 +24,8 @@ api_route = "/theia/api/v1.0/img_url"
 api_route_file = "/theia/api/v1.0/img_path"
 
 # Setup RabbitMQ Connection
-rmq_server=""
-rmq_port=5672
+rmq_server = ""
+rmq_port = 5672
 rmq_credentials=pika.PlainCredentials('', '')
 rmq_url_image_q = "image_url"
 rmq_image_upload_q = "image_path"
@@ -104,4 +105,9 @@ def uploaded_file(filename):
                                filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    while 1:
+        try:
+            app.run(debug=True)
+        except Exception:
+            print("Unable to continue the API server, Retrying in 10 seconds")
+            time.sleep(10)
