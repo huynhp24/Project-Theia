@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 import os
 
 #File upload parameters
-UPLOAD_FOLDER = 'C:/Users/Nhi/PycharmProjects/Project-Theia/frontend/img'
+UPLOAD_FOLDER = ''
 ALLOWED_EXTENSIONS = {'png', 'jpg'}
 
 # Flask app setup
@@ -23,9 +23,9 @@ api_route = "/theia/api/v1.0/img_url"
 api_route_file = "/theia/api/v1.0/img_path"
 
 # Setup RabbitMQ Connection
-rmq_server="10.69.69.102"
+rmq_server=""
 rmq_port=5672
-rmq_credentials=pika.PlainCredentials('test', 'test')
+rmq_credentials=pika.PlainCredentials('', '')
 rmq_url_image_q = "image_url"
 rmq_image_upload_q = "image_path"
 
