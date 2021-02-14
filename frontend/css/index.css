@@ -21,7 +21,7 @@ button{
     background-color: #ff0e83;
     color: white;
     border: 1px solid white;
-    border-radius:5px;
+    border-radius: 5px;
     padding: 13px 32px;
     font-size: 0.875rem; 
     cursor: pointer;
@@ -29,7 +29,7 @@ button{
     transition: all 0.5s;
 }
 button:hover{
-    background-color: white;
+    background-color: #ffe1e9;
     color:black;
     border-color: #ff0e83;
 }
@@ -88,7 +88,7 @@ header{
 
 /* CAROUSEL */
 .carousel{
-    background-image: url("../img/sakura-wallpaper.jpg");
+    background-image: url("../img/violet3.jpg");
     height: 800px;
     background-size: cover;
     background-position: center;
@@ -107,23 +107,33 @@ header{
     font-size: 1.5rem;
     font-weight: 700;
     padding: 23px 0;
+    color:#1E90FF;
 }
-
-/* IMAGE PREVIEW */
-.image-preview{
-    width: 300px;
-    min-height: 100px;
-    border: 2px solid white;
-    margin-top: 15px;
-
-    /* Default text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
+.carousel__content label{
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 23px 0;
+    color:#FFF5EE;
 }
-.image-preview__image{
-    display: none;
+.carousel__content button{
+    padding: 12px 20px;
+    margin: 15px 0;
+}
+.carousel__content input[type=text]{
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0; 
+    border: 1px solid #4e2a84;
+    border-radius: 5px;
+    background-color: #F8F8FF;
+    color: #4e2a84;
+    font-size: 16px;
+    transition: width 0.5s ease-in-out;
+}
+.carousel__content input[type=text]:hover{
+    background-color: #E0FFFF;
+}
+.carousel__content input[type=text]:focus {
     width: 100%;
+    background-color: #E0FFFF;
 }
