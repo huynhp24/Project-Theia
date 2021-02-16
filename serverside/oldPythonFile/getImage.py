@@ -1,8 +1,10 @@
 import os
 import boto3
+from configparser import ConfigParser
 from pprint import pprint
 
 
+config = ConfigParser()
 #print(os.getcwd())
 sourceDir = config.get('/home/ubuntu/images')
 #file = 'artworks.jpg'
