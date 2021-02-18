@@ -104,10 +104,12 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
+
 if __name__ == '__main__':
     while 1:
         try:
             app.run(debug=True)
+
         except Exception:
             print("Unable to continue the API server, Retrying in 10 seconds")
             time.sleep(10)
