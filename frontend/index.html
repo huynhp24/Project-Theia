@@ -37,7 +37,7 @@
             <h1>Object Detection Assistant</h1>
             <p>Automate your image analysis with machine learning.</p> <br> <br>
             <div class="carousel__options">
-                <div>
+                <div class="carousel__item">
                     <!-- <label for="imageUpload">Upload an image</label> <br> -->
                     <label for="imageUpload">Upload an image</label> <br>
                     <input id="imageUpload" type="file" name="img_path" accept=".png, .jpg"
@@ -47,16 +47,80 @@
                     <!-- <button onclick="return upload()">Upload image</button>   -->
                 </div>
                 <br> <br> <br> <br> 
-                <div>
+                <div class="carousel__item">
                     <label for="pasteURL">Paste image URL</label> <br>
                     <input id="pasteURL" type="text" name="img_url" placeholder="URL.."> <br>
                     <!-- <input type="submit" name="btn_submit" value="Search by image"> -->
-                    <button onclick="return submitURL()">Search by image</button>
+                    <button type="submit" onclick="return submitURL()">Search by image</button>
                 </div>
             </div>
 
         </div>
     </section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer__main"> 
+            <div class="footer__item">
+                <h3>About Us</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nihil blanditiis voluptatibus magni natus nisi.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, aperiam!</p>
+                <div class="footer__socials">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+            <div class="footer__item">
+                <h3>Working Time</h3>
+                <div class="footer__time">
+                    <p>Monday</p>
+                    <p>9:30 - 18:30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Tuesday</p>
+                    <p>9:30 - 18:30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Wednesday</p>
+                    <p>9:30 - 18:30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Thursday</p>
+                    <p>9:30 - 18:30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Friday</p>
+                    <p>9:30 - 18:30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Saturday</p>
+                    <p>9:30 - 18:30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Sunday</p>
+                    <p>9:30 - 18:30</p>
+                </div>
+            </div>
+            <div class="footer__item">
+                <h3>Twitter Us</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="footer__item">
+                <h3>SUBSCRIBE US</h3>
+                <form class="footer__sub">
+                    <input type="email" placeholder="name@example.com">
+                    <button type="submit">Send</button>
+                </form>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias pariatur deleniti modi sunt, quis cumque.</p> 
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <p>&copy; 2021 Lorem ipsum dolor sit amet. | Design by <span>Group 6</span> </p>
+        </div>
+    </footer>
 
     <script>
         const imageUploadBtn = document.getElementById("imageUpload");
@@ -96,7 +160,7 @@
             const img_url = document.querySelector('#pasteURL').value;
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://theia.levantine.io/theia/api/v1.0/img_url', true);
+            xhr.open('POST', 'http://192.168.1.10:/theia/api/v1.0/img_url', true);
             xhr.setRequestHeader('Content-Type', 'plain/text');
             xhr.send(img_url);
         }

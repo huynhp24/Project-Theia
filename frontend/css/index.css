@@ -24,6 +24,7 @@ button{
     border-radius: 5px;
     padding: 13px 32px;
     font-size: 0.875rem; 
+    font-weight: 700;
     cursor: pointer;
     letter-spacing: 1px;
     transition: all 0.5s;
@@ -107,7 +108,7 @@ header{
     font-size: 1.5rem;
     font-weight: 700;
     padding: 23px 0;
-    color:#1E90FF;
+    color:white;
 }
 .carousel__content label{
     font-size: 1.5rem;
@@ -137,3 +138,88 @@ header{
     width: 100%;
     background-color: #E0FFFF;
 }
+.carousel__options{
+    display: flex;
+}
+.carousel__item{
+    width: 50%;
+}
+
+/* FOOTER */
+footer{
+    padding: 50px 0;
+    background-color: black;
+    color: white;
+}
+.footer__main{
+    width: 70%;
+    margin: 0 auto;
+
+    display: flex;
+    padding-bottom: 50px;
+}
+.footer__item{
+    width: 25%;
+    padding: 0 20px;
+}
+.footer__item h3{
+    font-size: 1.3rem;
+    color: #ff0e83;
+    margin-bottom: 1rem;
+}
+.footer__item p{
+    font-size: 0.8rem;
+    line-height: 28px;
+    padding-bottom: 1rem;
+}
+.footer__socials i{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-right: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.footer__socials i:hover{
+    color: #ff0e83;
+    border-color: #ff0e83;
+    transition: all 0.5s;
+}
+.footer__time{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted white ;
+}
+.footer__time p{
+    padding: 0;
+    margin: 10px 0;
+} 
+.footer__item .footer__sub input{
+    margin-bottom: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.footer__item .footer__sub input:focus{
+    outline: none;
+}
+.footer__item .footer__sub button{
+    padding: 7px 16px;
+    color: black;
+    border-color: #ff0e83;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.footer__item .footer__sub button:hover{
+    border-color: black;
+}
+.footer__copyright{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.footer__copyright span{
+    color: #ff0e83;
+}
+
+
