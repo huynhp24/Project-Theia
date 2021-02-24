@@ -29,6 +29,7 @@ button{
     letter-spacing: 1px;
     transition: all 0.5s;
 }
+
 button:hover{
     background-color: #ffe1e9;
     color:black;
@@ -145,6 +146,8 @@ header{
     width: 50%;
 }
 
+
+
 /* FOOTER */
 footer{
     padding: 50px 0;
@@ -222,4 +225,6 @@ footer{
     color: #ff0e83;
 }
 
-
+#result-from-photo {
+    color : red;
+}

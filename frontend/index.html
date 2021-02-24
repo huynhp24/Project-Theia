@@ -46,6 +46,8 @@
                     <span id="custom-text">No file chosen</span> 
                     <!-- <button onclick="return upload()">Upload image</button>   -->
                 </div>
+                 <br> <br> <br> <br>
+
                 <br> <br> <br> <br> 
                 <div class="carousel__item">
                     <label for="pasteURL">Paste image URL</label> <br>
@@ -53,7 +55,22 @@
                     <!-- <input type="submit" name="btn_submit" value="Search by image"> -->
                     <button type="submit" onclick="return submitURL()">Search by image</button>
                 </div>
+                <br> <br> <br> <br>
+
+
+
             </div>
+            <div>
+               <div id="display_result_from_server_1">
+                      <button type="button1" onclick="display_image_info('string_Result.txt', result_from_photo || result_from_url)">
+                          Submit
+                      </button>
+                </div>
+             </div>
+            <div>
+
+
+
 
         </div>
     </section>
@@ -98,7 +115,7 @@
                 </div>
                 <div class="footer__time">
                     <p>Sunday</p>
-                    <p>9:30 - 18:30</p>
+                    <p>9:30 - 18:30</p>a
                 </div>
             </div>
             <div class="footer__item">
@@ -165,5 +182,42 @@
             xhr.send(img_url);
         }
     </script>
+
+  <script>
+
+function display_image_info(url, cFunction) {
+  var xhttp;
+  xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      cFunction(this);
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+function result_from_photo(xhttp) {
+    let textAreaEl = `<textarea id="result-from-photo" cols="50" rows="4" wrap="hard"> ${xhttp.responseText}</textarea>`;
+    // display to view
+    document.getElementById("display_result_from_server_1").innerHTML = textAreaEl;
+    // other job to do
+    //reuseContent(xhttp.responseText);
+}
+
+
+function result_from_url(xhttp) {
+
+   var html = xhttp.responseText;
+   html ='<textarea id="text_area">'+html+'</textarea>';
+   document.getElementById("display_result_from_server_2").innerHTML = html;
+}
+function  reuseContent(myContent) {
+     console.log(myContent);
+
+     let pEl = `<p>{myContent}</p>`;
+     document.getElementById("display_result_from_server_1").innerHTML = pEl;
+
+}
+</script>
 </body>
 </html>
