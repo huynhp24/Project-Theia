@@ -10,6 +10,7 @@ html{
     /* khong khai bao fontsize */
     /* 1rem = 16px */
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 body{
     font-family: 'Montserrat', sans-serif;
@@ -29,7 +30,6 @@ button{
     letter-spacing: 1px;
     transition: all 0.5s;
 }
-
 button:hover{
     background-color: #ffe1e9;
     color:black;
@@ -46,9 +46,14 @@ h2{
 
 /* HEADER */
 header{
-    background-color: #4e2a84;
+    background-color: #070735;
     padding: 20px 0;
+
+    position: fixed;
+    z-index: 100;
+    width: 100%;
 }
+
 .header__content{
     width: 70%;
     margin: 0 auto;
@@ -90,7 +95,7 @@ header{
 
 /* CAROUSEL */
 .carousel{
-    background-image: url("../img/violet3.jpg");
+    background-image: url("../img/violet.jpg");
     height: 800px;
     background-size: cover;
     background-position: center;
@@ -125,10 +130,10 @@ header{
     width: 200px;
     padding: 12px 20px;
     margin: 8px 0; 
-    border: 1px solid #4e2a84;
+    border: 1px solid #191970;
     border-radius: 5px;
     background-color: #F8F8FF;
-    color: #4e2a84;
+    color: black;
     font-size: 16px;
     transition: width 0.5s ease-in-out;
 }
@@ -146,12 +151,206 @@ header{
     width: 50%;
 }
 
+/* NUMBER */
+.number{
+    padding: 70px 0;
+}
+.number h2{
+    color: #191970;
+}
+.number__content{
+    display: flex;
+    justify-content: space-around;
 
+    width: 70%;
+    margin: 0 auto;
+
+    text-align: center;
+}
+.number__item p:first-of-type{
+    font-size: 2rem;
+    color: #191970;
+    font-weight: 600;
+}
+.number__item p:last-of-type{
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 24px 0;
+}
+
+/* SERVICES */
+.services{
+    background-image: url("../img/sakuraRainbow.jpg");
+    background-size: cover;
+    text-align: center;
+    padding: 70px 0;    
+}
+.services h2{
+    color: white;
+}
+.services__content{
+    display: flex;
+
+    width: 70%;
+    margin: 0 auto;
+}
+.services__item{
+    padding: 20px;
+    width: 25%;
+}
+.services__item i{
+    width: 105px;
+    height: 105px;
+    line-height: 105px;
+    border: 1px solid #191970;
+    border-radius: 50%;
+    background-color: white;
+    color: #191970;
+    font-size: 3.75rem;
+    transition: all .5s;
+}
+.services__item h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 17px 0;
+}
+.services__item p{
+    font-size: 0.875rem;
+    line-height: 25px;
+    margin-bottom: 12px;
+}
+.services__item:hover i{
+    color: #ff0e83;
+}
+
+/* FEEDBACK */
+.feedback{
+    background-image: url("../img/bluesky.jpg");
+    background-size: cover;
+    padding: 70px 0;
+}
+.feedback h2{
+    color: white;
+}
+.feedback__content{
+    width: 75%;
+    margin: 0 auto;
+    border: 3px solid #ff0e83;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 32px;
+}
+.feedback__content i{
+    font-size: 1.3rem;
+    color: #2cbeff;
+    padding: 0 18px;
+}
+.feedback__content p{
+    line-height: 30px;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+}
+.feedback__content .feedback__name{
+    color: white;
+}
+
+.feedback__content .owl-theme .owl-dots .owl-dot span{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.feedback__content .owl-theme .owl-dots .owl-dot.active span{
+    background-color: black;
+}
+.feedback__content .owl-theme .owl-dots .owl-dot:focus{
+    outline: none;
+}
+
+/* TEAM */
+.team{
+    background-color: #191970;
+    padding: 70px 0;
+}
+.team h2{
+    color: white;
+}
+.team__content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px 30px;
+
+    width: 75%;
+    margin: 0 auto;
+}
+.team__item img{
+    width: 100%;
+    display: block;
+}
+.team__item{
+    position: relative;
+}
+.team__item h3{
+    font-size: 1.3rem;
+}
+.team__item p{
+    font-size: 0.875rem;
+    line-height: 28px;
+}
+.team__title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ff0e83;
+    color: white;
+    width: 100%; 
+    padding: 30px;
+    opacity: 1;
+    transition: all .5s;
+}
+.team__details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 100px 40px;
+    opacity: 0;
+}
+.team__item:hover .team__title{
+    opacity: 0;
+}
+.team__item:hover .team__details{
+    opacity: 1;
+}
+.team__details h3{
+    color: #ff0e83;
+}
+.team__text{
+    margin: 8px 0;
+}
+.team__socials{
+    margin-top: 24px;
+}
+.team__socials i{
+    width: 37px;
+    height: 37px;  
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    text-align: center;
+    line-height: 37px;
+    margin: 0 5px;
+    transition: all .5s;
+    cursor: pointer;
+}
+.team__socials i:hover{
+    color: #ff0e83;
+    border-color: #ff0e83;
+}
 
 /* FOOTER */
 footer{
     padding: 50px 0;
-    background-color: black;
+    background-color: #070735;
     color: white;
 }
 .footer__main{
@@ -189,15 +388,13 @@ footer{
     border-color: #ff0e83;
     transition: all 0.5s;
 }
-.footer__time{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dotted white ;
+.footer__map iframe{
+    width: 100%;
+    height: 350px;
 }
-.footer__time p{
-    padding: 0;
-    margin: 10px 0;
-} 
+.footer__contact p{
+    display: inline-block;
+}
 .footer__item .footer__sub input{
     margin-bottom: 16px;
     padding: 10px;
@@ -225,6 +422,27 @@ footer{
     color: #ff0e83;
 }
 
-#result-from-photo {
-    color : red;
+/* BACK TO TOP */
+.backToTop{
+    position: fixed;    
+    right: 50px;
+    bottom: 50px;
+
+    visibility: hidden;
+    opacity: 0;
 }
+.cd-top--is-visible {
+    visibility: visible;
+    opacity: 1;
+} 
+.backToTop i{
+    color: #0BBBCC;
+    border: 2px solid #0BBBCC;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 36px;
+    border-radius: 50%;
+}
+

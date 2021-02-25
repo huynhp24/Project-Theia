@@ -6,10 +6,28 @@ import pika
 from werkzeug.utils import secure_filename
 import os
 import time
+import configparser
+import sys
+
+from os import path
+
+#Reading config file
+config = configparser.ConfigParser()
+config.sections()
+try:
+    if path.exists(sys.argv[1]):
+        config.read(sys.argv[1])
+except IndexError:
+    if path.exists('/opt/theia/config.ini'):
+        config.read('/opt/theia/config.ini')
+    elif path.exists('config.ini'):
+        config.read('config.ini')
+    else:
+        print("No config file found")
 
 #File upload parameters
-UPLOAD_FOLDER = ''
-ALLOWED_EXTENSIONS = {'png', 'jpg'}
+UPLOAD_FOLDER = config['default']['image_upload_folder']
+ALLOWED_EXTENSIONS = config['default']['image_allowed_file_extensions']
 
 # Flask app setup
 app = Flask(__name__)
@@ -20,15 +38,16 @@ app.config.update(SECRET_KEY=os.urandom(24))
 CORS(app)
 
 # Setup Flask api route
-api_route = "/theia/api/v1.0/img_url"
-api_route_file = "/theia/api/v1.0/img_path"
-
+api_route = config['api_path']['api_route']
+api_route_file = config['api_path']['api_route_file']
 # Setup RabbitMQ Connection
-rmq_server = ""
-rmq_port = 5672
-rmq_credentials=pika.PlainCredentials('', '')
-rmq_url_image_q = "image_url"
-rmq_image_upload_q = "image_path"
+rmq_server = config['rabbitmq']['rmq_server']
+rmq_port = config['rabbitmq']['rmq_port']
+rmq_user = config['rabbitmq']['rmq_username']
+rmq_pass = config['rabbitmq']['rmq_password']
+rmq_credentials=pika.PlainCredentials(rmq_user, rmq_pass)
+rmq_url_image_q = config['rabbitmq']['rmq_url_image_q']
+rmq_image_upload_q = config['rabbitmq']['rmq_image_upload_q']
 
 
 def send_rabbitmq(rmq_queue,msg):
