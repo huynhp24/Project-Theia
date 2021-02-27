@@ -99,7 +99,7 @@ header{
     height: 800px;
     background-size: cover;
     background-position: center;
-    color: white;
+    color: #070735;
     text-align: center;
 
     display: flex;
@@ -114,20 +114,20 @@ header{
     font-size: 1.5rem;
     font-weight: 700;
     padding: 23px 0;
-    color:white;
+    color: white;
 }
 .carousel__content label{
     font-size: 1.5rem;
     font-weight: 700;
     padding: 23px 0;
-    color:#FFF5EE;
+    color:#070735;
 }
 .carousel__content button{
     padding: 12px 20px;
     margin: 15px 0;
 }
-.carousel__content input[type=text]{
-    width: 200px;
+.carousel__content input[type=url]{
+    width: 340px;
     padding: 12px 20px;
     margin: 8px 0; 
     border: 1px solid #191970;
@@ -137,12 +137,18 @@ header{
     font-size: 16px;
     transition: width 0.5s ease-in-out;
 }
-.carousel__content input[type=text]:hover{
+.carousel__content input[type=url]:hover{
     background-color: #E0FFFF;
 }
-.carousel__content input[type=text]:focus {
+.carousel__content input[type=url]:focus {
     width: 100%;
     background-color: #E0FFFF;
+}
+.carousel__content input[type=url]:focus:valid {
+    border: 8px solid green;
+}
+.carousel__content input[type=url]:focus:invalid {
+    border: 8px solid red;
 }
 .carousel__options{
     display: flex;
@@ -188,6 +194,7 @@ header{
 }
 .services h2{
     color: white;
+
 }
 .services__content{
     display: flex;
@@ -212,11 +219,12 @@ header{
 }
 .services__item h3{
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 700;
     margin: 17px 0;
 }
 .services__item p{
     font-size: 0.875rem;
+    font-weight: 700;
     line-height: 25px;
     margin-bottom: 12px;
 }
