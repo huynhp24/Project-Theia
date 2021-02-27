@@ -52,10 +52,14 @@
                 </div>
                 <br> <br> <br> <br>
                 <div class="carousel__item">
-                    <label for="pasteURL">Paste image URL</label> <br>
-                    <input id="pasteURL" type="text" name="img_url" placeholder="URL.."> <br>
-                    <!-- <input type="submit" name="btn_submit" value="Search by image"> -->
-                    <button type="submit" onclick="return submitURL()">Search by image</button>
+                    <form action="" method="GET">
+                        <label for="pasteURL">Paste image URL</label> <br>
+                        <!-- <input id="pasteURL" type="url" name="img_url" placeholder=".jpg or .png" pattern="*\.(jpg|png)" required> <br> -->
+                        <input type="url" id="pasteURL" name="img_url" placeholder="http://example.jpg OR http://example.png" required
+                        pattern="(?:([^:/?#]+):)?(?://([^/?#]*))?([^?#]*\.(?:jpg|png))(?:\?([^#]*))?(?:#(.*))?"> <br>
+                        <!-- <input type="submit" name="btn_submit" value="Search by image"> -->
+                        <button type="submit" onclick="return submitURL()">Search by image</button>
+                    </form>
                 </div>
             </div>
 
