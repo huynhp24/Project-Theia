@@ -64,8 +64,8 @@ def rmq_consumer(rmq_queue, dispatch_function):
             channel.basic_consume(queue=rmq_queue, on_message_callback=callback, auto_ack=True)
             channel.start_consuming()
         except:
-            l.exception("RMQ Consumer for queue: " + rmq_queue)
-
+            l.exception("RMQ Consumer for queue: " + rmq_queue + " died unexpectedly. Restarting in 3 seconds")
+            time.sleep(3)
 
 
 def process_url_download_image(body, image_upload_folder):
@@ -95,13 +95,16 @@ def process_url(body):
             else:
                 l.error("S3 upload returned no valid response")
         else:
-            l.error("Unable to upload")
+            l.error("Unable to upload to S3")
     else:
-        l.error("There's no image")
+        l.error("Invalid URL")
 
 
-def process_image_files(body):
-    l.info("Processing image file: " + str(body))
+def process_image_file(body):
+    file = body
+    l.info("Processing image file: " + str(file))
+    s3_filename = upload_image_to_s3(file)
+    l.info(s3_filename)
 
 
 def upload_image_to_s3(file):
@@ -132,7 +135,7 @@ if __name__ == '__main__':
         t1.start()
 
         rmq_queue = "image_path"
-        dispatch_function = process_image_files
+        dispatch_function = process_image_file
         t2 = Thread(target=rmq_consumer, args=(rmq_queue, dispatch_function))
         t2.start()
     except:
