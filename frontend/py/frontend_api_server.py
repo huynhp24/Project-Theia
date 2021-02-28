@@ -8,10 +8,11 @@ import os
 import time
 import configparser
 import sys
-
 from os import path
+import logging
+from logging.handlers import RotatingFileHandler
 
-#Reading config file
+# Reading config file
 config = configparser.ConfigParser()
 config.sections()
 try:
@@ -24,6 +25,22 @@ except IndexError:
         config.read('config.ini')
     else:
         print("No config file found")
+
+logfile = config['logging']['logdir'] + "/front_end_api.log"
+log_lvl = config['logging']['loglevel']
+log_out = config['logging']['log_stream_to_console']
+
+my_handler = RotatingFileHandler(logfile,
+                                 mode='a', maxBytes=5 * 1024 * 1024, backupCount=2, encoding=None, delay=0)
+my_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(funcName)s (%(lineno)d) %(message)s'))
+l = logging.getLogger(__name__)
+l.setLevel(log_lvl.upper())
+l.addHandler(my_handler)
+if log_out.upper() == 'TRUE':
+    l.addHandler(logging.StreamHandler())
+
+l.info("Starting theia frontend API server...")
+
 
 #File upload parameters
 UPLOAD_FOLDER = config['default']['image_upload_folder']
@@ -57,13 +74,14 @@ def send_rabbitmq(rmq_queue,msg):
     channel = connection.channel()
     channel.queue_declare(queue=rmq_queue)
     channel.basic_publish(exchange='', routing_key=rmq_queue, body=msg)
-    print(" [RMQ] Sent: " + msg)
+    l.info(" [RMQ] Sent: " + msg + " to RMQ queue: " + rmq_queue)
     connection.close()
 
 
 @app.route(api_route, methods=['POST']) # The sendURL post request
 def send_image_url():
     img_url = str(request.data.decode())
+    l.info("Incoming URL request: " + img_url)
     send_rabbitmq(rmq_queue=rmq_url_image_q, msg=img_url)
     return (request.data)
 
@@ -76,34 +94,24 @@ def allowed_file(filename):
 @app.route(api_route_file, methods=['GET', 'POST'])
 # @cross_origin(origin='*', headers=['Content-Type', 'multipart/form-data'])
 def upload_file():
-    # print("1")
-    # print(request)
-    # print(request.method)
+    l.info("Incoming request: " + request)
     if request.method == 'POST':
-        print("2")
         # check if the post request has the file part
-        print("files: " + str(request.files))
         if 'file' not in request.files:
-            # print("3")
             flash('No file part')
+            l.warning("No file part")
             return redirect(request.url)
-        # print("3.5")
         file = request.files['file']
-        # print("4")
-        # if user does not select file, browser also
-        # submit an empty part without filename
         if file.filename == '':
-            # print("5")
             flash('No selected file')
+            l.warning("No file selected")
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            # print("6")
             filename = secure_filename(file.filename)
+            l.info("Incoming file: " + filename + " verified. Saving and sending to RMQ")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             image_location = UPLOAD_FOLDER + "/" + filename
-            # print(image_location)
             send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=image_location)
-            # return(request.args)
             return redirect(url_for('uploaded_file',
                                     filename=filename))
     return '''
@@ -119,7 +127,7 @@ def upload_file():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    # print("7")
+    l.info("WTF is this function, i don't get why this is needed but if it's gone things break. idk wtf bbq")
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
@@ -127,8 +135,9 @@ def uploaded_file(filename):
 if __name__ == '__main__':
     while 1:
         try:
+            l.info("Starting front end api flask application.")
             app.run(debug=True)
 
         except Exception:
-            print("Unable to continue the API server, Retrying in 10 seconds")
-            time.sleep(10)
+            l.exception("Unable to continue the API server. Restarting in 3 seconds")
+            time.sleep(3)
