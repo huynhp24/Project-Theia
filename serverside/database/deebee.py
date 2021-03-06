@@ -156,8 +156,8 @@ def pullAnalysis(data):
         print("Analysis Found:")   
         conn.close()
 
-#insert account# data = {'name': 'Huynh', 'username': 'quad', 'password': 'hashbrown'}
-#insert picture# data = {'username': 'quad', 'idpicture': '2', 'name': 'pic', 's3id': 's3://d111safdsfafdsa'}
-data = {'username': 'quad', 'idpicture': '2', 'analysis': 'Wow dude this is an analysis and it is fantastic'}
-output = pullAnalysis(data)
-print(output)
+#insert/pull account# data = {'name': 'Huynh', 'username': 'quad', 'password': 'hashbrown'}
+#insert/pull picture# data = {'username': 'quad', 'idpicture': '2', 'name': 'pic', 's3id': 's3://d111safdsfafdsa'}
+#insert/pull analysis# data = {'username': 'quad', 'idpicture': '2', 'analysis': 'Wow dude this is an analysis and it is fantastic'}
+#output = pullAnalysis(data)
+#print(output)
