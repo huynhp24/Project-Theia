@@ -13,4 +13,5 @@ https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-a
 - a2enmod proxy_connect
 - a2enmod proxy_html
 
-Replace your /etc/apache2/sites-available/000-default.conf file with the one here.
+3. Replace your /etc/apache2/sites-available/000-default.conf file with the one here.
+4. Restart apache
