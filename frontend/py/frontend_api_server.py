@@ -12,6 +12,7 @@ from os import path
 import logging
 from logging.handlers import RotatingFileHandler
 import uuid
+import json
 
 # Reading config file
 config = configparser.ConfigParser()
@@ -27,6 +28,7 @@ except IndexError:
     else:
         print("No config file found")
 
+# Setup logging
 logfile = config['logging']['logdir'] + "/front_end_api.log"
 log_lvl = config['logging']['loglevel']
 log_out = config['logging']['log_stream_to_console']
@@ -58,17 +60,18 @@ CORS(app)
 # Setup Flask api route
 api_route = config['api_path']['api_route']
 api_route_file = config['api_path']['api_route_file']
+
 # Setup RabbitMQ Connection
 rmq_server = config['rabbitmq']['rmq_server']
 rmq_port = config['rabbitmq']['rmq_port']
 rmq_user = config['rabbitmq']['rmq_username']
 rmq_pass = config['rabbitmq']['rmq_password']
-rmq_credentials=pika.PlainCredentials(rmq_user, rmq_pass)
+rmq_credentials = pika.PlainCredentials(rmq_user, rmq_pass)
 rmq_url_image_q = config['rabbitmq']['rmq_url_image_q']
 rmq_image_upload_q = config['rabbitmq']['rmq_image_upload_q']
 
 
-def send_rabbitmq(rmq_queue,msg):
+def send_rabbitmq(rmq_queue,msg):  # Sends message to rabbitMQ
     connection = pika.BlockingConnection(pika.ConnectionParameters(host=rmq_server,
                                                                    port=rmq_port,
                                                                    credentials=rmq_credentials))
@@ -80,12 +83,13 @@ def send_rabbitmq(rmq_queue,msg):
 
 
 @app.route(api_route, methods=['POST']) # The sendURL post request
-def send_image_url():
+def send_image_url():  # What to do if receive URL
     img_url = str(request.data.decode())
     l.info("Incoming URL request: " + img_url)
-    send_rabbitmq(rmq_queue=rmq_url_image_q, msg=img_url)
     new_uuid = str(uuid.uuid4())
-    return (new_uuid)
+    json_data = json.dumps({'msg': img_url, 'uuid': new_uuid})
+    send_rabbitmq(rmq_queue=rmq_url_image_q, msg=json_data)
+    return new_uuid
 
 
 def allowed_file(filename):
@@ -95,7 +99,7 @@ def allowed_file(filename):
 
 @app.route(api_route_file, methods=['GET', 'POST'])
 # @cross_origin(origin='*', headers=['Content-Type', 'multipart/form-data'])
-def upload_file():
+def upload_file():  # What to do when it uploads a file
     parameters = '''
     <!doctype html>
     <title>Upload new File</title>
@@ -120,18 +124,15 @@ def upload_file():
             filename = secure_filename(file.filename)
             l.info("Incoming file: " + filename + " verified. Saving and sending to RMQ")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
             image_location = UPLOAD_FOLDER + "/" + filename
-            send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=image_location)
             new_uuid = str(uuid.uuid4())
+            json_data = json.dumps({'msg': image_location, 'uuid': new_uuid})
+
+            send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=json_data)
             return new_uuid
+
     return parameters
-
-
-# @app.route('/uploads/<filename>')
-# def uploaded_file(filename):
-#     l.info("WTF is this function, i don't get why this is needed but if it's gone things break. idk wtf bbq")
-#     return send_from_directory(app.config['UPLOAD_FOLDER'],
-#                                filename)
 
 
 if __name__ == '__main__':
