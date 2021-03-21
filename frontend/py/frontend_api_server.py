@@ -53,13 +53,14 @@ ALLOWED_EXTENSIONS = config['default']['image_allowed_file_extensions']
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config.update(SECRET_KEY=os.urandom(24))
-#cors = CORS(app, resources={r"/theia/api/v1.0/img_path": {"origins": "*"}})
-#app.config['CORS_HEADERS'] = 'Content-Type'
+# cors = CORS(app, resources={r"/theia/api/v1.0/img_path": {"origins": "*"}})
+# app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 
 # Setup Flask api route
 api_route = config['api_path']['api_route']
 api_route_file = config['api_path']['api_route_file']
+info_path = config['api_path']['info_path']
 
 # Setup RabbitMQ Connection
 rmq_server = config['rabbitmq']['rmq_server']
@@ -133,6 +134,14 @@ def upload_file():  # What to do when it uploads a file
             return new_uuid
 
     return parameters
+
+
+@app.route(info_path, methods=['GET'])
+def get_data():
+    t_uuid = request.args.get('uuid')
+    l.info(t_uuid)
+    # This step will invoke huynh's script to get data with the UUID, whenever that's available.
+    return 'Hello, data will be provided when available'
 
 
 if __name__ == '__main__':
