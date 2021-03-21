@@ -84,7 +84,8 @@ def send_image_url():
     img_url = str(request.data.decode())
     l.info("Incoming URL request: " + img_url)
     send_rabbitmq(rmq_queue=rmq_url_image_q, msg=img_url)
-    return (request.data)
+    new_uuid = str(uuid.uuid4())
+    return (new_uuid)
 
 
 def allowed_file(filename):
@@ -95,27 +96,7 @@ def allowed_file(filename):
 @app.route(api_route_file, methods=['GET', 'POST'])
 # @cross_origin(origin='*', headers=['Content-Type', 'multipart/form-data'])
 def upload_file():
-    l.info("Incoming request: " + request)
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            l.warning("No file part")
-            return redirect(request.url)
-        file = request.files['file']
-        if file.filename == '':
-            flash('No selected file')
-            l.warning("No file selected")
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            l.info("Incoming file: " + filename + " verified. Saving and sending to RMQ")
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            image_location = UPLOAD_FOLDER + "/" + filename
-            send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=image_location)
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-    return '''
+    parameters = '''
     <!doctype html>
     <title>Upload new File</title>
     <h1>Upload new File</h1>
@@ -124,13 +105,33 @@ def upload_file():
       <input type=submit value=Upload>
     </form>
     '''
+    l.info("Incoming request: " + str(request))
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            l.warning("No file part")
+            return FileNotFoundError
+
+        file = request.files['file']
+        if file.filename == '':
+            l.warning("No file selected")
+            return FileNotFoundError
+
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            l.info("Incoming file: " + filename + " verified. Saving and sending to RMQ")
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            image_location = UPLOAD_FOLDER + "/" + filename
+            send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=image_location)
+            new_uuid = str(uuid.uuid4())
+            return new_uuid
+    return parameters
 
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    l.info("WTF is this function, i don't get why this is needed but if it's gone things break. idk wtf bbq")
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
+# @app.route('/uploads/<filename>')
+# def uploaded_file(filename):
+#     l.info("WTF is this function, i don't get why this is needed but if it's gone things break. idk wtf bbq")
+#     return send_from_directory(app.config['UPLOAD_FOLDER'],
+#                                filename)
 
 
 if __name__ == '__main__':
