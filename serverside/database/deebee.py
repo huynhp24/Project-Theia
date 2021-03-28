@@ -121,7 +121,7 @@ def pullPicturesWithAccount(data):
 
 def insertAnalysis(data):
     print("Inserting Analysis")
-    insert_statement = "INSERT INTO analysis(idpicture,analysis) VALUES ('{idpicture}','{analysis}');".format(**data)
+    insert_statement = "INSERT INTO analysis(idpicture,labels,textExtract,analysis) VALUES ('{idpicture}','{labels}','{textExtract}','{analysis}');".format(**data)
     try:
         cursorObject        = conn.cursor()                                     
         sqlQuery            = insert_statement
@@ -141,7 +141,7 @@ def insertAnalysis(data):
 
 def pullAnalysis(data):
 
-    pull_statement = "SELECT picture.name, account.name, analysis.analysis FROM picture INNER JOIN acc_pic ON picture.idpicture = acc_pic.idpicture INNER JOIN account ON account.username = acc_pic.user INNER JOIN analysis ON picture.idpicture = analysis.idpicture WHERE acc_pic.user = '{username}' and analysis.idpicture = '{idpicture}';".format(**data)
+    pull_statement = "SELECT picture.name, account.name, analysis.labels, analysis.textExtract, analysis.analysis FROM picture INNER JOIN acc_pic ON picture.idpicture = acc_pic.idpicture INNER JOIN account ON account.username = acc_pic.user INNER JOIN analysis ON picture.idpicture = analysis.idpicture WHERE acc_pic.user = '{username}' and analysis.idpicture = '{idpicture}';".format(**data)
     try:
         cursorObject        = conn.cursor()                                     
         sqlQuery            = pull_statement
@@ -157,7 +157,9 @@ def pullAnalysis(data):
         conn.close()
 
 #insert/pull account# data = {'name': 'Huynh', 'username': 'quad', 'password': 'hashbrown'}
-#insert/pull picture# data = {'username': 'quad', 'idpicture': '2', 'name': 'pic', 's3id': 's3://d111safdsfafdsa'}
-#insert/pull analysis# data = {'username': 'quad', 'idpicture': '2', 'analysis': 'Wow dude this is an analysis and it is fantastic'}
-#output = pullAnalysis(data)
+#insert/pull picture#data = {'username': 'quad', 'idpicture': '2', 'name': 'pic', 's3id': 's3://d111safdsfafdsa'}
+#insert/pull analysis# data = {'username': 'quad', 'idpicture': '2', 'labels': '{"double": "dip"}', 'textExtract': '{"wow": "what"}', 'analysis': 'Wow dude this is an analysis and it is fantastic'}
+
+#swap out the function below for the test
+#output = insertAnalysis(data)
 #print(output)
