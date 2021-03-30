@@ -13,6 +13,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import uuid
 import json
+import random
 
 # Reading config file
 config = configparser.ConfigParser()
@@ -128,21 +129,31 @@ def upload_file():  # What to do when it uploads a file
 
             image_location = UPLOAD_FOLDER + "/" + filename
             new_uuid = str(uuid.uuid4())
-            json_data = json.dumps({'msg': image_location, 'uuid': new_uuid})
+            json_data = json.dumps({'msg': image_location, 'uuid': new_uuid, 'language': 'tagalog'})
 
             send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=json_data)
             return new_uuid
-
-    return parameters
 
 
 @app.route(info_path, methods=['GET'])
 def get_data():
     t_uuid = request.args.get('uuid')
-    l.info(t_uuid)
-    # This step will invoke huynh's script to get data with the UUID, whenever that's available.
-    return 'Hello, data will be provided when available'
+    if t_uuid is not None:
+        l.info(t_uuid)
+        # This step will invoke huynh's script to get data with the UUID, whenever that's available.
+        sample_json = '''{
+      "uuid": "0123456789",
+      "img_file": "https://project-theia-test.s3-us-west-1.amazonaws.com/1280px-Akita_Inu_dog.jpg",
+      "label_list": "things in the picture",
+      "nat_sentence": "Natural sentence for things in the picture",
+      "audio_file_location": "https://project-theia-test.s3-us-west-1.amazonaws.com/BeautifulGoblinOSTBeat-Crush-4709474.mp3"
+    }'''
+        # return 'Hello, data will be provided when available'
+        time.sleep(random.randrange(1, 5))
+        return sample_json
 
+    else:
+        return ValueError
 
 if __name__ == '__main__':
     while 1:
