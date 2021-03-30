@@ -9,14 +9,14 @@ CREATE TABLE `theia`.`account` (
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE);
 
 CREATE TABLE `theia`.`picture` (
-  `idpicture` INT NOT NULL,
+  `idpicture` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NULL,
   `s3id` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idpicture`),
   UNIQUE INDEX `idpicture_UNIQUE` (`idpicture` ASC) VISIBLE);
 
 CREATE TABLE `theia`.`analysis` (
-  `idpicture` INT NOT NULL,
+  `idpicture` VARCHAR(45) NOT NULL,
   `labels` JSON NULL,
   `textExtract` JSON NULL,
   `analysis` TEXT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE `theia`.`analysis` (
 
 CREATE TABLE `theia`.`acc_pic` (
   `user` VARCHAR(20) NOT NULL,
-  `idpicture` INT NOT NULL,
+  `idpicture` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user`, `idpicture`),
   INDEX `pic_idx` (`idpicture` ASC) VISIBLE,
   CONSTRAINT `user`
