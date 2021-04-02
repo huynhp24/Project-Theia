@@ -126,7 +126,7 @@ header{
     padding: 12px 20px;
     margin: 15px 0;
 }
-.carousel__content input[type=url]{
+.carousel__content input[type=text]{
     width: 340px;
     padding: 12px 20px;
     margin: 8px 0; 
@@ -137,18 +137,12 @@ header{
     font-size: 16px;
     transition: width 0.5s ease-in-out;
 }
-.carousel__content input[type=url]:hover{
+.carousel__content input[type=text]:hover{
     background-color: #E0FFFF;
 }
-.carousel__content input[type=url]:focus {
+.carousel__content input[type=text]:focus {
     width: 100%;
     background-color: #E0FFFF;
-}
-.carousel__content input[type=url]:focus:valid {
-    border: 8px solid green;
-}
-.carousel__content input[type=url]:focus:invalid {
-    border: 8px solid red;
 }
 .carousel__options{
     display: flex;
@@ -160,6 +154,10 @@ header{
 /* NUMBER */
 .number{
     padding: 70px 0;
+    background-color: #9ee2ff;
+    background-size: cover;
+    text-align: center;
+    padding: 70px 0;   
 }
 .number h2{
     color: #191970;
