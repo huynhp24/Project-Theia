@@ -56,19 +56,20 @@
                 </div>
                 <br> <br> <br> <br>
                 <div class="carousel__item">
-                    <form action="" method="GET">
+                    <form action="" method="">
                         <label for="pasteURL">Paste image URL</label> <br>
                         <!-- <input id="pasteURL" type="url" name="img_url" placeholder=".jpg or .png" pattern="*\.(jpg|png)" required> <br> -->
-                        <input type="url" id="pasteURL" name="img_url"
-                            placeholder="http://example.jpg OR http://example.png" required
-                            pattern="(?:([^:/?#]+):)?(?://([^/?#]*))?([^?#]*\.(?:jpg|png))(?:\?([^#]*))?(?:#(.*))?">
+                        <input type="text" id="pasteURL" name="URL"
+                            placeholder="http://example.jpg OR http://example.png" required>
+                        <br><br>
+                        <span id="error_pasteURL"></span>
+                        <span id="error_correctURLimage"></span>
                         <br>
                         <!-- <input type="submit" name="btn_submit" value="Search by image"> -->
-                        <button type="submit" onclick="submitURL()">Search by image</button>
+                        <button id="btnSubmit" type="button">Search by image</button>
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -318,6 +319,55 @@
         }
     </script>
 
+    <!-- JS to validate the image URL -->
+    <script>
+        var checkValidation = function() {
+            var valid = true;
+            valid &= checkEmpty('pasteURL','error_pasteURL') & checkValidURL('pasteURL','error_correctURLimage');
+
+            if(valid){
+                submitURL();
+            }else{
+                return false;
+            }   
+        }
+
+        var checkEmpty = function(idValue, idError) {
+            var inputText = document.getElementById(idValue).value;
+
+            if(inputText.trim() === ''){
+                //URL empty
+                document.getElementById(idError).innerHTML = 'URL cannot be empty!';
+                document.getElementById(idError).style.display = 'block';
+                return false;
+            }else{
+                //URL not empty
+                document.getElementById(idError).innerHTML = '';
+                document.getElementById(idError).style.display = 'none';
+                return true;
+            }
+        }
+
+        var checkValidURL = function(idValue, idError) {
+            var inputText = document.getElementById(idValue).value;
+            var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+
+            if(regexURL.test(inputText)){
+                //Valid
+                document.getElementById(idError).innerHTML = '';
+                document.getElementById(idError).style.display = 'none';
+                return true;
+            }else{
+                //Invalid
+                document.getElementById(idError).innerHTML = 'URL need to be an image';
+                document.getElementById(idError).style.display = 'block';
+                return false;
+            }
+        }
+
+        document.getElementById('btnSubmit').onclick = checkValidation;
+    </script>
+
     <!-- JS to paste URL -->
     <script>
         function reqListener() {
@@ -376,6 +426,7 @@
             xhr.setRequestHeader('Content-Type', 'plain/text');
             xhr.send(img_url);
         }
+        
     </script>
 
     <!-- Jquery Library -->
