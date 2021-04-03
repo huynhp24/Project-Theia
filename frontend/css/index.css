@@ -5,10 +5,6 @@
     box-sizing: border-box ;
 }
 html{
-    /* font-size: 18px; */
-    /* 1rem = 18px */
-    /* khong khai bao fontsize */
-    /* 1rem = 16px */
     font-size: 16px;
     scroll-behavior: smooth;
 }
@@ -47,7 +43,7 @@ h2{
 /* HEADER */
 header{
     background-color: #070735;
-    padding: 20px 0;
+    padding: 5px 0;
 
     position: fixed;
     z-index: 100;
@@ -75,10 +71,6 @@ header{
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 2px;
-    /* transition-property: color;
-    transition-duration: 1s;
-    transition-delay: 0s;
-    transition-timing-function: linear; */
     transition: all 0.5s;
 }
 .header__content ul a:hover{
@@ -89,7 +81,6 @@ header{
 }
 .header__content p{
     color: white;
-    /* font-size: 37px; */
     font-size: 2.3rem;
 }
 
@@ -108,7 +99,8 @@ header{
 }
 
 .carousel__content h1{
-    font-size: 3.5rem;
+    font-size: 3.5rem; 
+    font-weight: bold;
 }
 .carousel__content p{
     font-size: 1.5rem;
@@ -119,7 +111,7 @@ header{
 .carousel__content label{
     font-size: 1.5rem;
     font-weight: 700;
-    padding: 23px 0;
+    padding: 12px 0;
     color:#070735;
 }
 .carousel__content button{
@@ -149,6 +141,7 @@ header{
 }
 .carousel__item{
     width: 50%;
+    max-height: 200px;
 }
 
 /* NUMBER */
@@ -296,6 +289,7 @@ header{
 }
 .team__item h3{
     font-size: 1.3rem;
+    font-weight: bold;
 }
 .team__item p{
     font-size: 0.875rem;
@@ -331,6 +325,7 @@ header{
 }
 .team__details h3{
     color: #ff0e83;
+    font-weight: bold;
 }
 .team__text{
     margin: 8px 0;
@@ -374,6 +369,7 @@ footer{
     font-size: 1.3rem;
     color: #ff0e83;
     margin-bottom: 1rem;
+    font-weight: bold;
 }
 .footer__item p{
     font-size: 0.8rem;
@@ -451,4 +447,3 @@ footer{
     line-height: 36px;
     border-radius: 50%;
 }
-
