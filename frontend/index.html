@@ -49,20 +49,20 @@
             <div class="carousel__options">
                 <div class="carousel__item">
                     <label for="imageUpload">Upload an image</label> <br>
-                    <input id="imageUpload" type="file" name="img_path" accept=".png, .jpg" max-size=15728640
-                        hidden="hidden" onchange="submitPhoto(this)">
+                    <input id="imageUpload" type="file" name="img_path" accept="image/jpg, image/jpeg, image/png" max-size=15728640
+                         hidden="hidden" onchange="submitPhoto(this)">
                     <button id="custom-button">Choose File</button>
                     <span id="custom-text" style="color: white;">No file chosen</span>
+                    <span id="error_uploadPhoto" class="text-danger"></span>
                     <!-- <button onclick="return upload()">Upload image</button>   -->
                 </div>
                 <div class="carousel__item">
                     <form action="" method="">
                         <label for="pasteURL">Paste image URL</label> <br>
-                        <input type="text" id="pasteURL" name="URL"  style="display: inline;"
-                            placeholder="http://example.jpg OR http://example.png" required>
+                        <input type="text" id="pasteURL" name="URL" placeholder="http://example.jpeg OR http://example.png" required>
                         <span id="error_pasteURL" class="text-danger"></span>
-                        <span id="error_correctURLimage" class="text-danger"></span>
-                        <button id="btnSubmit" type="button">Search by Image</button>               
+                        <span id="error_correctURLImage" class="text-danger"></span>
+                        <button id="btnSubmit" type="button">Search by Image</button>
                     </form>
                 </div>
             </div>
@@ -277,8 +277,7 @@
         <i class="fa fa-angle-up"></i>
     </a>
 
-
-
+    <!-- JS to show name of photo uploaded -->
     <script>
         const imageUploadBtn = document.getElementById("imageUpload");
         const customBtn = document.getElementById("custom-button");
@@ -289,9 +288,12 @@
         });
 
         imageUploadBtn.addEventListener("change", function () {
-            if (imageUploadBtn.value) {
-                customTxt.innerHTML = imageUploadBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-            } else {
+            var fileName = document.getElementById("imageUpload").value;
+            var idxDot = fileName.lastIndexOf(".") + 1;
+            var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+            if (extFile=="jpg" || extFile=="jpeg" || extFile=="png") {    
+                customTxt.innerHTML = imageUploadBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];    
+            } else{
                 customTxt.innerHTML = "No file chosen";
             }
         });
@@ -304,17 +306,26 @@
         }
 
         function submitPhoto(e) {
-            let xhr = new XMLHttpRequest();
-            let formData = new FormData();
-            let photo = e.files[0];
+            // JS to validate the photo file
+            var fileName = document.getElementById("imageUpload").value;
+            var idxDot = fileName.lastIndexOf(".") + 1;
+            var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+            if (extFile=="jpg" || extFile=="jpeg" || extFile=="png") {
+                //TO DO
+                let xhr = new XMLHttpRequest();
+                let formData = new FormData();
+                let photo = e.files[0];
 
-            formData.append("file", photo);
+                formData.append("file", photo);
 
-            xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
-            xhr.addEventListener("load", reqListener);
-            xhr.open("POST", "/theia/api/v1.0/img_path", true);
-            // xhr.setRequestHeader("Content-Type","multipart/form-data");
-            xhr.send(formData);
+                xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
+                xhr.addEventListener("load", reqListener);
+                xhr.open("POST", "/theia/api/v1.0/img_path", true);
+                // xhr.setRequestHeader("Content-Type","multipart/form-data");
+                xhr.send(formData);
+            }else{
+                alert("Only jpg/jpeg and png files are allowed!");
+            }            
         }
     </script>
 
@@ -322,7 +333,7 @@
     <script>
         var checkValidation = function () {
             var valid = true;
-            valid &= checkEmpty('pasteURL', 'error_pasteURL') & checkValidURL('pasteURL', 'error_correctURLimage');
+            valid &= checkEmpty('pasteURL', 'error_pasteURL') & checkValidURL('pasteURL', 'error_correctURLImage');
 
             if (valid) {
                 submitURL();
@@ -350,7 +361,7 @@
 
         var checkValidURL = function (idValue, idError) {
             var inputText = document.getElementById(idValue).value;
-            var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+            var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png)/ig;
 
             if (regexURL.test(inputText)) {
                 //Valid
@@ -369,7 +380,7 @@
         document.getElementById('btnSubmit').onclick = checkValidation;
     </script>
 
-    <!-- JS to paste URL -->
+    <!-- JS to submit image URL -->
     <script>
         function reqListener() {
             console.log(this.responseText);
