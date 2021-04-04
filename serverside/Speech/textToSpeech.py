@@ -1,14 +1,12 @@
 
 import azure.cognitiveservices.speech as speechsdk
+import uuid
 
-# Put your subscription key and region
 speech_key=""
 service_region = ""
 
-print("Type a string here: ")
-text = input()
 
-#text to speech function, input is a string, output is audio from your speaker
+
 def text_to_speech_function(text):
     speech_config = speechsdk.SpeechConfig(subscription=speech_key,region=service_region)
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
@@ -16,5 +14,23 @@ def text_to_speech_function(text):
     result = speech_synthesizer.speak_text_async(text).get()
 
 
-#call text_to_speech_function for testing
-text_to_speech_function(text)
+
+def speech_synthesis_to_mp3_file(text):
+    #configuring speechsdk
+    speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+    #output format is set to be mp3
+    speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3  )
+    #creating uuid for the mp3 file for a unique name
+    string_uuid = str(uuid.uuid1()) + ".mp3"
+    file_name = string_uuid
+    file_config = speechsdk.audio.AudioOutputConfig(filename=file_name)
+    #speech synthesizer
+    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=file_config)
+    result = speech_synthesizer.speak_text_async(text).get()
+    return file_name
+
+
+
+#text_to_speech_function("hello Ardee, Welcome to Las vegas")
+text = input()
+speech_synthesis_to_mp3_file(text)
