@@ -1,10 +1,14 @@
 
 import azure.cognitiveservices.speech as speechsdk
 import uuid
+import logging
+import boto3
+from botocore.exceptions import ClientError
+
 
 speech_key="4abfe9e3418d46deab7c6ec2b27f9fb7"
 service_region = "eastus"
-
+bucket = "tien-bucket-1"
 
 #text to speech function, input is a string, output is audio from your speaker
 def text_to_speech_function(text):
@@ -12,7 +16,6 @@ def text_to_speech_function(text):
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
     # Synthesizing the result
     result = speech_synthesizer.speak_text_async(text).get()
-
 
 
 def speech_synthesis_to_mp3_file(text):
@@ -27,10 +30,31 @@ def speech_synthesis_to_mp3_file(text):
     #speech synthesizer
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=file_config)
     result = speech_synthesizer.speak_text_async(text).get()
-    return file_name
+    return result, file_name
 
 
 
-#text_to_speech_function("hello Ardee, Welcome to Las vegas")
-text = input()
-speech_synthesis_to_mp3_file(text)
+def upload_file(file_name, bucket, object_name=None):
+    # If S3 object_name was not specified, use file_name
+    if object_name is None:
+        object_name = file_name
+
+    # Upload the file
+    s3_client = boto3.client('s3')
+    try:
+        response = s3_client.upload_file(file_name, bucket, object_name)
+    except ClientError as e:
+        logging.error(e)
+        return False
+    return True
+
+#testing function
+def test_text_to_speech_and_s3():
+    print("type something here")
+    text = input()
+    text_to_speech_function(text)
+    result, file_name = speech_synthesis_to_mp3_file(text)
+    upload_file(file_name, bucket)
+    print('done, uploaded the text to speech mp3 file to s3 bucket')
+
+test_text_to_speech_and_s3()
