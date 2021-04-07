@@ -24,6 +24,20 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./css/index.css">
+
+    <style type="text/css">
+        #loader {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          background: rgba(0,0,0,0.75) url(images/loading2.gif) no-repeat center center;
+          z-index: 10000;
+        }
+        </style>
 </head>
 
 <body>
@@ -57,12 +71,12 @@
                     <!-- <button onclick="return upload()">Upload image</button>   -->
                 </div>
                 <div class="carousel__item">
-                    <form action="" method="">
+                    <form action="" method="" id="myForm">
                         <label for="pasteURL">Paste image URL</label> <br>
                         <input type="text" id="pasteURL" name="URL" placeholder="http://example.jpeg OR http://example.png" required>
                         <span id="error_pasteURL" class="text-danger"></span>
                         <span id="error_correctURLImage" class="text-danger"></span>
-                        <button id="btnSubmit" type="button">Search by Image</button>
+                        <button id="btnSubmit" type="submit">Search by Image</button>
                     </form>
                 </div>
             </div>
@@ -272,6 +286,15 @@
         </div>
     </footer>
 
+    <div id="loader"></div>
+    <!-- <body>
+        <div class="spinner-border text-primary" 
+            id="spinner" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div id="data"></div>
+    </body> -->
+
     <!-- BACK TO TOP -->
     <a href="#" class="backToTop cd-top text-replace js-cd-top">
         <i class="fa fa-angle-up"></i>
@@ -297,7 +320,19 @@
                 customTxt.innerHTML = "No file chosen";
             }
         });
+        
+        //Loader animation while waiting for result
+        function showSpinner() {
+            var spinner = $('#loader');
+            spinner.show();
+        } 
+        function hideSpinner() {
+            var spinner = $('#loader');
+            spinner.hide();
+        }
     </script>
+
+
 
     <!-- JS to submit photo -->
     <script>
@@ -306,12 +341,15 @@
         }
 
         function submitPhoto(e) {
+            
             // JS to validate the photo file
             var fileName = document.getElementById("imageUpload").value;
             var idxDot = fileName.lastIndexOf(".") + 1;
             var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
             if (extFile=="jpg" || extFile=="jpeg" || extFile=="png") {
                 //TO DO
+                showSpinner();
+                //Send data to RMQ
                 let xhr = new XMLHttpRequest();
                 let formData = new FormData();
                 let photo = e.files[0];
@@ -328,6 +366,8 @@
             }            
         }
     </script>
+
+
 
     <!-- JS to validate the image URL -->
     <script>
@@ -406,6 +446,8 @@
                         audio_file_location = res.data.audio_file_location;
 
                         renderResult();
+                        hideSpinner();
+
                     })
                     .catch((err) => {
                         console.log(err);
@@ -436,8 +478,16 @@
 
             fetchResult();
         }
+ 
 
         function submitURL() {
+            //Prevent the form from submitting and refreshing page on submit
+            var form = document.getElementById("myForm");
+            function handleForm(event) { event.preventDefault(); } 
+            form.addEventListener('submit', handleForm);
+            showSpinner();
+
+            //Send data to RMQ
             const img_url = document.querySelector('#pasteURL').value;
 
             const xhr = new XMLHttpRequest();
@@ -512,6 +562,38 @@
             });
         }
     </script>
+
+
+    <!-- <script>
+        // API url 
+        const api_url =
+        `${path_uuid}`;
+        
+        // Defining async function 
+        async function getapi(url) {
+        
+            // Storing response 
+            const response = await fetch(url);
+        
+            // Storing data in form of JSON 
+            var apidata = await response.json();
+            console.log(apidata);
+            if (response) {
+                hideSpinner();
+            }
+            // document.getElementById("data").innerHTML
+            //     = `<h1>${apidata.data}</h1>`;
+        }
+        
+        // Calling that async function 
+        getapi(api_url);
+        
+        // Function to hide the Spinner
+        function hideSpinner() {
+            document.getElementById('spinner')
+                    .style.display = 'none';
+        } 
+    </script> -->
 </body>
 
 </html>
