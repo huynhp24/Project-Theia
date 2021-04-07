@@ -20,6 +20,7 @@ CREATE TABLE `theia`.`analysis` (
   `labels` JSON NULL,
   `textExtract` JSON NULL,
   `analysis` TEXT NULL,
+  `mp3link` VARCHAR(100),
   PRIMARY KEY (`idpicture`),
   CONSTRAINT `pic`
     FOREIGN KEY (`idpicture`)

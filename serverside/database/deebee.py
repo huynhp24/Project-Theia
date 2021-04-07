@@ -121,7 +121,7 @@ def pullPicturesWithAccount(data):
 
 def insertAnalysis(data):
     print("Inserting Analysis")
-    insert_statement = "INSERT INTO analysis(idpicture,labels,textExtract,analysis) VALUES ('{idpicture}','{labels}','{textExtract}','{analysis}');".format(**data)
+    insert_statement = "INSERT INTO analysis(idpicture,labels,textExtract,analysis,mp3link) VALUES ('{idpicture}','{labels}','{textExtract}','{analysis}','{mp3link}');".format(**data)
     try:
         cursorObject        = conn.cursor()                                     
         sqlQuery            = insert_statement
@@ -141,7 +141,7 @@ def insertAnalysis(data):
 
 def pullAnalysis(data):
 
-    pull_statement = "SELECT picture.name, account.name, analysis.labels, analysis.textExtract, analysis.analysis FROM picture INNER JOIN acc_pic ON picture.idpicture = acc_pic.idpicture INNER JOIN account ON account.username = acc_pic.user INNER JOIN analysis ON picture.idpicture = analysis.idpicture WHERE acc_pic.user = '{username}' and analysis.idpicture = '{idpicture}';".format(**data)
+    pull_statement = "SELECT picture.name, account.name, analysis.labels, analysis.textExtract, analysis.analysis, analysis.mp3link FROM picture INNER JOIN acc_pic ON picture.idpicture = acc_pic.idpicture INNER JOIN account ON account.username = acc_pic.user INNER JOIN analysis ON picture.idpicture = analysis.idpicture WHERE acc_pic.user = '{username}' and analysis.idpicture = '{idpicture}';".format(**data)
     try:
         cursorObject        = conn.cursor()                                     
         sqlQuery            = pull_statement
