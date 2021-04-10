@@ -6,9 +6,9 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-speech_key="4abfe9e3418d46deab7c6ec2b27f9fb7"
-service_region = "eastus"
-bucket = "tien-bucket-1"
+speech_key=""
+service_region = ""
+bucket = ""
 
 #text to speech function, input is a string, output is audio from your speaker
 def text_to_speech_function(text):
