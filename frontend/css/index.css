@@ -58,6 +58,10 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+.header__content a{
+    color: white;
+    font-size: 2.3rem;
+} 
 .header__content ul{
     list-style: none;
 }
@@ -67,7 +71,6 @@ header{
 }
 .header__content ul a{
     text-decoration: none;
-    color: white;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -79,11 +82,39 @@ header{
 .header__content ul .active a{
     color: #ff0e83;
 }
-.header__content p{
-    color: white;
-    font-size: 2.3rem;
-}
 
+.header__content ul .active::after a{
+    width: 100%;
+}
+.header__content ul li::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #ff0e83;
+    display: block;
+    transition: all 0.5s;
+}
+.header__content ul li:hover::after{
+    width: 100%;
+}
+.header__content ul li.active::after{
+    width: 100%;
+}
+.navInstruction .navbar-toggler{
+    color: white;
+    background-color: #ff0e83;
+    border: 1px solid white;
+    border-radius: 0px;
+}
+.navInstruction .navbar-toggler:focus{
+    outline: none;
+}
+.navInstruction .navbar-toggler:hover{
+    background-color: #ffe1e9;
+    color:black;
+    border-color: #ff0e83;
+}
+ 
 /* CAROUSEL */
 .carousel{
     background-image: url("../img/violet.jpg");
@@ -447,3 +478,32 @@ footer{
     line-height: 36px;
     border-radius: 50%;
 }
+
+/*********************** RESPONSIVE ************************/
+@media screen and (max-width:991.98px){
+    .navInstruction .navbar-brand p{
+        font-size: 3vw;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px){
+    /* HEADER */
+    #navbarInstruction .nav-item{
+        margin: 0;
+        padding: 0 2px;
+    }
+    #navbarInstruction .nav-link{
+        font-size: 10px;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width:767.98px){
+    #navbarInstruction .navbar-nav{
+        background-color: #191970;
+        text-align: center;
+    }
+}
+
+
+

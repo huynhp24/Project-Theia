@@ -44,13 +44,38 @@
     <!-- HEADER -->
     <header>
         <div class="header__content">
-            <p>THEIA</p>
-            <nav>
+            <!-- <p>THEIA</p> -->
+            <!-- <nav>
                 <ul id="mainNav">
                     <li class="active"><a href="#">HOME</a></li>
                     <li><a href="#services">SERVICES</a></li>
                     <li><a href="#team">DEVELOPERS</a></li>
                 </ul>
+            </nav> -->
+            <nav class="navInstruction navbar navbar-expand-md container">
+                <a class="navbar-brand text-center" href="#">
+                    <p class="font-weight-bold mb-0"><i class="fa fa-file-audio"></i> THEIA</p>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarInstruction"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarInstruction">
+                    <ul class="navbar-nav ml-auto" id="mainNav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">SERVICES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">DEVELOPERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </header>
@@ -79,6 +104,15 @@
                         <button id="btnSubmit" type="submit">Search by Image</button>
                     </form>
                 </div>
+            </div>
+            <br>
+            <!-- dropdown list for languages -->
+            <div class="dropdown">
+                <label for="languages">Choose a language</label>
+                <select form="myForm" name="languages" id="languages">
+                    <option selected value="en">English</option>
+                    <option value="vi">Vietnamese</option>
+                </select>
             </div>
         </div>
     </section>
@@ -242,7 +276,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="footer" id="footer">
         <div class="footer__main">
             <div class="footer__item">
                 <h3>About Us</h3>
@@ -362,7 +396,7 @@
                 // xhr.setRequestHeader("Content-Type","multipart/form-data");
                 xhr.send(formData);
             }else{
-                alert("Only jpg/jpeg and png files are allowed!");
+                alert("Invalid image format: Images must be either .jpg or .png");
             }            
         }
     </script>
@@ -426,7 +460,9 @@
             console.log(this.responseText);
 
             info_path = "/theia/api/v1.0/get_info";
-            const path_uuid = info_path + "?uuid=" + this.responseText;
+
+            language = document.querySelector('select[name="languages"]').value;
+            const path_uuid = info_path + "?uuid=" + this.responseText + "?language=" + language;
             console.log(path_uuid);
 
             const fetchResult = () => {
@@ -558,42 +594,11 @@
             listNav[i].addEventListener("click", function () {
                 var current = document.querySelector("#mainNav .active")
                 current.className = current.className.replace("active", "");
-                this.className += "active";
+                this.className += " active";
             });
         }
     </script>
 
-
-    <!-- <script>
-        // API url 
-        const api_url =
-        `${path_uuid}`;
-        
-        // Defining async function 
-        async function getapi(url) {
-        
-            // Storing response 
-            const response = await fetch(url);
-        
-            // Storing data in form of JSON 
-            var apidata = await response.json();
-            console.log(apidata);
-            if (response) {
-                hideSpinner();
-            }
-            // document.getElementById("data").innerHTML
-            //     = `<h1>${apidata.data}</h1>`;
-        }
-        
-        // Calling that async function 
-        getapi(api_url);
-        
-        // Function to hide the Spinner
-        function hideSpinner() {
-            document.getElementById('spinner')
-                    .style.display = 'none';
-        } 
-    </script> -->
 </body>
 
 </html>
