@@ -23,10 +23,10 @@ def imageBinary(photo,client):
     image_binary = stream.getvalue()
     response = client.detect_text(Image={'Bytes': image_binary})
     # print(response)
-    # textDetections = response['TextDetections']
-    # printText(textDetections)
-    # print(textDetections)
-    return response
+    textDetections = response['TextDetections']
+    printText(textDetections)
+
+
 
 
 def detect_text(photo, bucket):
@@ -38,15 +38,13 @@ def detect_text(photo, bucket):
         # raise
         if (photo.endswith('png') or photo.endswith('jpg')):
             print("The photo is jpg and png format")
-            textDetections = imageBinary(photo, client)
-            return textDetections
+            imageBinary(photo, client)
         else:
             print("when calling the DetectText operation: Request has invalid image format ")
     else:
-        return response
-        # textDetections = response['TextDetections']
-        # print('Detected text\n----------')
-        # printText(textDetections)
+        textDetections = response['TextDetections']
+        print('Detected text\n----------')
+        printText(textDetections)
         # sen = ''
         # wordC = 0
         # for text in textDetections:
@@ -75,8 +73,7 @@ def main():
     #
     # print(photo)
     bucket = 'bucket-image'
-    photo = 'coffeeText.JPG'
-    print(type(photo))
+    photo = 'picWords.JPG'
     text_count = detect_text(photo, bucket)
     # print("Text detected: " + str(text_count))
 
