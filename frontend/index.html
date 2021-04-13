@@ -24,28 +24,67 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./css/index.css">
+
+    <style type="text/css">
+        #loader {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          background: rgba(0,0,0,0.75) url(images/loading2.gif) no-repeat center center;
+          z-index: 10000;
+        }
+        </style>
 </head>
 
 <body>
     <!-- HEADER -->
     <header>
         <div class="header__content">
-            <p>THEIA</p>
-            <nav>
+            <!-- <p>THEIA</p> -->
+            <!-- <nav>
                 <ul id="mainNav">
                     <li class="active"><a href="#">HOME</a></li>
                     <li><a href="#services">SERVICES</a></li>
                     <li><a href="#team">DEVELOPERS</a></li>
                 </ul>
+            </nav> -->
+            <nav class="navInstruction navbar navbar-expand-md container">
+                <a class="navbar-brand text-center" href="#">
+                    <p class="font-weight-bold mb-0"><i class="fa fa-file-audio"></i> THEIA</p>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarInstruction"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarInstruction">
+                    <ul class="navbar-nav ml-auto" id="mainNav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">SERVICES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">DEVELOPERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- CAROUSEL -->
-    <section class="carousel">
-        <div class="carousel__content">
+    <section class="carousel cyberCarousel">
+        <div class="carousel__content slide" id="carouselCyber">
             <h1>OBJECT DETECTION ASSISTANT</h1>
-            <p>Automate your image analysis with machine learning.</p> <br> <br>
+            <p>Automate your image analysis with machine learning.</p>
             <div class="carousel__options">
                 <div class="carousel__item">
                     <label for="imageUpload">Upload an image</label> <br>
@@ -57,16 +96,33 @@
                     <!-- <button onclick="return upload()">Upload image</button>   -->
                 </div>
                 <div class="carousel__item">
-                    <form action="" method="">
+                    <form action="" method="" id="myForm">
                         <label for="pasteURL">Paste image URL</label> <br>
                         <input type="text" id="pasteURL" name="URL" placeholder="http://example.jpeg OR http://example.png" required>
                         <span id="error_pasteURL" class="text-danger"></span>
                         <span id="error_correctURLImage" class="text-danger"></span>
-                        <button id="btnSubmit" type="button">Search by Image</button>
+                        <button id="btnSubmit" type="submit">Search by Image</button>
                     </form>
                 </div>
-            </div>
+                <!-- dropdown list for languages -->
+                <div class="dropdown carousel__item">
+                    <label for="languages">Choose a language</label>
+                    <select form="myForm" name="languages" id="languages">
+                        <option value="zh-CN-XiaoxiaoNeural">Chinese</option>
+                        <option selected value="en-US-JennyNeural">English</option>
+                        <option value="fr-FR-DeniseNeural">French</option>
+                        <option value="de-DE-KatjaNeural">German</option>
+                        <option value="hi-IN-SwaraNeural">Hindi</option>
+                        <option value="it-IT-ElsaNeural">Italian</option>
+                        <option value="ja-JP-NanamiNeural">Japanese</option>
+                        <option value="ko-KR-SunHiNeural">Korean</option>
+                        <option value="es-MX-DaliaNeural">Spanish</option>
+                        <option value="vi-VN-HoaiMyNeural">Vietnamese</option>
+                    </select>
+                </div>
+            </div>                    
         </div>
+    </section>
     </section>
 
     <section id="showResult">
@@ -228,7 +284,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="footer" id="footer">
         <div class="footer__main">
             <div class="footer__item">
                 <h3>About Us</h3>
@@ -272,6 +328,15 @@
         </div>
     </footer>
 
+    <div id="loader"></div>
+    <!-- <body>
+        <div class="spinner-border text-primary" 
+            id="spinner" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div id="data"></div>
+    </body> -->
+
     <!-- BACK TO TOP -->
     <a href="#" class="backToTop cd-top text-replace js-cd-top">
         <i class="fa fa-angle-up"></i>
@@ -297,7 +362,19 @@
                 customTxt.innerHTML = "No file chosen";
             }
         });
+        
+        //Loader animation while waiting for result
+        function showSpinner() {
+            var spinner = $('#loader');
+            spinner.show();
+        } 
+        function hideSpinner() {
+            var spinner = $('#loader');
+            spinner.hide();
+        }
     </script>
+
+
 
     <!-- JS to submit photo -->
     <script>
@@ -306,12 +383,15 @@
         }
 
         function submitPhoto(e) {
+            
             // JS to validate the photo file
             var fileName = document.getElementById("imageUpload").value;
             var idxDot = fileName.lastIndexOf(".") + 1;
             var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
             if (extFile=="jpg" || extFile=="jpeg" || extFile=="png") {
                 //TO DO
+                showSpinner();
+                //Send data to RMQ
                 let xhr = new XMLHttpRequest();
                 let formData = new FormData();
                 let photo = e.files[0];
@@ -324,10 +404,12 @@
                 // xhr.setRequestHeader("Content-Type","multipart/form-data");
                 xhr.send(formData);
             }else{
-                alert("Only jpg/jpeg and png files are allowed!");
+                alert("Invalid image format: Images must be either .jpg or .png");
             }            
         }
     </script>
+
+
 
     <!-- JS to validate the image URL -->
     <script>
@@ -386,7 +468,9 @@
             console.log(this.responseText);
 
             info_path = "/theia/api/v1.0/get_info";
-            const path_uuid = info_path + "?uuid=" + this.responseText;
+
+            language = document.querySelector('select[name="languages"]').value;
+            const path_uuid = info_path + "?uuid=" + this.responseText + "?language=" + language;
             console.log(path_uuid);
 
             const fetchResult = () => {
@@ -406,6 +490,8 @@
                         audio_file_location = res.data.audio_file_location;
 
                         renderResult();
+                        hideSpinner();
+
                     })
                     .catch((err) => {
                         console.log(err);
@@ -436,8 +522,16 @@
 
             fetchResult();
         }
+ 
 
         function submitURL() {
+            //Prevent the form from submitting and refreshing page on submit
+            var form = document.getElementById("myForm");
+            function handleForm(event) { event.preventDefault(); } 
+            form.addEventListener('submit', handleForm);
+            showSpinner();
+
+            //Send data to RMQ
             const img_url = document.querySelector('#pasteURL').value;
 
             const xhr = new XMLHttpRequest();
@@ -508,10 +602,11 @@
             listNav[i].addEventListener("click", function () {
                 var current = document.querySelector("#mainNav .active")
                 current.className = current.className.replace("active", "");
-                this.className += "active";
+                this.className += " active";
             });
         }
     </script>
+
 </body>
 
 </html>
