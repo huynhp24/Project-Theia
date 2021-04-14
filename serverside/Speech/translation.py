@@ -5,5 +5,8 @@ def translator(text_to_translate, translating_language):
                                   SourceLanguageCode="en",
                                   TargetLanguageCode=translating_language)
     print(f'TranslatedText: {result["TranslatedText"]}')
+    return result
+
+
 text = "welcome"
 translator(text, "fr")
