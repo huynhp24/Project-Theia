@@ -382,7 +382,20 @@
     </footer>
 
     <!-- LOADER -->
-    <div id="loader"></div>
+    <div id="loader">
+        <div class="loader__letter">
+            <span>L</span>
+            <span>O</span>
+            <span>A</span>
+            <span>D</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+        </div>
+    </div>
     <!-- <body>
         <div class="spinner-border text-primary" 
             id="spinner" role="status">
@@ -556,13 +569,13 @@
                 let htmlContent = "";
                 htmlContent =
                     `<center style="padding: 5rem 0;">
-                        <div class="container">
+                        
                             <h2 style="text-align:center; color:#191970;">RESULTS</h2>
-                            <img src="${img_file}" alt="${uuid}" style="max-width:465px;">
+                            <img src="${img_file}" alt="${uuid}">
                             <p>${label_list}</p>
                             <p>${nat_sentence}</p> 
                             <audio controls><source src="${audio_file_location}"></audio>
-                        </div>
+                        
                     </center>;`
                 console.log(htmlContent);
                 document.getElementById('showResult').innerHTML = htmlContent;
