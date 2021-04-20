@@ -544,42 +544,34 @@
                 axios({
                     url: `${path_uuid}`,
                     method: "GET",
-                    timeout: 20000,
+                    headers: {'Content-Type': 'application/json'},
+                    timeout: 10000,
                 })
                     .then((res) => {
                         console.log(res);
-                        console.log(res.data);
 
-                        uuid = res.data.uuid;
-                        img_file = res.data.img_file;
-                        label_list = res.data.label_list;
-                        nat_sentence = res.data.nat_sentence;
-                        audio_file_location = res.data.audio_file_location;
+                        // renderResult();
+                        const renderResult = () => {
+                        let htmlContent = "";
+                        htmlContent =
+                            `<center style="padding: 5rem 0;">
+                                <h2 style="text-align:center; color:#191970;">RESULTS</h2>
+                                <img src="${img_file}" alt="${uuid}">
+                                <p>${nat_sentence}</p> 
+                                <audio controls><source src="${audio_file_location}"></audio>
+                            </center>;`
+                        console.log(htmlContent);
+                        document.getElementById('showResult').innerHTML = htmlContent;
+                    }
 
-                        renderResult();
-                        hideSpinner();
+                    renderResult();
+                    hideSpinner();
 
                     })
                     .catch((err) => {
                         console.log(err);
-                    });
+                });
             };
-
-            const renderResult = () => {
-                let htmlContent = "";
-                htmlContent =
-                    `<center style="padding: 5rem 0;">
-                        
-                            <h2 style="text-align:center; color:#191970;">RESULTS</h2>
-                            <img src="${img_file}" alt="${uuid}">
-                            <p>${label_list}</p>
-                            <p>${nat_sentence}</p> 
-                            <audio controls><source src="${audio_file_location}"></audio>
-                        
-                    </center>;`
-                console.log(htmlContent);
-                document.getElementById('showResult').innerHTML = htmlContent;
-            }
 
             fetchResult();
         }
