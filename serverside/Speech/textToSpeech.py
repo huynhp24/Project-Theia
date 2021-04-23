@@ -1,5 +1,4 @@
 
-
 import azure.cognitiveservices.speech as speechsdk
 import uuid
 import logging
@@ -10,7 +9,6 @@ from botocore.exceptions import ClientError
 speech_key = ""
 service_region = ""
 bucket = ""
-
 # speak out loud
 def text_to_speech_function(text):
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
@@ -44,8 +42,7 @@ def upload_file(file_name, bucket, object_name=None):
     response = s3_client.upload_file(file_name, bucket, object_name)
 
 
-
-#testing function
+# testing function
 def test_text_to_speech_and_s3():
     print("type something here")
     text = input()
@@ -66,10 +63,16 @@ def translator(text_to_translate, target_language_code):
     print(f'TranslatedText: {result["TranslatedText"]}')
     return text_to_translate, target_language_code
 
-#see target_lang input in https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support
-def Speak_in_different_lang(text, target_lang):
-       speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-       speech_config.speech_synthesis_language = target_lang
-       speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
-       result = speech_synthesizer.speak_text_async(text).get()
 
+# see target_lang input in https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support
+
+
+def neural_voice_in_different_language(text ,target_lang, target_voice):
+    speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+    speech_config.speech_synthesis_language = target_lang
+    speech_config.speech_synthesis_voice_name =target_voice
+    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
+    result = speech_synthesizer.speak_text_async(text).get()
+
+
+neural_voice_in_different_language("có một buổi sáng tốt", "vi-VN","vi-VN-HoaiMyNeural")
