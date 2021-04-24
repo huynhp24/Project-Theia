@@ -34,9 +34,16 @@ def LoadData(impLabels,text):
     textExtracted=textExtracted[1:-1] 
     return labels, textExtracted
 
+'''def location_stuff(labels):
+    picMap = {"left": {"top": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}},
+                "middle": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}},
+                "bottom": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}}}
+'''
+
 def GenerateSummary(labels,textExtracted):
     summary=""
     finalLabels = defaultdict()
+    # collapse into parent
     for label in labels:
         parents = labels[label]['Parents']
         par_str = ""
@@ -64,15 +71,19 @@ def GenerateSummary(labels,textExtracted):
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
         summary += 'The image has text, which says, \"' + text_str + '\".'
+    # sort into locations
+    # location_stuff(labels)
+    # append
+    
     return summary
 
 def PrettyPrint(summary):
-    print('\n\n\n\nA Summary for the Image :\n')
+    pretty = '\n\n\n\nA Summary for the Image :\n'
     w = 50
-    print(textwrap.fill(summary,w))
-    print('')
+    pretty+=textwrap.fill(summary,w)
+    return pretty + "\n"
 
 def Run(impLabels,text):
     lab, ext = LoadData(impLabels,text)
     summary = GenerateSummary(lab,ext)
-    PrettyPrint(summary)
+    return PrettyPrint(summary)
