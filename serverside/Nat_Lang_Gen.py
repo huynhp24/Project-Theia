@@ -81,9 +81,10 @@ def PrettyPrint(summary):
     pretty = '\n\n\n\nA Summary for the Image :\n'
     w = 50
     pretty+=textwrap.fill(summary,w)
-    return pretty + "\n"
+    print(pretty)
 
 def Run(impLabels,text):
     lab, ext = LoadData(impLabels,text)
     summary = GenerateSummary(lab,ext)
-    return PrettyPrint(summary)
+    PrettyPrint(summary)
+    return summary
