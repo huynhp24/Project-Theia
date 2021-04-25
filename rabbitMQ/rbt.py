@@ -88,7 +88,7 @@ def storeToDB(imgFile, id):
         filestamp = time.strftime('%Y-%m-%d-%I:%M')
         with open('label.json', 'r') as f:
             labelResult = json.load(f)
-        with open('imgText.json', 'w') as j:
+        with open('imgText.json', 'r') as j:
             textInImage = json.load(j)
 
         # make json file from dict to string
