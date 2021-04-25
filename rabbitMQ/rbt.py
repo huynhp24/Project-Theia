@@ -88,8 +88,11 @@ def storeToDB(imgFile, id):
         filestamp = time.strftime('%Y-%m-%d-%I:%M')
         with open('label.json', 'r') as f:
             labelResult = json.load(f)
+        with open('imgText.json', 'w') as j:
+            textInImage = json.load(j)
+
         # make json file from dict to string
-        sen = language.generate_nat_string(labelResult)  #### <--- change the natural language here and correct import at line 13
+        sen = Nat_Lang_Gen.Run(labelResult,textInImage)
 
         labelJson = json.dumps(labelResult)
         l.info(sen)
@@ -122,9 +125,6 @@ def imgPathToS3(imgPath, uuid):
         l.info('Had successfully upload ' + imgPath + " to s3 bucket : " + S3PATH)
     textInImage = textdetect.detect_text(imgFile, S3PATH)
     labelResult = labels.detect_labels(imgFile, S3PATH)
-
-    summary = Nat_Lang_Gen.Run(labelResult,textInImage)
-    print(summary)
 
     newpath = os.path.join(DEST, imgFile)
     l.info('Joining the path for img upload to new rabbitMQ Images dir: ' + newpath)
