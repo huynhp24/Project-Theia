@@ -10,7 +10,7 @@ from io import BytesIO
 import shutil
 import requests
 sys.path.insert(1,'/opt/theia/serverside')
-import labels, textdetect, language
+import labels, textdetect, language, Nat_Lang_Gen
 # from serverside import labels, textdetect
 import json, time
 import mysql.connector
@@ -122,6 +122,10 @@ def imgPathToS3(imgPath, uuid):
         l.info('Had successfully upload ' + imgPath + " to s3 bucket : " + S3PATH)
     textInImage = textdetect.detect_text(imgFile, S3PATH)
     labelResult = labels.detect_labels(imgFile, S3PATH)
+
+    summary = Nat_Lang_Gen.Run(labelResult,textInImage)
+    print(summary)
+
     newpath = os.path.join(DEST, imgFile)
     l.info('Joining the path for img upload to new rabbitMQ Images dir: ' + newpath)
     shutil.move(path, newpath)
