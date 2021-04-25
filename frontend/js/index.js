@@ -40,6 +40,11 @@ function submitPhoto(e) {
     var fileName = document.getElementById("imageUpload").value;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+
+    language = document.querySelector('select[name="languages"]').value;
+    // const path_uuid = info_path + "?uuid=" + this.responseText + "?language=" + language;
+    // console.log(path_uuid);
+
     if (extFile == "jpg" || extFile == "jpeg" || extFile == "png") {
         //TO DO
         showSpinner();
@@ -53,7 +58,7 @@ function submitPhoto(e) {
         xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
         xhr.addEventListener("load", reqListener);
         xhr.open("POST", "/theia/api/v1.0/img_path", true);
-        // xhr.setRequestHeader("Content-Type","multipart/form-data");
+        xhr.setRequestHeader("language", language);
         xhr.send(formData);
     } else {
         alert("Invalid image format: Images must be either .jpg or .png");
@@ -114,9 +119,9 @@ function reqListener() {
     console.log(this.responseText);
 
     info_path = "/theia/api/v1.0/get_info";
-
-    language = document.querySelector('select[name="languages"]').value;
-    const path_uuid = info_path + "?uuid=" + this.responseText + "?language=" + language;
+    const path_uuid = info_path + "?uuid=" + this.responseText;
+    // language = document.querySelector('select[name="languages"]').value;
+    // const path_uuid = info_path + "?uuid=" + this.responseText + "?language=" + language;
     console.log(path_uuid);
 
     const fetchResult = () => {
@@ -135,6 +140,22 @@ function reqListener() {
                 nat_sentence = res.data.nat_sentence;
                 audio_file_location = res.data.audio_file_location;
 
+                const renderResult = () => {
+                    let htmlContent = "";
+                    htmlContent =
+                        `<center style="padding: 5rem 0;">
+                            <div class="container">
+                                <h2 style="color:#191970;">RESULTS</h2>
+                                <img src="${img_file}" alt="${uuid}" class="container" style="width: 90vw; display:block;">
+                                <br>
+                                <p>${nat_sentence}</p> 
+                                <br>
+                                <audio controls><source src="${audio_file_location}"></audio>
+                            </div>
+                        </center>;`
+                    console.log(htmlContent);
+                    document.getElementById('showResult').innerHTML = htmlContent;
+                    }
                 renderResult();
                 hideSpinner();
             })
@@ -146,28 +167,16 @@ function reqListener() {
             });
         };
 
-    const renderResult = () => {
-        let htmlContent = "";
-        htmlContent =
-            `<center style="padding: 5rem 0;">
-                <div class="container">
-                    <h2 style="color:#191970;">RESULTS</h2>
-                    <img src="${img_file}" alt="${uuid}" class="container" style="width: 90vw; display:block;">
-                    <br>
-                    <p>${nat_sentence}</p> 
-                    <br>
-                    <audio controls><source src="${audio_file_location}"></audio>
-                </div>
-            </center>;`
-        console.log(htmlContent);
-        document.getElementById('showResult').innerHTML = htmlContent;
-    }
+    
+    
 
     fetchResult();
 }
 
 
 function submitURL() {
+    language = document.querySelector('select[name="languages"]').value;
+
     //Prevent the form from submitting and refreshing page on submit
     var form = document.getElementById("myForm");
     function handleForm(event) { event.preventDefault(); }
@@ -181,6 +190,7 @@ function submitURL() {
     xhr.addEventListener("load", reqListener);
     xhr.open('POST', '/theia/api/v1.0/img_url', true);
     xhr.setRequestHeader('Content-Type', 'plain/text');
+    xhr.setRequestHeader("language", language);
     xhr.send(img_url);
 }
     
