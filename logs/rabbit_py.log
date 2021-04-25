@@ -1,0 +1,485 @@
+2021-04-23 02:21:09,188 INFO <module> (58) Starting backing end processors
+2021-04-23 02:23:02,353 INFO <module> (58) Starting backing end processors
+2021-04-23 02:23:04,904 INFO <module> (58) Starting backing end processors
+2021-04-23 02:24:34,119 INFO <module> (58) Starting backing end processors
+2021-04-23 02:24:36,230 INFO main (208) Starting rabbitMQ backend server...
+2021-04-23 02:26:01,099 INFO callback (189)  receiving UUID : 5b42d97a-88dc-4a98-ae23-34b9ef8209f6
+2021-04-23 02:26:01,099 INFO callback (190)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 02:26:01,100 INFO imgPathToS3 (116) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 02:28:03,598 INFO <module> (58) Starting backing end processors
+2021-04-23 02:36:35,030 INFO <module> (58) Starting backing end processors
+2021-04-23 02:36:35,114 INFO main (208) Starting rabbitMQ backend server...
+2021-04-23 02:36:50,943 INFO callback (189)  receiving UUID : 6398ce65-0e88-482c-839e-a6f4c31ef0e5
+2021-04-23 02:36:50,944 INFO callback (190)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 02:36:50,944 INFO imgPathToS3 (116) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 02:36:53,522 INFO imgPathToS3 (119) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 02:37:29,795 INFO <module> (58) Starting backing end processors
+2021-04-23 02:37:29,876 INFO main (208) Starting rabbitMQ backend server...
+2021-04-23 02:37:43,035 INFO callback (189)  receiving UUID : 61edd50f-72f4-4f7d-bff9-965379ca8b88
+2021-04-23 02:37:43,035 INFO callback (190)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 02:37:43,036 INFO imgPathToS3 (116) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 02:37:45,515 INFO imgPathToS3 (119) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 02:45:51,501 INFO <module> (58) Starting backing end processors
+2021-04-23 02:46:44,543 INFO <module> (58) Starting backing end processors
+2021-04-23 02:46:44,623 INFO main (203) Starting rabbitMQ backend server...
+2021-04-23 02:46:53,216 INFO callback (184)  receiving UUID : 0111f07a-cf31-47c9-b5d0-fe03cdf08037
+2021-04-23 02:46:53,216 INFO callback (185)  Incoming msg: /opt/theia/rabbitMQ/gigiCat.png sending from image_path
+2021-04-23 02:46:53,216 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/Images/gigiCat.png
+2021-04-23 02:46:54,365 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/gigiCat.png to s3 bucket : project-theia-test
+2021-04-23 03:02:36,475 INFO <module> (58) Starting backing end processors
+2021-04-23 03:02:36,601 INFO main (204) Starting rabbitMQ backend server...
+2021-04-23 03:02:44,357 INFO <module> (58) Starting backing end processors
+2021-04-23 03:02:45,364 INFO <module> (58) Starting backing end processors
+2021-04-23 03:04:44,809 INFO <module> (58) Starting backing end processors
+2021-04-23 03:04:58,189 INFO <module> (58) Starting backing end processors
+2021-04-23 03:04:58,307 INFO main (204) Starting rabbitMQ backend server...
+2021-04-23 03:11:37,948 INFO <module> (58) Starting backing end processors
+2021-04-23 03:11:38,081 INFO main (204) Starting rabbitMQ backend server...
+2021-04-23 03:11:42,714 INFO <module> (58) Starting backing end processors
+2021-04-23 03:11:43,557 INFO <module> (58) Starting backing end processors
+2021-04-23 03:11:51,629 INFO callback (185)  receiving UUID : 044533fa-bd12-45d5-adac-df9f0c97b3bd
+2021-04-23 03:11:51,629 INFO callback (186)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 03:11:51,630 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 03:11:54,441 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 03:11:56,065 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 03:19:54,936 INFO <module> (58) Starting backing end processors
+2021-04-23 03:19:55,443 INFO <module> (58) Starting backing end processors
+2021-04-23 03:20:05,053 INFO callback (185)  receiving UUID : 7c0d7281-4ed0-4437-b1ae-9e025757564f
+2021-04-23 03:20:05,053 INFO callback (186)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 03:20:05,053 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 03:20:08,743 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 03:20:10,484 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 03:20:43,225 INFO <module> (58) Starting backing end processors
+2021-04-23 03:20:59,043 INFO callback (185)  receiving UUID : 30ac23b3-c010-4ee0-a4a6-321e770ee094
+2021-04-23 03:20:59,044 INFO callback (186)  Incoming msg: /opt/theia/rabbitMQ/coffeeText.JPG sending from image_path
+2021-04-23 03:20:59,045 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/coffeeText.JPG
+2021-04-23 03:20:59,261 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/coffeeText.JPG to s3 bucket : project-theia-test
+2021-04-23 03:21:00,777 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/coffeeText.JPG
+2021-04-23 03:21:35,926 INFO <module> (58) Starting backing end processors
+2021-04-23 03:57:24,258 INFO callback (185)  receiving UUID : 781a5884-dafc-46de-9f47-bf3aac28305e
+2021-04-23 03:57:24,258 INFO callback (186)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 03:57:24,258 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 03:57:28,162 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 03:57:29,971 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 03:58:52,309 INFO callback (185)  receiving UUID : 11ad5817-2624-4d4e-8067-af6cdc9e480d
+2021-04-23 03:58:52,310 INFO callback (186)  Incoming msg: /opt/theia/rabbitMQ/gigiCat.png sending from image_path
+2021-04-23 03:58:52,311 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/gigiCat.png
+2021-04-23 03:58:53,404 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/gigiCat.png to s3 bucket : project-theia-test
+2021-04-23 03:58:54,763 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/gigiCat.png
+2021-04-23 04:02:25,977 INFO <module> (58) Starting backing end processors
+2021-04-23 04:03:12,946 INFO <module> (58) Starting backing end processors
+2021-04-23 04:04:31,236 INFO <module> (58) Starting backing end processors
+2021-04-23 04:04:31,311 INFO main (204) Starting rabbitMQ backend server...
+2021-04-23 04:04:36,014 INFO callback (185)  receiving UUID : fa0e6484-fe1c-4ffa-bf99-354c20967a75
+2021-04-23 04:04:36,015 INFO callback (186)  Incoming msg: /opt/theia/rabbitMQ/image_1.png sending from image_path
+2021-04-23 04:04:36,015 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_1.png
+2021-04-23 04:04:39,024 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_1.png to s3 bucket : project-theia-test
+2021-04-23 04:04:40,684 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_1.png
+2021-04-23 04:08:18,682 INFO <module> (58) Starting backing end processors
+2021-04-23 04:08:19,202 INFO <module> (58) Starting backing end processors
+2021-04-23 04:08:22,896 INFO callback (185)  receiving UUID : 22c00d24-4b36-4a09-8327-a6963c4c8e3a
+2021-04-23 04:08:22,896 INFO callback (186)  Incoming msg: /opt/theia/rabbitMQ/VAL-158.jpg sending from image_path
+2021-04-23 04:08:22,896 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/VAL-158.jpg
+2021-04-23 04:08:23,798 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/VAL-158.jpg to s3 bucket : project-theia-test
+2021-04-23 04:08:25,300 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/VAL-158.jpg
+2021-04-23 04:20:01,194 INFO <module> (58) Starting backing end processors
+2021-04-23 04:20:20,159 INFO <module> (58) Starting backing end processors
+2021-04-23 04:20:26,424 INFO <module> (58) Starting backing end processors
+2021-04-23 04:20:26,498 INFO main (206) Starting rabbitMQ backend server...
+2021-04-23 04:20:32,516 INFO callback (186)  receiving UUID : 0e78b786-811c-4655-aacb-823d269c1f3a
+2021-04-23 04:20:32,516 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/coffeeText.JPG sending from image_path
+2021-04-23 04:20:32,516 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/coffeeText.JPG
+2021-04-23 04:20:32,758 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/coffeeText.JPG to s3 bucket : project-theia-test
+2021-04-23 04:20:34,204 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/coffeeText.JPG
+2021-04-23 04:24:23,859 INFO <module> (58) Starting backing end processors
+2021-04-23 04:24:24,359 INFO <module> (58) Starting backing end processors
+2021-04-23 04:24:41,287 INFO callback (186)  receiving UUID : d2e843f0-6ca7-4a69-ae43-8d9bd3a56b82
+2021-04-23 04:24:41,287 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/iPhoneBG.jpg sending from image_path
+2021-04-23 04:24:41,288 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/iPhoneBG.jpg
+2021-04-23 04:24:43,417 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/iPhoneBG.jpg to s3 bucket : project-theia-test
+2021-04-23 04:24:45,028 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/iPhoneBG.jpg
+2021-04-23 04:25:03,269 INFO callback (186)  receiving UUID : 195dee72-ed1d-401d-9e83-3ed5b3285854
+2021-04-23 04:25:03,269 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 04:25:03,270 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 04:25:06,994 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 04:25:09,930 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 05:28:59,684 INFO <module> (58) Starting backing end processors
+2021-04-23 05:29:09,284 INFO <module> (58) Starting backing end processors
+2021-04-23 05:31:34,336 INFO <module> (58) Starting backing end processors
+2021-04-23 05:31:34,884 INFO <module> (58) Starting backing end processors
+2021-04-23 05:36:17,220 INFO <module> (58) Starting backing end processors
+2021-04-23 05:36:17,296 INFO main (206) Starting rabbitMQ backend server...
+2021-04-23 05:36:19,699 INFO callback (186)  receiving UUID : 36e8ec5b-cd43-4824-a530-4a6ef944bdb1
+2021-04-23 05:36:19,699 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 05:36:19,700 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 05:36:23,397 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 05:36:25,113 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 05:40:19,410 INFO <module> (58) Starting backing end processors
+2021-04-23 05:40:19,483 INFO main (206) Starting rabbitMQ backend server...
+2021-04-23 05:40:28,079 INFO callback (186)  receiving UUID : eded9ebd-7d07-4a18-9639-f26991113c02
+2021-04-23 05:40:28,079 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 05:40:28,079 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 05:40:30,653 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 05:40:32,222 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 05:41:36,329 INFO <module> (58) Starting backing end processors
+2021-04-23 05:41:36,880 INFO <module> (58) Starting backing end processors
+2021-04-23 05:41:40,805 INFO callback (186)  receiving UUID : 27f5fc18-fa0a-4eba-abf0-80685c6cf507
+2021-04-23 05:41:40,805 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 05:41:40,806 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 05:41:44,738 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 05:41:46,553 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 05:49:17,196 INFO <module> (58) Starting backing end processors
+2021-04-23 05:49:17,726 INFO <module> (58) Starting backing end processors
+2021-04-23 05:49:31,979 INFO callback (186)  receiving UUID : 74b3bef7-654a-4c0d-a1a6-1c3e6003a5e0
+2021-04-23 05:49:31,979 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/gigiCat.png sending from image_path
+2021-04-23 05:49:31,979 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/gigiCat.png
+2021-04-23 05:49:33,092 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/gigiCat.png to s3 bucket : project-theia-test
+2021-04-23 05:49:34,808 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/gigiCat.png
+2021-04-23 06:13:53,453 INFO <module> (58) Starting backing end processors
+2021-04-23 06:13:53,528 INFO main (206) Starting rabbitMQ backend server...
+2021-04-23 06:14:32,859 INFO <module> (58) Starting backing end processors
+2021-04-23 06:14:33,382 INFO <module> (58) Starting backing end processors
+2021-04-23 06:19:26,564 INFO callback (186)  receiving UUID : dbe15db4-d9ba-4421-853a-21c861105cf2
+2021-04-23 06:19:26,565 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 06:19:26,566 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 06:19:30,394 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 06:19:32,058 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 06:21:16,227 INFO <module> (58) Starting backing end processors
+2021-04-23 06:21:16,807 INFO <module> (58) Starting backing end processors
+2021-04-23 06:21:26,686 INFO callback (186)  receiving UUID : 6c3a00be-1a54-4e06-a5f5-1feda6cc3ac6
+2021-04-23 06:21:26,686 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 06:21:26,687 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 06:21:31,105 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 06:21:32,915 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 06:24:23,124 INFO <module> (58) Starting backing end processors
+2021-04-23 06:24:23,200 INFO main (206) Starting rabbitMQ backend server...
+2021-04-23 06:24:25,189 INFO <module> (58) Starting backing end processors
+2021-04-23 06:24:25,825 INFO <module> (58) Starting backing end processors
+2021-04-23 06:24:35,518 INFO callback (186)  receiving UUID : 21078c4e-9f12-4087-acc9-86e16c4122d8
+2021-04-23 06:24:35,518 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 06:24:35,518 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 06:24:39,668 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 06:24:41,476 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 06:25:05,255 INFO <module> (58) Starting backing end processors
+2021-04-23 06:25:05,343 INFO main (206) Starting rabbitMQ backend server...
+2021-04-23 06:25:14,287 INFO callback (186)  receiving UUID : 9a4e6d96-9766-428b-93ec-b20db1188724
+2021-04-23 06:25:14,287 INFO callback (187)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 06:25:14,287 INFO imgPathToS3 (111) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 06:25:18,408 INFO imgPathToS3 (114) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 06:25:20,173 INFO imgPathToS3 (118) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 06:26:54,397 INFO <module> (58) Starting backing end processors
+2021-04-23 06:27:04,264 INFO <module> (58) Starting backing end processors
+2021-04-23 06:27:04,383 INFO main (207) Starting rabbitMQ backend server...
+2021-04-23 06:27:23,975 INFO callback (187)  receiving UUID : 113ed086-3b07-4260-80a8-cb639d185439
+2021-04-23 06:27:23,975 INFO callback (188)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 06:27:23,975 INFO imgPathToS3 (112) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 06:27:26,632 INFO imgPathToS3 (115) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 06:27:28,172 INFO imgPathToS3 (119) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 06:27:28,182 INFO storeToDB (91) We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 06:27:28,183 INFO storeToDB (100) Storing into database: 113ed086-3b07-4260-80a8-cb639d185439, https://project-theia-test.s3-us-west-1.amazonaws.com/image_2.png, We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 07:11:53,855 INFO <module> (58) Starting backing end processors
+2021-04-23 07:12:00,890 INFO <module> (58) Starting backing end processors
+2021-04-23 07:12:00,964 INFO main (212) Starting rabbitMQ backend server...
+2021-04-23 07:12:20,026 INFO callback (192)  receiving UUID : f1941ec1-48b1-4b85-aa2c-3adf68521f6b
+2021-04-23 07:12:20,026 INFO callback (193)  Incoming msg: /opt/theia/rabbitMQ/coffeeText.JPG sending from image_path
+2021-04-23 07:12:20,026 INFO imgPathToS3 (117) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/coffeeText.JPG
+2021-04-23 07:12:20,313 INFO imgPathToS3 (120) Had successfully upload /opt/theia/rabbitMQ/coffeeText.JPG to s3 bucket : project-theia-test
+2021-04-23 07:12:21,810 INFO imgPathToS3 (124) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/coffeeText.JPG
+2021-04-23 07:12:21,824 INFO storeToDB (81) Connection successful
+2021-04-23 07:12:21,825 INFO storeToDB (94) This is probably an image of Latte or Coffee Cup or Cup. The main subject appears to be a Milk. The image contains 1 Milk 
+2021-04-23 07:12:21,827 INFO storeToDB (103) Storing into database: f1941ec1-48b1-4b85-aa2c-3adf68521f6b, https://project-theia-test.s3-us-west-1.amazonaws.com/coffeeText.JPG, This is probably an image of Latte or Coffee Cup or Cup. The main subject appears to be a Milk. The image contains 1 Milk 
+2021-04-23 09:53:50,477 INFO <module> (58) Starting backing end processors
+2021-04-23 09:53:50,569 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 09:53:53,699 INFO <module> (58) Starting backing end processors
+2021-04-23 09:53:54,251 INFO <module> (58) Starting backing end processors
+2021-04-23 09:54:11,852 INFO callback (194)  receiving UUID : 3f0978d7-4345-47a8-8194-1a4c755614d1
+2021-04-23 09:54:11,853 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 09:54:11,853 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 09:54:14,320 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 09:54:15,895 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 09:54:15,919 INFO storeToDB (81) Database connection successful
+2021-04-23 10:23:54,390 INFO <module> (58) Starting backing end processors
+2021-04-23 10:23:54,911 INFO <module> (58) Starting backing end processors
+2021-04-23 10:23:59,336 INFO <module> (58) Starting backing end processors
+2021-04-23 10:23:59,411 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 10:24:28,108 INFO callback (194)  receiving UUID : c8c0278e-0f97-4646-9d1a-c882d709ec66
+2021-04-23 10:24:28,108 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 10:24:28,109 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 10:24:32,339 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 10:24:34,202 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 10:24:34,217 INFO storeToDB (81) Database connection successful
+2021-04-23 10:24:34,218 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 10:24:34,220 INFO storeToDB (105) Storing into database: c8c0278e-0f97-4646-9d1a-c882d709ec66, https://project-theia-test.s3-us-west-1.amazonaws.com/image_3.png, This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 10:32:48,905 INFO callback (194)  receiving UUID : 42003317-7a6e-4873-b66c-9710c593b02d
+2021-04-23 10:32:48,905 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 10:32:48,906 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 10:32:51,372 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 10:32:52,990 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 10:32:53,000 INFO storeToDB (81) Database connection successful
+2021-04-23 10:32:53,001 INFO storeToDB (95) We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 10:32:53,017 INFO storeToDB (105) Storing into database: 42003317-7a6e-4873-b66c-9710c593b02d, https://project-theia-test.s3-us-west-1.amazonaws.com/image_2.png, We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 10:44:38,858 INFO <module> (58) Starting backing end processors
+2021-04-23 10:44:39,374 INFO <module> (58) Starting backing end processors
+2021-04-23 10:44:44,897 INFO callback (194)  receiving UUID : 5041b09b-1053-448c-a728-dedd3736f05d
+2021-04-23 10:44:44,897 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 10:44:44,897 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 10:44:47,370 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 10:44:48,907 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 10:44:48,913 INFO storeToDB (81) Database connection successful
+2021-04-23 10:44:48,913 INFO storeToDB (95) We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 10:44:48,923 INFO storeToDB (105) Storing into database: 5041b09b-1053-448c-a728-dedd3736f05d, https://project-theia-test.s3-us-west-1.amazonaws.com/image_2.png, We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 10:47:24,997 INFO <module> (58) Starting backing end processors
+2021-04-23 11:11:35,175 INFO <module> (58) Starting backing end processors
+2021-04-23 11:11:35,251 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 11:11:40,547 INFO callback (194)  receiving UUID : 8214d9b2-21ab-4d81-b2b8-edd9de863759
+2021-04-23 11:11:40,547 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 11:11:40,547 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 11:11:43,067 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 11:11:44,627 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 11:11:44,636 INFO storeToDB (81) Database connection successful
+2021-04-23 11:11:44,636 INFO storeToDB (95) We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 11:11:44,637 INFO storeToDB (105) Storing into database: 8214d9b2-21ab-4d81-b2b8-edd9de863759, https://project-theia-test.s3-us-west-1.amazonaws.com/image_2.png, We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 11:12:02,407 INFO callback (194)  receiving UUID : 1779f0dd-0e1a-4dd6-b85b-3b7249aa512c
+2021-04-23 11:12:02,407 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 11:12:02,525 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 11:12:02,630 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 11:12:02,630 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:12:02,891 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 11:12:04,243 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:12:04,249 INFO storeToDB (81) Database connection successful
+2021-04-23 11:12:04,249 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 11:12:04,250 INFO storeToDB (105) Storing into database: 1779f0dd-0e1a-4dd6-b85b-3b7249aa512c, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 11:14:07,872 INFO callback (194)  receiving UUID : 9c8ed85a-5be9-4b3f-89ea-6ec107e88197
+2021-04-23 11:14:07,873 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_1.png sending from image_path
+2021-04-23 11:14:07,873 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_1.png
+2021-04-23 11:14:10,890 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_1.png to s3 bucket : project-theia-test
+2021-04-23 11:14:12,381 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_1.png
+2021-04-23 11:14:12,395 INFO storeToDB (81) Database connection successful
+2021-04-23 11:14:12,396 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Road. The main subject appears to be a Person. The image contains 14 Cars 2 Persons 10 Wheels and 1 Skateboard 
+2021-04-23 11:14:12,399 INFO storeToDB (105) Storing into database: 9c8ed85a-5be9-4b3f-89ea-6ec107e88197, https://project-theia-test.s3-us-west-1.amazonaws.com/image_1.png, This is probably an image of Vehicle or Transportation or Road. The main subject appears to be a Person. The image contains 14 Cars 2 Persons 10 Wheels and 1 Skateboard 
+2021-04-23 11:17:11,146 INFO callback (194)  receiving UUID : 7b0433a1-4a94-4421-a495-2466589b6b4b
+2021-04-23 11:17:11,146 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 11:17:11,146 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 11:17:13,692 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 11:17:15,148 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 11:17:15,154 INFO storeToDB (81) Database connection successful
+2021-04-23 11:17:15,154 INFO storeToDB (95) We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 11:17:15,155 INFO storeToDB (105) Storing into database: 7b0433a1-4a94-4421-a495-2466589b6b4b, https://project-theia-test.s3-us-west-1.amazonaws.com/image_2.png, We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 11:17:39,735 INFO <module> (58) Starting backing end processors
+2021-04-23 11:17:39,810 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 11:17:43,198 INFO <module> (58) Starting backing end processors
+2021-04-23 11:17:43,722 INFO <module> (58) Starting backing end processors
+2021-04-23 11:17:47,847 INFO callback (194)  receiving UUID : 196dec04-dfb2-4787-b1e1-73e845260119
+2021-04-23 11:17:47,848 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 11:17:47,849 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 11:17:51,526 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 11:17:53,297 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 11:17:53,312 INFO storeToDB (81) Database connection successful
+2021-04-23 11:17:53,313 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 11:17:53,320 INFO storeToDB (105) Storing into database: 196dec04-dfb2-4787-b1e1-73e845260119, https://project-theia-test.s3-us-west-1.amazonaws.com/image_3.png, This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 11:19:40,935 INFO callback (194)  receiving UUID : 5d4788ad-66c1-4f91-813d-a46bd4e137cf
+2021-04-23 11:19:40,936 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 11:19:40,936 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 11:19:44,632 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 11:19:46,445 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 11:19:46,452 INFO storeToDB (81) Database connection successful
+2021-04-23 11:19:46,452 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 11:19:46,454 INFO storeToDB (105) Storing into database: 5d4788ad-66c1-4f91-813d-a46bd4e137cf, https://project-theia-test.s3-us-west-1.amazonaws.com/image_3.png, This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 11:27:39,273 INFO <module> (58) Starting backing end processors
+2021-04-23 11:27:39,361 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 11:27:43,520 INFO <module> (58) Starting backing end processors
+2021-04-23 11:27:44,070 INFO <module> (58) Starting backing end processors
+2021-04-23 11:27:49,378 INFO callback (194)  receiving UUID : a524e3b1-920a-48d0-8044-8eb4cb568197
+2021-04-23 11:27:49,379 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/coffeeText.JPG sending from image_path
+2021-04-23 11:27:49,380 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/coffeeText.JPG
+2021-04-23 11:27:49,651 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/coffeeText.JPG to s3 bucket : project-theia-test
+2021-04-23 11:27:51,057 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/coffeeText.JPG
+2021-04-23 11:27:51,073 INFO storeToDB (81) Database connection successful
+2021-04-23 11:27:51,074 INFO storeToDB (95) This is probably an image of Latte or Coffee Cup or Cup. The main subject appears to be a Milk. The image contains 1 Milk 
+2021-04-23 11:27:51,085 INFO storeToDB (105) Storing into database: a524e3b1-920a-48d0-8044-8eb4cb568197, https://project-theia-test.s3-us-west-1.amazonaws.com/coffeeText.JPG, This is probably an image of Latte or Coffee Cup or Cup. The main subject appears to be a Milk. The image contains 1 Milk 
+2021-04-23 11:32:18,246 INFO <module> (58) Starting backing end processors
+2021-04-23 11:32:18,320 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 11:32:25,121 INFO <module> (58) Starting backing end processors
+2021-04-23 11:32:25,641 INFO <module> (58) Starting backing end processors
+2021-04-23 11:32:35,085 INFO callback (194)  receiving UUID : 3b07f554-e9b5-4208-9f7d-9f2f60d13008
+2021-04-23 11:32:35,086 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 11:32:35,202 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 11:32:35,306 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 11:32:35,306 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:32:35,521 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 11:32:36,974 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:32:36,980 INFO storeToDB (81) Database connection successful
+2021-04-23 11:32:36,980 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 11:32:36,982 INFO storeToDB (105) Storing into database: 3b07f554-e9b5-4208-9f7d-9f2f60d13008, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 11:37:12,474 INFO <module> (58) Starting backing end processors
+2021-04-23 11:38:27,797 INFO <module> (58) Starting backing end processors
+2021-04-23 11:38:27,874 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 11:39:04,819 INFO <module> (58) Starting backing end processors
+2021-04-23 11:39:17,192 INFO <module> (58) Starting backing end processors
+2021-04-23 11:39:17,299 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 11:39:24,793 INFO callback (194)  receiving UUID : 855c87ea-deaf-4dca-8020-24239dfc5c04
+2021-04-23 11:39:24,793 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 11:39:24,794 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 11:39:27,260 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 11:39:28,888 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 11:39:28,897 INFO storeToDB (81) Database connection successful
+2021-04-23 11:39:28,898 INFO storeToDB (95) We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 11:39:28,899 INFO storeToDB (105) Storing into database: 855c87ea-deaf-4dca-8020-24239dfc5c04, https://project-theia-test.s3-us-west-1.amazonaws.com/image_2.png, We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 11:42:07,061 INFO <module> (58) Starting backing end processors
+2021-04-23 11:42:07,588 INFO <module> (58) Starting backing end processors
+2021-04-23 11:42:18,509 INFO callback (194)  receiving UUID : 56706d7d-0495-4f2f-9402-b35e21f863ea
+2021-04-23 11:42:18,513 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 11:42:18,640 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 11:42:18,751 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 11:42:18,751 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:42:18,963 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 11:42:19,993 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:42:19,998 INFO storeToDB (81) Database connection successful
+2021-04-23 11:42:19,998 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 11:42:19,999 INFO storeToDB (105) Storing into database: 56706d7d-0495-4f2f-9402-b35e21f863ea, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 11:44:46,978 INFO <module> (58) Starting backing end processors
+2021-04-23 11:44:47,502 INFO <module> (58) Starting backing end processors
+2021-04-23 11:44:51,434 INFO callback (194)  receiving UUID : eeaccdcf-acb8-4dfd-a706-88cd3aa614fe
+2021-04-23 11:44:51,434 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_1.png sending from image_path
+2021-04-23 11:44:51,434 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_1.png
+2021-04-23 11:44:54,407 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_1.png to s3 bucket : project-theia-test
+2021-04-23 11:44:56,026 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_1.png
+2021-04-23 11:44:56,040 INFO storeToDB (81) Database connection successful
+2021-04-23 11:44:56,042 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Road. The main subject appears to be a Person. The image contains 14 Cars 2 Persons 10 Wheels and 1 Skateboard 
+2021-04-23 11:44:56,057 INFO storeToDB (105) Storing into database: eeaccdcf-acb8-4dfd-a706-88cd3aa614fe, https://project-theia-test.s3-us-west-1.amazonaws.com/image_1.png, This is probably an image of Vehicle or Transportation or Road. The main subject appears to be a Person. The image contains 14 Cars 2 Persons 10 Wheels and 1 Skateboard 
+2021-04-23 11:46:11,290 INFO <module> (58) Starting backing end processors
+2021-04-23 11:46:11,799 INFO <module> (58) Starting backing end processors
+2021-04-23 11:46:20,246 INFO callback (194)  receiving UUID : 2dc4c37b-ef82-4f0d-831b-a6ddf93dc9e8
+2021-04-23 11:46:20,246 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 11:46:20,408 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 11:46:20,503 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 11:46:20,504 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:46:20,827 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 11:46:21,951 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 11:46:21,963 INFO storeToDB (81) Database connection successful
+2021-04-23 11:46:21,963 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 11:46:21,965 INFO storeToDB (105) Storing into database: 2dc4c37b-ef82-4f0d-831b-a6ddf93dc9e8, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:03:01,430 INFO <module> (58) Starting backing end processors
+2021-04-23 12:03:01,952 INFO <module> (58) Starting backing end processors
+2021-04-23 12:03:14,078 INFO callback (194)  receiving UUID : 381190e0-39e0-4c16-8e65-a2b0b20751c4
+2021-04-23 12:03:14,078 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 12:03:14,200 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 12:03:14,290 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 12:03:14,291 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:03:14,539 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 12:03:15,691 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:03:15,705 INFO storeToDB (81) Database connection successful
+2021-04-23 12:03:15,706 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:03:15,708 INFO storeToDB (105) Storing into database: 381190e0-39e0-4c16-8e65-a2b0b20751c4, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:06:44,854 INFO <module> (58) Starting backing end processors
+2021-04-23 12:06:45,388 INFO <module> (58) Starting backing end processors
+2021-04-23 12:06:53,780 INFO callback (194)  receiving UUID : 2431bb5f-bfe5-4b39-9e49-a135d3800f7c
+2021-04-23 12:06:53,780 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 12:06:53,781 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 12:06:57,449 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 12:06:59,212 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 12:06:59,218 INFO storeToDB (81) Database connection successful
+2021-04-23 12:06:59,219 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 12:06:59,220 INFO storeToDB (105) Storing into database: 2431bb5f-bfe5-4b39-9e49-a135d3800f7c, https://project-theia-test.s3-us-west-1.amazonaws.com/image_3.png, This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 12:08:08,329 INFO <module> (58) Starting backing end processors
+2021-04-23 12:08:08,840 INFO <module> (58) Starting backing end processors
+2021-04-23 12:08:19,054 INFO callback (194)  receiving UUID : 5468052e-0aa2-44cb-a47e-69ec10964b12
+2021-04-23 12:08:19,054 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 12:08:19,161 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 12:08:19,245 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 12:08:19,246 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:08:19,487 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 12:08:20,548 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:08:20,554 INFO storeToDB (81) Database connection successful
+2021-04-23 12:08:20,555 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:08:20,562 INFO storeToDB (105) Storing into database: 5468052e-0aa2-44cb-a47e-69ec10964b12, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:09:35,152 INFO callback (194)  receiving UUID : d0f6b232-cac2-4341-b70f-9b461ec2b29f
+2021-04-23 12:09:35,152 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 12:09:35,277 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 12:09:35,387 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 12:09:35,388 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:09:35,975 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 12:09:37,525 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:09:37,535 INFO storeToDB (81) Database connection successful
+2021-04-23 12:09:37,536 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:09:37,537 INFO storeToDB (105) Storing into database: d0f6b232-cac2-4341-b70f-9b461ec2b29f, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:10:36,972 INFO callback (194)  receiving UUID : fb2ec08b-a0b4-4237-9928-40b297f6a812
+2021-04-23 12:10:36,973 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 12:10:37,095 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 12:10:37,193 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 12:10:37,193 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:10:37,443 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 12:10:38,506 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:10:38,519 INFO storeToDB (81) Database connection successful
+2021-04-23 12:10:38,520 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:10:38,522 INFO storeToDB (105) Storing into database: fb2ec08b-a0b4-4237-9928-40b297f6a812, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:12:49,687 INFO callback (194)  receiving UUID : b76aaa90-ad1e-4026-ab42-15f110261a84
+2021-04-23 12:12:49,688 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 12:12:49,815 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 12:12:49,916 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 12:12:49,916 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:12:50,128 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 12:12:51,185 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:12:51,201 INFO storeToDB (81) Database connection successful
+2021-04-23 12:12:51,202 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:12:51,204 INFO storeToDB (105) Storing into database: b76aaa90-ad1e-4026-ab42-15f110261a84, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:18:38,758 INFO callback (194)  receiving UUID : 0df73e06-949e-4bc6-afd9-c1808fe3a83c
+2021-04-23 12:18:38,759 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 12:18:38,877 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 12:18:38,977 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 12:18:38,977 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:18:39,226 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 12:18:40,293 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 12:18:40,309 INFO storeToDB (81) Database connection successful
+2021-04-23 12:18:40,310 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 12:18:40,312 INFO storeToDB (105) Storing into database: 0df73e06-949e-4bc6-afd9-c1808fe3a83c, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 19:01:59,936 INFO <module> (58) Starting backing end processors
+2021-04-23 19:02:00,009 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 19:02:59,295 INFO callback (194)  receiving UUID : df889064-e777-4fd6-bcc9-40b345853fc6
+2021-04-23 19:02:59,295 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_2.png sending from image_path
+2021-04-23 19:02:59,296 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_2.png
+2021-04-23 19:03:01,773 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_2.png to s3 bucket : project-theia-test
+2021-04-23 19:03:03,520 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_2.png
+2021-04-23 19:03:03,534 INFO storeToDB (81) Database connection successful
+2021-04-23 19:03:03,534 INFO storeToDB (95) We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 19:03:03,535 INFO storeToDB (105) Storing into database: df889064-e777-4fd6-bcc9-40b345853fc6, https://project-theia-test.s3-us-west-1.amazonaws.com/image_2.png, We're not sure what's in the image, but it appears to be an image of City or Urban or Building
+2021-04-23 19:04:44,537 INFO callback (194)  receiving UUID : 36050496-f3cd-42cc-ac56-8931b2c777ca
+2021-04-23 19:04:44,537 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 19:04:44,687 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 19:04:44,796 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 19:04:44,797 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 19:04:45,042 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 19:04:46,094 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 19:04:46,105 INFO storeToDB (81) Database connection successful
+2021-04-23 19:04:46,106 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 19:04:46,107 INFO storeToDB (105) Storing into database: 36050496-f3cd-42cc-ac56-8931b2c777ca, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 19:05:22,625 INFO callback (194)  receiving UUID : a4d47158-0da9-41f8-be4e-041287c8d495
+2021-04-23 19:05:22,625 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 19:05:22,625 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 19:05:26,353 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 19:05:28,286 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 19:05:28,295 INFO storeToDB (81) Database connection successful
+2021-04-23 19:05:28,296 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 19:05:28,301 INFO storeToDB (105) Storing into database: a4d47158-0da9-41f8-be4e-041287c8d495, https://project-theia-test.s3-us-west-1.amazonaws.com/image_3.png, This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 20:14:40,935 INFO <module> (58) Starting backing end processors
+2021-04-23 20:14:41,032 INFO main (214) Starting rabbitMQ backend server...
+2021-04-23 20:15:18,430 INFO callback (194)  receiving UUID : 5ca69476-366f-453d-b0a3-ca8411ce2af0
+2021-04-23 20:15:18,430 INFO callback (195)  Incoming msg: https://i2.wp.com/ceklog.kindel.com/wp-content/uploads/2013/02/firefox_2018-07-10_07-50-11.png?fit=641%2C618&ssl=1 sending from image_url
+2021-04-23 20:15:18,582 INFO checkingImgURL (143)  Responsing url request: <Response [200]>
+2021-04-23 20:15:18,711 INFO checkingImgURL (162)  The URL provided is an image: firefox_2018-07-10_07-50-11.png
+2021-04-23 20:15:18,712 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/firefox_2018-07-10_07-50-11.png
+2021-04-23 20:15:18,977 INFO imgPathToS3 (122) Had successfully upload firefox_2018-07-10_07-50-11.png to s3 bucket : project-theia-test
+2021-04-23 20:15:20,035 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/firefox_2018-07-10_07-50-11.png
+2021-04-23 20:15:20,044 INFO storeToDB (81) Database connection successful
+2021-04-23 20:15:20,044 INFO storeToDB (95) This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 20:15:20,045 INFO storeToDB (105) Storing into database: 5ca69476-366f-453d-b0a3-ca8411ce2af0, https://project-theia-test.s3-us-west-1.amazonaws.com/firefox_2018-07-10_07-50-11.png, This is probably an image of Plant or Fruit or Food. The main subject appears to be a Apple. The image contains 1 Apple 
+2021-04-23 20:15:56,062 INFO callback (194)  receiving UUID : 6dce0c88-c358-4895-bbdc-eb66b1dc0a3b
+2021-04-23 20:15:56,062 INFO callback (195)  Incoming msg: /opt/theia/rabbitMQ/image_3.png sending from image_path
+2021-04-23 20:15:56,062 INFO imgPathToS3 (119) Joining the path for img upload to rabbitMQ dir: /opt/theia/rabbitMQ/image_3.png
+2021-04-23 20:16:00,129 INFO imgPathToS3 (122) Had successfully upload /opt/theia/rabbitMQ/image_3.png to s3 bucket : project-theia-test
+2021-04-23 20:16:01,963 INFO imgPathToS3 (126) Joining the path for img upload to new rabbitMQ Images dir: /opt/theia/rabbitMQ/Images/image_3.png
+2021-04-23 20:16:01,970 INFO storeToDB (81) Database connection successful
+2021-04-23 20:16:01,970 INFO storeToDB (95) This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 20:16:01,972 INFO storeToDB (105) Storing into database: 6dce0c88-c358-4895-bbdc-eb66b1dc0a3b, https://project-theia-test.s3-us-west-1.amazonaws.com/image_3.png, This is probably an image of Vehicle or Transportation or Windshield. The main subject appears to be a Car. The image contains 1 Car 2 Traffic Lights 1 Wheel and 1 Person 
+2021-04-23 20:24:06,324 INFO <module> (58) Starting backing end processors
+2021-04-23 20:24:06,401 INFO main (214) Starting rabbitMQ backend server...
