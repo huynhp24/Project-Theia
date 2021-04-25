@@ -10,7 +10,7 @@ from io import BytesIO
 import shutil
 import requests
 sys.path.insert(1,'/opt/theia/serverside')
-import labels, textdetect, language, Nat_Lang_Gen
+import labels, textdetect, Nat_Lang_Gen
 # from serverside import labels, textdetect
 import json, time
 import mysql.connector
