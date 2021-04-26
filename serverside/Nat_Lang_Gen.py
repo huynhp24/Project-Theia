@@ -95,6 +95,7 @@ def GenerateSummary(labels,textExtracted):
         pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
 
     print(labels)
+    print(pretty_parents)
 
     for label in labels:
         par_str = ""
