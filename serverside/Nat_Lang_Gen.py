@@ -66,6 +66,8 @@ def GenerateSummary(labels,textExtracted):
     collapsed = theCollapse(labels, "Frog")
     print(collapsed)
 
+    print(labels)
+
     for label in labels:
         par_str = ""
         ch = label[0]
