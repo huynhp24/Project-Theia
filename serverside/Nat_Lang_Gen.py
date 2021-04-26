@@ -87,6 +87,13 @@ def GenerateSummary(labels,textExtracted):
     for label in delete_list:
         del labels[label]
 
+    pretty_parents = defaultdict()
+    for label in labels:
+        pretty_parents[labels[label]['Parents']]={'Children': []}
+
+    for label in labels:
+        pretty_parents[labels[label]['Parents']]['Children'].append(label)
+
     print(labels)
 
     for label in labels:
@@ -97,7 +104,7 @@ def GenerateSummary(labels,textExtracted):
         else:
             labels[label]['prefix']='a'
 
-    for label in labels:
+    '''for label in labels:
         parents = labels[label]['Parents']
         prefix = labels[label]['prefix']
         if(len(parents)>0):
@@ -115,7 +122,15 @@ def GenerateSummary(labels,textExtracted):
             else:
                 summary += 'The '+finalLabels[label]+' is '+prefix + ' ' + label+'. '
         else:
-            summary += 'The image contains '+ prefix +' ' + label+'. '
+            summary += 'The image contains '+ prefix +' ' + label+'. '''
+    for label in pretty_parents:
+        kids=pretty_parents[label]['Children'][0]
+        if(len(pretty_parents[label]['Children'])>1):
+            for kid in label:
+                kids+=', '
+                kids+=kid
+        summary+= "The " + label + " is a " + kids
+        
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
         summary += 'The image has text, which says: ' + text_str + '.'
