@@ -45,7 +45,7 @@ def oldestAncestor(labels, label, level, maxLevel, res):
         parents = labels[label]['Parents']
         for parent in parents:
             if(labels[parent]['Confidence']>90):
-                oldestAncestor(labels, labels[parent], level, maxLevel, res)
+                oldestAncestor(labels, parent, level, maxLevel, res)
                 if (level > maxLevel[0]):
                     res[0] = label
                     maxLevel[0] = level
