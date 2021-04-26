@@ -47,14 +47,10 @@ def theCollapse(labels):
             # that is 90%
             if(len(parents)>0):
                 print("yeet")
-                lineage(labels, label)
-    return labels
-
-def lineage(labels, label):
-    # if it has a parent that is 90%, recurse
-    ancestor = ancestIt(labels, label)
-    labels[label]['Parents'] = ancestor
-    del labels['ancestor']
+                ancestor = ancestIt(labels, label)
+                labels[label]['Parents'] = ancestor
+                del labels['ancestor']
+    return labels    
 
 def ancestIt(labels, label):
     parents = labels[label]['Parents']
