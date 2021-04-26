@@ -101,6 +101,7 @@ def GenerateSummary(labels,textExtracted):
         parents = labels[label]['Parents']
         prefix = labels[label]['prefix']
         if(len(parents)>0):
+            par_str=""
             for ind,parent in enumerate(parents):
                 par_str+=parent
                 if ind+1 < len(parents):
