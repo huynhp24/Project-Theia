@@ -42,13 +42,15 @@ def LoadData(impLabels,text):
 
 def oldestAncestor(labels, label, level, maxLevel, res):
         level += 1
+        print(level)
         parents = labels[label]['Parents']
         for parent in parents:
             if(labels[parent]['Confidence']>90):
-                oldestAncestor(labels, parent, level, maxLevel, res)
                 if (level > maxLevel[0]):
                     res[0] = label
+                    print('deepest so far is :' + label)
                     maxLevel[0] = level
+                oldestAncestor(labels, parent, level, maxLevel, res)
          
 def theCollapse(labels, label) :
  
