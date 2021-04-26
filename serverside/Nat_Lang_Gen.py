@@ -54,12 +54,12 @@ def oldestAncestor(labels, label, level, res):
                     res[0] = label
                     print('deepest so far is :' + label)
                     maxLevel = level
-                oldestAncestor(labels, parent, maxLevel, res)
+                oldestAncestor(labels, parent, level, res)
          
 def theCollapse(labels, label) :
  
     res = [-1]
- 
+    level = 0
     global maxLevel
     maxLevel = -1
     oldestAncestor(labels, label, level, res)
