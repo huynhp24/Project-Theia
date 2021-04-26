@@ -125,9 +125,15 @@ def GenerateSummary(labels,textExtracted):
         else:
             summary += 'The image contains '+ prefix +' ' + label+'. '''
     for label in pretty_parents:
+        ch = label[0]
+        if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
+            prefix='an'
+        else:
+            prefix='a'
+
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "Some description of the " + label + ": " + kids
+        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids
         
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
