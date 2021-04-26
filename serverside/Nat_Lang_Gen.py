@@ -41,7 +41,6 @@ def LoadData(impLabels,text):
 '''
 
 def oldestAncestor(labels, label, level, maxLevel, res):
-        print(label)
         level += 1
         parents = labels[label]['Parents']
         for parent in parents:
