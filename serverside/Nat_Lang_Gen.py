@@ -74,7 +74,7 @@ def GenerateSummary(labels,textExtracted):
 
     for label in labels:
         collapsed = theCollapse(labels, label)
-        print(label " <---- " collapsed)
+        print(label + " <---- " + collapsed)
 
     print(labels)
 
