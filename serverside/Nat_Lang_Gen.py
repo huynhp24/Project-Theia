@@ -91,8 +91,13 @@ def GenerateSummary(labels,textExtracted):
     for label in labels:
         pretty_parents[labels[label]['Parents'][0]]={'Children': []}
 
+    pretty_loners = []
+
     for label in labels:
-        pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
+        if(len(labels[label]['Parents'])>0):
+            pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
+        else:
+            pretty_loners.append(label)
 
     print(labels)
     print(pretty_parents)
@@ -133,7 +138,20 @@ def GenerateSummary(labels,textExtracted):
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids+ "."
+        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids+ ". "
+
+    for label in pretty_loners:
+        ch = pretty_loners[label][0]
+        if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
+            prefix='an'
+        else:
+            prefix='a'
+        
+        pretty_loners[label]=prefix + ' ' + pretty_loners[label]
+
+    loners = 'Some other things we saw: ' + ', '.join(pretty_loners)
+
+    summary+=loners
         
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
