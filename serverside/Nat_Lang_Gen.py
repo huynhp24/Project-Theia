@@ -1,6 +1,7 @@
 import re
 from collections import defaultdict
 import textwrap
+import copy
 
 ###Constants###
 LABEL_SECTION = 'Label: '
@@ -43,7 +44,7 @@ def LoadData(impLabels,text):
 maxLevel = 0
 oldest = ""
 delete_list = defaultdict()
-def oldestAncestor(labels, label, level, res):
+def oldestAncestor(labels, label, level):
         global oldest
         global maxLevel
         level += 1
@@ -57,7 +58,7 @@ def oldestAncestor(labels, label, level, res):
                 maxLevel = level
             for parent in parents:
                 delete_list[parent]=""
-                oldestAncestor(labels, parent, level, oldest)
+                oldestAncestor(labels, parent, level)
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
@@ -66,7 +67,7 @@ def theCollapse(labels, label) :
     level = 0
     global maxLevel
     maxLevel = -1
-    oldestAncestor(labels, label, level, oldest)
+    oldestAncestor(labels, label, level)
     return oldest
 
 def GenerateSummary(labels,textExtracted):
@@ -77,7 +78,7 @@ def GenerateSummary(labels,textExtracted):
     global delete_list
     delete_list = defaultdict()
 
-    ref_labels = dict(labels)
+    ref_labels = copy.deepcopy(labels)
     for label in ref_labels:
         collapsed = theCollapse(ref_labels, label)
         print(label + " <---- " + collapsed)
