@@ -48,15 +48,19 @@ def theCollapse(labels):
             # that is 90%
             if(len(parents)>0):
                 ancestor = ancestIt(labels, label)
-                labels[label]['Parents'] = [ancestor]
-                print('ancestor: ' + ancestor)
-                deletion_list.append(ancestor)
+                for anc in ancestor:
+                    labels[label]['Parents']=[]
+                    labels[label]['Parents'].append(anc)
+                    print('ancestor: ' + anc)
+                    deletion_list.append(anc)
         else:
             parents = labels[label]['Parents']
             if(len(parents)>0):
                 ancestor = inverseAncestIt(labels, label)
-                labels[label]['Parents'] = [ancestor]
-                print('ancestor: ' + ancestor)
+                for anc in ancestor:
+                    labels[label]['Parents'] = []
+                    labels[label]['Parents'].append(anc)
+                    print('ancestor: ' + anc)
 
     for label in deletion_list:
         del labels[label]
