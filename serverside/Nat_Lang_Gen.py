@@ -56,7 +56,7 @@ def oldestAncestor(labels, label, level, res):
                 print('deepest so far is :' + label)
                 maxLevel = level
             for parent in parents:
-                delete_list.append(parent)
+                delete_list[parent]=""
                 oldestAncestor(labels, parent, level, oldest)
          
 def theCollapse(labels, label) :
