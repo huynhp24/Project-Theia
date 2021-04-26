@@ -50,6 +50,7 @@ def theCollapse(labels):
                 ancestor = ancestIt(labels, label)
                 labels[label]['Parents'] = ancestor
                 print('ancestor: ' + ancestor)
+                del labels[ancestor]
     return labels    
 
 def ancestIt(labels, label):
