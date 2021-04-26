@@ -43,6 +43,7 @@ def LoadData(impLabels,text):
 def oldestAncestor(labels, label, level, maxLevel, res):
         level += 1
         print(level)
+        print("looking at " + label)
         parents = labels[label]['Parents']
         for parent in parents:
             if(labels[parent]['Confidence']>90):
