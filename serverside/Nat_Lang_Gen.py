@@ -127,7 +127,7 @@ def GenerateSummary(labels,textExtracted):
     for label in pretty_parents:
         kids=pretty_parents[label]['Children'][0]
         if(len(pretty_parents[label]['Children'])>1):
-            for kid in label:
+            for kid in pretty_parents[label]['Children']:
                 kids+=', '
                 kids+=kid
         summary+= "The " + label + " is a " + kids
