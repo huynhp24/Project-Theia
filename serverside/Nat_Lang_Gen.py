@@ -50,12 +50,12 @@ def oldestAncestor(labels, label, level, res):
         print(level)
         print("looking at " + label)
         parents = labels[label]['Parents']
-        for parent in parents:
-            if(labels[parent]['Confidence']>90):
-                if (level > maxLevel):
-                    oldest = label
-                    print('deepest so far is :' + label)
-                    maxLevel = level
+        if(labels[label]['Confidence']>90):
+            if (level > maxLevel):
+                oldest = label
+                print('deepest so far is :' + label)
+                maxLevel = level
+            for parent in parents:
                 oldestAncestor(labels, parent, level, oldest)
          
 def theCollapse(labels, label) :
