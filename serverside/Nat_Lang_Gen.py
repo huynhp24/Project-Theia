@@ -151,9 +151,10 @@ def GenerateSummary(labels,textExtracted):
         
         pretty_loners[label]=prefix + ' ' + pretty_loners[label]
 
-    loners = 'Some other things we saw: ' + ', '.join(pretty_loners)
+    if(len(pretty_loners)>0):
+        loners = 'Some other things we saw: ' + ', '.join(pretty_loners)
 
-    summary+=loners
+        summary+=loners
         
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
