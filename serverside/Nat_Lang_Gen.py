@@ -89,10 +89,10 @@ def GenerateSummary(labels,textExtracted):
 
     pretty_parents = defaultdict()
     for label in labels:
-        pretty_parents[labels[label]['Parents']]={'Children': []}
+        pretty_parents[labels[label]['Parents'][0]]={'Children': []}
 
     for label in labels:
-        pretty_parents[labels[label]['Parents']]['Children'].append(label)
+        pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
 
     print(labels)
 
