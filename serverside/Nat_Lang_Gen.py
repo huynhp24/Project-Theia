@@ -40,19 +40,52 @@ def LoadData(impLabels,text):
                 "bottom": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}}}
 '''
 
+def theCollapse(labels):
+    for label in labels:
+        if (labels[label]['Confidence'] > 90):
+            parents = labels[label]['Parents']
+            # that is 90%
+            if(len(parents)>0):
+                print("yeet")
+                lineage(labels, label)
+    return labels
+
+def lineage(labels, label):
+    # if it has a parent that is 90%, recurse
+    ancestor = ancestIt(labels, label)
+    labels[label]['Parents'] = ancestor
+    del labels['ancestor']
+
+def ancestIt(labels, label):
+    parents = labels[label]['Parents']
+    if(len(parents)>0):
+        for parent in parents:
+            if (labels[parent]['Confidence'] > 90):
+                return ancestIt(labels, parent)
+            else:
+                return label
+    else:
+        return label
+
 def GenerateSummary(labels,textExtracted):
     summary=""
     finalLabels = defaultdict()
     # collapse into parent
+
+    labels = theCollapse(labels)
+    print(labels)
+
     for label in labels:
-        parents = labels[label]['Parents']
         par_str = ""
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
-            prefix='an'
+            labels[label]['prefix']='an'
         else:
-            prefix='a'
-            
+            labels[label]['prefix']='a'
+
+    for label in labels:
+        parents = labels[label]['Parents']
+        prefix = labels[label]['prefix']
         if(len(parents)>0):
             for ind,parent in enumerate(parents):
                 par_str+=parent
