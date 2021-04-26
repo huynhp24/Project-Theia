@@ -47,6 +47,8 @@ def oldestAncestor(labels, label, level, res):
         global oldest
         global maxLevel
         level += 1
+        print(level)
+        print("looking at " + label)
         parents = labels[label]['Parents']
         if(labels[label]['Confidence']>90):
             if (level > maxLevel):
@@ -58,6 +60,7 @@ def oldestAncestor(labels, label, level, res):
                 oldestAncestor(labels, parent, level, oldest)
          
 def theCollapse(labels, label) :
+    print("The quest for: " + label)
     global oldest
     oldest = ""
     level = 0
@@ -73,15 +76,15 @@ def GenerateSummary(labels,textExtracted):
 
     global delete_list
     delete_list = defaultdict()
-    for label in labels:
-        collapsed = theCollapse(labels, label)
+
+    ref_labels = labels
+    for label in ref_labels:
+        collapsed = theCollapse(ref_labels, label)
         print(label + " <---- " + collapsed)
         labels[label]['Parents']=[collapsed]
-
-    #for label in delete_list:
-    #    del labels[label]
-
-    print(delete_list)
+    
+    for label in delete_list:
+        del labels[label]
 
     print(labels)
 
