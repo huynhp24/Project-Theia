@@ -82,7 +82,8 @@ def GenerateSummary(labels,textExtracted):
     for label in ref_labels:
         collapsed = theCollapse(ref_labels, label)
         print(label + " <---- " + collapsed)
-        labels[label]['Parents']=[collapsed]
+        if(len(collapsed)>0):
+            labels[label]['Parents']=[collapsed]
     
     for label in delete_list:
         del labels[label]
