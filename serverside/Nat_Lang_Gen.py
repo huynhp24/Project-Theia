@@ -127,7 +127,7 @@ def GenerateSummary(labels,textExtracted):
     for label in pretty_parents:
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "The " + label + " is a " + kids
+        summary+= "Some description of the " + label + ": " + kids
         
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
