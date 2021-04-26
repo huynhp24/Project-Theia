@@ -63,7 +63,7 @@ def GenerateSummary(labels,textExtracted):
     finalLabels = defaultdict()
     # collapse into parent
 
-    collapsed = theCollapse(labels, labels[len(labels)-1])
+    collapsed = theCollapse(labels, labels["Frog"])
     print(collapsed)
 
     for label in labels:
