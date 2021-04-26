@@ -41,6 +41,7 @@ def LoadData(impLabels,text):
 '''
 
 def theCollapse(labels):
+    deletion_list = []
     for label in labels:
         if (labels[label]['Confidence'] > 90):
             parents = labels[label]['Parents']
@@ -50,7 +51,10 @@ def theCollapse(labels):
                 ancestor = ancestIt(labels, label)
                 labels[label]['Parents'] = ancestor
                 print('ancestor: ' + ancestor)
-                del labels[ancestor]
+                deletion_list.append(ancestor)
+
+    for label in deletion_list:
+        del labels[label]
     return labels    
 
 def ancestIt(labels, label):
