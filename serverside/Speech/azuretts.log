@@ -1,0 +1,108 @@
+2021-04-25 17:50:01,794 INFO <module> (30) Running Azure TTS
+2021-04-25 17:51:16,485 INFO <module> (30) Running Azure TTS
+2021-04-25 17:51:16,485 INFO get_token (32) Retrieving access token
+2021-04-25 17:51:17,169 INFO get_audio_file (41) Generating audio file
+2021-04-25 17:51:18,004 INFO get_audio_file (57) Successfully generated audio file
+2021-04-25 17:51:18,004 INFO get_audio_file (58) Saving file to /opt/theia/backend/file.wav
+2021-04-25 17:51:38,557 INFO <module> (30) Running Azure TTS
+2021-04-25 17:51:38,557 INFO get_token (32) Retrieving access token
+2021-04-25 17:51:39,144 INFO get_audio_file (41) Generating audio file
+2021-04-25 17:51:39,777 INFO get_audio_file (57) Successfully generated audio file
+2021-04-25 17:51:39,777 INFO get_audio_file (58) Saving file to ./file.wav
+2021-04-25 18:00:37,715 INFO <module> (40) Running Azure TTS
+2021-04-25 18:06:32,190 INFO <module> (40) Running Azure TTS
+2021-04-25 18:15:59,816 INFO <module> (30) Running Azure TTS
+2021-04-25 18:16:24,262 INFO <module> (30) Running Azure TTS
+2021-04-25 18:16:24,263 INFO get_token (33) Retrieving access token
+2021-04-25 18:16:24,859 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:16:59,575 INFO <module> (30) Running Azure TTS
+2021-04-25 18:16:59,575 INFO get_token (33) Retrieving access token
+2021-04-25 18:17:00,176 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:17:13,852 INFO <module> (30) Running Azure TTS
+2021-04-25 18:17:13,852 INFO get_token (33) Retrieving access token
+2021-04-25 18:17:14,378 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:17:15,536 INFO get_audio_file (58) Successfully generated audio file
+2021-04-25 18:17:15,536 INFO get_audio_file (59) Saving file to ./file.wav
+2021-04-25 18:17:57,014 INFO <module> (30) Running Azure TTS
+2021-04-25 18:17:57,015 INFO main_function (76) b'Pizza is great, c\xc3\xb3 m\xe1\xbb\x99t bu\xe1\xbb\x95i s\xc3\xa1ng t\xe1\xbb\x91t '
+2021-04-25 18:17:57,015 INFO get_token (33) Retrieving access token
+2021-04-25 18:17:57,629 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:17:58,761 INFO get_audio_file (58) Successfully generated audio file
+2021-04-25 18:17:58,762 INFO get_audio_file (59) Saving file to ./file.wav
+2021-04-25 18:18:11,552 INFO <module> (30) Running Azure TTS
+2021-04-25 18:18:11,594 INFO get_token (33) Retrieving access token
+2021-04-25 18:18:12,129 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:18:40,640 INFO <module> (30) Running Azure TTS
+2021-04-25 18:18:40,647 INFO get_token (33) Retrieving access token
+2021-04-25 18:18:41,396 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:21:11,667 INFO <module> (30) Running Azure TTS
+2021-04-25 18:21:11,675 INFO get_token (33) Retrieving access token
+2021-04-25 18:21:12,472 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:21:48,879 INFO <module> (30) Running Azure TTS
+2021-04-25 18:21:48,888 INFO get_token (33) Retrieving access token
+2021-04-25 18:21:49,922 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:23:37,770 INFO <module> (30) Running Azure TTS
+2021-04-25 18:23:37,823 INFO get_token (33) Retrieving access token
+2021-04-25 18:23:38,792 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:25:47,861 INFO <module> (30) Running Azure TTS
+2021-04-25 18:25:47,867 INFO get_token (33) Retrieving access token
+2021-04-25 18:25:48,700 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:26:38,147 INFO <module> (30) Running Azure TTS
+2021-04-25 18:26:38,155 INFO get_token (33) Retrieving access token
+2021-04-25 18:26:38,916 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:26:39,414 ERROR get_audio_file (65) Error generating audio file: 415 b''
+2021-04-25 18:27:27,538 INFO <module> (30) Running Azure TTS
+2021-04-25 18:27:27,546 INFO get_token (33) Retrieving access token
+2021-04-25 18:27:28,357 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:27:29,120 INFO get_audio_file (58) Successfully generated audio file
+2021-04-25 18:27:29,120 INFO get_audio_file (59) Saving file to ./file.wav
+2021-04-25 18:28:03,277 INFO <module> (30) Running Azure TTS
+2021-04-25 18:28:03,285 INFO get_token (33) Retrieving access token
+2021-04-25 18:28:04,021 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:28:04,713 INFO get_audio_file (58) Successfully generated audio file
+2021-04-25 18:28:04,713 INFO get_audio_file (59) Saving file to ./file.wav
+2021-04-25 18:31:20,913 INFO <module> (30) Running Azure TTS
+2021-04-25 18:31:20,919 INFO get_token (33) Retrieving access token
+2021-04-25 18:31:21,830 INFO get_audio_file (42) Generating audio file
+2021-04-25 18:31:22,503 INFO get_audio_file (58) Successfully generated audio file
+2021-04-25 18:31:22,503 INFO get_audio_file (59) Saving file to ./file.wav
+2021-04-25 18:38:52,929 INFO <module> (31) Running Azure TTS
+2021-04-25 18:38:53,915 INFO get_token (34) Retrieving access token
+2021-04-25 18:38:54,373 INFO get_audio_file (43) Generating audio file
+2021-04-25 18:38:55,463 INFO get_audio_file (59) Successfully generated audio file
+2021-04-25 18:38:55,463 INFO get_audio_file (60) Saving file to ./file.wav
+2021-04-25 18:39:28,849 INFO <module> (31) Running Azure TTS
+2021-04-25 18:39:29,547 INFO get_token (34) Retrieving access token
+2021-04-25 18:39:30,019 INFO get_audio_file (43) Generating audio file
+2021-04-25 18:39:30,814 INFO get_audio_file (59) Successfully generated audio file
+2021-04-25 18:39:30,814 INFO get_audio_file (60) Saving file to ./file.wav
+2021-04-25 18:40:20,914 INFO <module> (31) Running Azure TTS
+2021-04-25 18:40:21,420 INFO get_token (34) Retrieving access token
+2021-04-25 18:40:21,867 INFO get_audio_file (43) Generating audio file
+2021-04-25 18:40:22,659 INFO get_audio_file (59) Successfully generated audio file
+2021-04-25 18:40:22,659 INFO get_audio_file (60) Saving file to ./file.wav
+2021-04-25 18:42:16,911 INFO <module> (31) Running Azure TTS
+2021-04-25 18:42:17,601 INFO get_token (34) Retrieving access token
+2021-04-25 18:42:18,041 INFO get_audio_file (43) Generating audio file
+2021-04-25 18:42:18,640 INFO get_audio_file (59) Successfully generated audio file
+2021-04-25 18:42:18,640 INFO get_audio_file (60) Saving file to ./file.wav
+2021-04-25 18:46:13,212 INFO <module> (32) Running Azure TTS
+2021-04-25 18:46:13,903 INFO get_token (35) Retrieving access token
+2021-04-25 18:46:14,524 INFO get_audio_file (44) Generating audio file
+2021-04-25 18:46:16,049 INFO get_audio_file (60) Successfully generated audio file
+2021-04-25 18:46:16,049 INFO get_audio_file (61) Saving file to ./2eb4d88a-a631-11eb-9eeb-c8348e1e92cf.mp3
+2021-04-25 19:04:02,408 INFO <module> (32) Running Azure TTS
+2021-04-25 19:04:03,474 INFO get_token (46) Retrieving access token
+2021-04-25 19:04:04,072 INFO get_audio_file (55) Generating audio file
+2021-04-25 19:04:07,246 INFO get_audio_file (71) Successfully generated audio file
+2021-04-25 19:04:07,246 INFO get_audio_file (72) Saving file to ./ac781c00-a633-11eb-bdc5-c8348e1e92cf.mp3
+2021-04-25 19:06:19,713 INFO <module> (32) Running Azure TTS
+2021-04-25 19:06:20,561 INFO get_token (38) Retrieving access token
+2021-04-25 19:06:20,988 INFO get_audio_file (47) Generating audio file
+2021-04-25 19:06:21,527 INFO get_audio_file (63) Successfully generated audio file
+2021-04-25 19:06:21,528 INFO get_audio_file (64) Saving file to ./fdd614b4-a633-11eb-b2ea-c8348e1e92cf.mp3
+2021-04-25 19:11:41,783 INFO <module> (32) Running Azure TTS
+2021-04-25 19:11:42,518 INFO get_token (38) Retrieving access token
+2021-04-25 19:11:43,042 INFO get_audio_file (47) Generating audio file
+2021-04-25 19:11:43,681 INFO get_audio_file (63) Successfully generated audio file
+2021-04-25 19:11:43,681 INFO get_audio_file (64) Saving file to ./be0de60c-a634-11eb-aa06-c8348e1e92cf.mp3
