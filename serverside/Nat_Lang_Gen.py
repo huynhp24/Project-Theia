@@ -143,7 +143,7 @@ def GenerateSummary(labels,textExtracted):
         summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids+ ". "
 
     for label in pretty_loners:
-        ch = pretty_loners[label][0]
+        ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
             prefix='an'
         else:
