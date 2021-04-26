@@ -42,7 +42,7 @@ def LoadData(impLabels,text):
 
 maxLevel = 0
 oldest = ""
-delete_list = []
+delete_list = defaultdict()
 def oldestAncestor(labels, label, level, res):
         global oldest
         global maxLevel
@@ -75,7 +75,7 @@ def GenerateSummary(labels,textExtracted):
     # collapse into parent
 
     global delete_list
-    delete_list = []
+    delete_list = defaultdict()
     for label in labels:
         collapsed = theCollapse(labels, label)
         print(label + " <---- " + collapsed)
