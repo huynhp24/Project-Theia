@@ -40,61 +40,31 @@ def LoadData(impLabels,text):
                 "bottom": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}}}
 '''
 
-def theCollapse(labels):
-    deletion_list = []
-    for label in labels:
-        if (labels[label]['Confidence'] > 90):
-            parents = labels[label]['Parents']
-            # that is 90%
-            if(len(parents)>0):
-                ancestor = ancestIt(labels, label)
-                for anc in ancestor:
-                    labels[label]['Parents']=[]
-                    labels[label]['Parents'].append(anc)
-                    print('ancestor: ' + anc)
-                    deletion_list.append(anc)
-        else:
-            parents = labels[label]['Parents']
-            if(len(parents)>0):
-                ancestor = inverseAncestIt(labels, label)
-                for anc in ancestor:
-                    labels[label]['Parents'] = []
-                    labels[label]['Parents'].append(anc)
-                    print('ancestor: ' + anc)
-
-    for label in deletion_list:
-        del labels[label]
-    return labels    
-
-def ancestIt(labels, label):
-    parents = labels[label]['Parents']
-    if(len(parents)>0):
+def oldestAncestor(labels, label, level, maxLevel, res):
+        level += 1
+        parents = labels[label]['Parents']
         for parent in parents:
-            if (labels[parent]['Confidence'] > 90):
-                return ancestIt(labels, parent)
-            else:
-                return label
-    else:
-        return label
-
-def inverseAncestIt(labels, label):
-    parents = labels[label]['Parents']
-    if(len(parents)>0):
-        for parent in parents:
-            if (labels[parent]['Confidence'] > 90):
-                return label
-            else:
-                return ancestIt(labels, parent)
-    else:
-        return label
+            if(labels[parent]['Confidence']>90):
+                oldestAncestor(labels, labels[parent], level, maxLevel, res)
+                if (level > maxLevel[0]):
+                    res[0] = label
+                    maxLevel[0] = level
+         
+def theCollapse(labels, label) :
+ 
+    res = [-1]
+    maxLevel = [-1]
+ 
+    oldestAncestor(labels, label, 0, maxLevel, res)
+    return res[0]
 
 def GenerateSummary(labels,textExtracted):
     summary=""
     finalLabels = defaultdict()
     # collapse into parent
 
-    labels = theCollapse(labels)
-    print(labels)
+    collapsed = theCollapse(labels, labels[len(labels)-1])
+    print(collapsed)
 
     for label in labels:
         par_str = ""
