@@ -59,6 +59,7 @@ def oldestAncestor(labels, label, level, res):
                 oldestAncestor(labels, parent, level, oldest)
          
 def theCollapse(labels, label) :
+    print("The quest for: " + label)
     global oldest
     oldest = ""
     level = 0
