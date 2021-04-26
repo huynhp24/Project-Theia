@@ -80,8 +80,10 @@ def GenerateSummary(labels,textExtracted):
         collapsed = theCollapse(labels, label)
         print(label + " <---- " + collapsed)
 
-    for label in delete_list:
-        del labels[label]
+    #for label in delete_list:
+    #    del labels[label]
+
+    print(delete_list)
 
     print(labels)
 
