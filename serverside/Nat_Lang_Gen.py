@@ -152,13 +152,14 @@ def GenerateSummary(labels,textExtracted):
         label=prefix + ' ' + label
 
     if(len(pretty_loners)>0):
-        loners = 'Some other things we saw: ' + ', '.join(pretty_loners)
+        last = pretty_loners.pop()
+        loners = 'Some other things we saw: ' + ', '.join(pretty_loners[:-1]) + ' and '+ last + ". "
 
         summary+=loners
         
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
-        summary += 'The image has text, which says: ' + text_str + '.'
+        summary += 'The image has text, which says: ' + text_str + '. '
     # sort into locations
     # location_stuff(labels)
     # append
