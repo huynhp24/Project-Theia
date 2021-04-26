@@ -133,7 +133,7 @@ def GenerateSummary(labels,textExtracted):
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids
+        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids+ "."
         
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
