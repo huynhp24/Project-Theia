@@ -77,7 +77,7 @@ def GenerateSummary(labels,textExtracted):
     global delete_list
     delete_list = defaultdict()
 
-    ref_labels = labels
+    ref_labels = dict(labels)
     for label in ref_labels:
         collapsed = theCollapse(ref_labels, label)
         print(label + " <---- " + collapsed)
