@@ -10,7 +10,8 @@ from io import BytesIO
 import shutil
 import requests
 sys.path.insert(1,'/opt/theia/serverside')
-import labels, textdetect, Nat_Lang_Gen
+import labels, textdetect, Nat_Lang_Gen, translate
+    # Nat_Lang_Gen
 # from serverside import labels, textdetect
 import json, time
 import mysql.connector
@@ -71,7 +72,7 @@ db_password = config['database']['password']
 db_dbname = config['database']['dbname']
 
 
-def storeToDB(imgFile, id):
+def storeToDB(imgFile, id, lan):
     conn = mysql.connector.connect(user= db_user, password= db_password,
                                    host= db_host,
                                    database= db_dbname)
@@ -88,24 +89,26 @@ def storeToDB(imgFile, id):
         filestamp = time.strftime('%Y-%m-%d-%I:%M')
         with open('label.json', 'r') as f:
             labelResult = json.load(f)
-        with open('imgText.json', 'r') as j:
-            textInImage = json.load(j)
 
-        # make json file from dict to string
-        sen = Nat_Lang_Gen.Run(labelResult,textInImage)
-
+        # audio_file = audio.generate_tts_audio_file(sen,id)
         labelJson = json.dumps(labelResult)
-        l.info(sen)
 
+        # l.info(" audio file location: " + audio_file)
 
         with open('imgText.json', 'r') as f:
             textResult = json.load(f)
         # make json file from dict to string
         textJson = json.dumps(textResult)
 
-        tsql = "insert into jsondata(uuid, image_Location, label_list, detect_text, sentence, file_date) values (%s, %s, %s, %s, %s, %s)"
-        cur.execute(tsql, (id, url, labelJson, textJson, sen, filestamp))
-        l.info('Storing into database: ' + str(id) + ', ' + str(url) + ', ' + str(sen))
+        sen = Nat_Lang_Gen.Run(labelResult, textResult)
+        audio_file, translate_text = translate.textToSpeech(sen, id, lan)
+        # print(type(translate_text))
+        # print(translate_text)
+        l.info("Incoming url " + str(audio_file))
+
+        tsql = "insert into jsondata(uuid, image_Location, label_list, detect_text, sentence, audio_Location, file_date) values (%s, %s, %s, %s, %s, %s, %s)"
+        cur.execute(tsql, (id, url, labelJson, textJson, translate_text, audio_file, filestamp))
+        l.info('Storing into database: ' + str(id) + ', ' + str(url) + ', ' + str(translate_text) + ', ' + str(audio_file ))
         conn.commit()
 
     else:
@@ -114,7 +117,7 @@ def storeToDB(imgFile, id):
     cur.close()
     conn.close()
 
-def imgPathToS3(imgPath, uuid):
+def imgPathToS3(imgPath, uuid, lan):
     imgFile = os.path.basename(imgPath)
     # print(imgFile)
     print('--------')
@@ -125,7 +128,6 @@ def imgPathToS3(imgPath, uuid):
         l.info('Had successfully upload ' + imgPath + " to s3 bucket : " + S3PATH)
     textInImage = textdetect.detect_text(imgFile, S3PATH)
     labelResult = labels.detect_labels(imgFile, S3PATH)
-
     newpath = os.path.join(DEST, imgFile)
     l.info('Joining the path for img upload to new rabbitMQ Images dir: ' + newpath)
     shutil.move(path, newpath)
@@ -136,11 +138,11 @@ def imgPathToS3(imgPath, uuid):
     with open('imgText.json', 'w') as j:
         json.dump(textInImage, j)
 
-    storeToDB(imgFile, uuid)
+    storeToDB(imgFile, uuid, lan)
 
 
 
-def checkingImgURL(img, uuid):
+def checkingImgURL(img, uuid, lan):
     try:
         req = Request(img, headers={'User-Agent': 'Mozilla/5.0'})  # to unblock server security
         response = requests.get(img)
@@ -164,9 +166,7 @@ def checkingImgURL(img, uuid):
             imgurl = Image.open(imgFile)
             imgurl.close()
             l.info(" The URL provided is an image: " + imgFile)
-            imgPathToS3(imgFile, uuid)
-
-            # print("This is an image url")
+            imgPathToS3(imgFile, uuid, lan)
 
         else:
             l.error(" Not an image file. Only accpet URL ends with .png or .jpg")
@@ -187,19 +187,20 @@ def receive(rmq_q):
         # print(type(res))
         imgname = res['msg']
         uuid = res['uuid']
-
+        lan = res['language']
         # print(imgname)
         # print(type(imgname))
         # print(uuid)
         l.info(" receiving UUID : " + uuid)
+        l.info(" receiving language : " + lan)
         l.info(" Incoming msg: " + imgname + " sending from " + rmq_q)
 
         if (rmq_q == 'image_url'):
-            checkingImgURL(imgname, uuid)
+            checkingImgURL(imgname, uuid, lan)
 
         else:
             print('imagePath')
-            imgPathToS3(imgname, uuid)
+            imgPathToS3(imgname, uuid, lan)
 
         print('*******************')
 
@@ -222,11 +223,11 @@ def main():
         t2.start()
         # l.info("Starting thread : " + str(t1) + ", and thread: " +str(t2))
     except:
-        print("Unable to start thread")
+        l.error("Unable to start thread")
 
         return False
     else:
-        print("end")
+        l.info("end")
 
 
 

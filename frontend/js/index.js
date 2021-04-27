@@ -129,7 +129,7 @@ function reqListener() {
             url: `${path_uuid}`,
             method: "GET",
             headers: {'Content-Type': 'application/json'},
-            timeout: 10000,
+            timeout: 20000,
         })
         .then((res) => {
                 console.log(res);
@@ -166,9 +166,6 @@ function reqListener() {
                 alert("Sorry something went wrong. Please try again.");
             });
         };
-
-    
-    
 
     fetchResult();
 }

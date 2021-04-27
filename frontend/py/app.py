@@ -96,9 +96,11 @@ def send_rabbitmq(rmq_queue,msg):  # Sends message to rabbitMQ
 @app.route(api_route, methods=['POST']) # The sendURL post request
 def send_image_url():  # What to do if receive URL
     img_url = str(request.data.decode())
+    lan = request.headers.get('language')
     l.info("Incoming URL request: " + img_url)
+    l.info("Incoming language from image url: " + str(lan))
     new_uuid = str(uuid.uuid4())
-    json_data = json.dumps({'msg': img_url, 'uuid': new_uuid})
+    json_data = json.dumps({'msg': img_url, 'uuid': new_uuid, 'language' : lan})
     send_rabbitmq(rmq_queue=rmq_url_image_q, msg=json_data)
     return new_uuid
 
@@ -133,6 +135,8 @@ def upload_file():  # What to do when it uploads a file
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
+            lan = request.headers.get('language')
+            l.info("Incoming language from upload file: " + str(lan))
             l.info("Incoming file: " + filename + " verified. Saving and sending to RMQ")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
@@ -140,13 +144,11 @@ def upload_file():  # What to do when it uploads a file
             new_uuid = str(uuid.uuid4())
             print(image_location)
             print(new_uuid)
-            # lan = request.args.get('uuid')
-            # lan = lan.split('=')[1]
-            json_data = json.dumps({'msg': image_location, 'uuid': new_uuid, 'language': 'english'})
+
+            json_data = json.dumps({'msg': image_location, 'uuid': new_uuid, 'language': lan})
 
             send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=json_data)
             return new_uuid
-
 
 
 @app.route(info_path, methods=['GET'])
@@ -155,28 +157,28 @@ def get_data():
     img_uuid = request.args.get('uuid')
     print(img_uuid)
     t_uuid = img_uuid.split('?')[0]
-    lan = img_uuid.split('=')[1]
-    print(lan)
-    for i in range(1,10):
+
+    for i in range(1,20):
         try:
             print("Getting data with:" + t_uuid)
             conn = mysql.connector.connect(user= db_user, password= db_password,
-                                           host= db_host ,
-                                           database= db_dbname)
+                               host= db_host ,
+                               database= db_dbname)
             cur = conn.cursor()
-            sql = "select uuid, image_Location, label_list, detect_text, sentence, file_date from jsondata where uuid = '" + t_uuid + "'"
+            sql = "select uuid, image_Location, label_list, detect_text, sentence, audio_Location, file_date from jsondata where uuid = '" + t_uuid + "'"
             cur.execute(sql)
             result = cur.fetchone()
             uid = result[0]
             imgLocation = result[1]
             sen = result[4]
-
+            audio_Location = result[5]
+            print(audio_Location)
 
             sample_json = '''{"uuid": "''' + uid + '''",
 "img_file": "''' + imgLocation + '''",
 "nat_sentence": "''' + sen + '''",
-"audio_file_location": "https://project-theia-test.s3-us-west-1.amazonaws.com/BeautifulGoblinOSTBeat-Crush-4709474.mp3"}'''
-
+"audio_file_location": "''' + audio_Location + '''"}'''
+            # "https://project-theia-test.s3-us-west-1.amazonaws.com/BeautifulGoblinOSTBeat-Crush-4709474.mp3"
             l.info(sample_json)
             return sample_json
         except:
