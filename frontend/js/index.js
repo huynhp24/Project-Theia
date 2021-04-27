@@ -148,7 +148,7 @@ function reqListener() {
                                 <h2 style="color:#191970;">RESULTS</h2>
                                 <img src="${img_file}" alt="${uuid}" class="container" style="width: 90vw; display:block;">
                                 <br>
-                                <p>${nat_sentence}</p>
+                                <p>${nat_sentence}</p> 
                                 <br>
                                 <audio controls><source src="${audio_file_location}"></audio>
                             </div>
@@ -167,9 +167,6 @@ function reqListener() {
             });
         };
 
-
-
-
     fetchResult();
 }
 
@@ -187,7 +184,7 @@ function submitURL() {
     const img_url = document.querySelector('#pasteURL').value;
 
     const xhr = new XMLHttpRequest();
-    xhr.addEventListener("load", reqListener)
+    xhr.addEventListener("load", reqListener);
     xhr.open('POST', '/theia/api/v1.0/img_url', true);
     xhr.setRequestHeader('Content-Type', 'plain/text');
     xhr.setRequestHeader("language", language);
