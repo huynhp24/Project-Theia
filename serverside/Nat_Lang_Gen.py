@@ -70,7 +70,7 @@ def GenerateSummary(labels,textExtracted):
             summary += 'The image contains '+ prefix +' ' + label+'. '
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
-        summary += 'The image has text, which says, \"' + text_str + '\".'
+        summary += 'The image has text, which says, ' + text_str + '.'
     # sort into locations
     # location_stuff(labels)
     # append
