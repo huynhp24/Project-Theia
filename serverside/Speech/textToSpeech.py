@@ -6,9 +6,9 @@ import boto3
 from azure.cognitiveservices.speech import AudioDataStream, SpeechSynthesizer, SpeechConfig
 from botocore.exceptions import ClientError
 
-speech_key = "4abfe9e3418d46deab7c6ec2b27f9fb7"
-service_region = "eastus"
-bucket = "project-theia-test"
+speech_key = ""
+service_region =
+bucket = ""
 # speak out loud
 def text_to_speech_function(text):
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
