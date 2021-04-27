@@ -1,6 +1,7 @@
 import re
 from collections import defaultdict
 import textwrap
+import copy
 
 ###Constants###
 LABEL_SECTION = 'Label: '
@@ -40,20 +41,82 @@ def LoadData(impLabels,text):
                 "bottom": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}}}
 '''
 
+maxLevel = 0
+oldest = ""
+delete_list = defaultdict()
+def oldestAncestor(labels, label, level):
+        global oldest
+        global maxLevel
+        level += 1
+        print(level)
+        print("looking at " + label)
+        parents = labels[label]['Parents']
+        if(labels[label]['Confidence']>90):
+            if (level > maxLevel):
+                oldest = label
+                print('deepest so far is :' + label)
+                maxLevel = level
+            for parent in parents:
+                delete_list[parent]=""
+                oldestAncestor(labels, parent, level)
+         
+def theCollapse(labels, label) :
+    print("The quest for: " + label)
+    global oldest
+    oldest = ""
+    level = 0
+    global maxLevel
+    maxLevel = -1
+    oldestAncestor(labels, label, level)
+    return oldest
+
 def GenerateSummary(labels,textExtracted):
     summary=""
     finalLabels = defaultdict()
     # collapse into parent
+
+    global delete_list
+    delete_list = defaultdict()
+
+    ref_labels = copy.deepcopy(labels)
+    for label in ref_labels:
+        collapsed = theCollapse(ref_labels, label)
+        print(label + " <---- " + collapsed)
+        if(len(collapsed)>0):
+            labels[label]['Parents']=[collapsed]
+    
+    for label in delete_list:
+        del labels[label]
+
+    pretty_parents = defaultdict()
     for label in labels:
-        parents = labels[label]['Parents']
+        if(len(labels[label]['Parents'])>0):
+            pretty_parents[labels[label]['Parents'][0]]={'Children': []}
+
+    pretty_loners = []
+
+    for label in labels:
+        if(len(labels[label]['Parents'])>0):
+            pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
+        else:
+            pretty_loners.append(label)
+
+    print(labels)
+    print(pretty_parents)
+
+    for label in labels:
         par_str = ""
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
-            prefix='an'
+            labels[label]['prefix']='an'
         else:
-            prefix='a'
-            
+            labels[label]['prefix']='a'
+
+    '''for label in labels:
+        parents = labels[label]['Parents']
+        prefix = labels[label]['prefix']
         if(len(parents)>0):
+            par_str=""
             for ind,parent in enumerate(parents):
                 par_str+=parent
                 if ind+1 < len(parents):
@@ -67,10 +130,36 @@ def GenerateSummary(labels,textExtracted):
             else:
                 summary += 'The '+finalLabels[label]+' is '+prefix + ' ' + label+'. '
         else:
-            summary += 'The image contains '+ prefix +' ' + label+'. '
+            summary += 'The image contains '+ prefix +' ' + label+'. '''
+    for label in pretty_parents:
+        ch = label[0]
+        if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
+            prefix='an'
+        else:
+            prefix='a'
+
+        kids=' or '.join(pretty_parents[label]['Children'])
+
+        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids+ ". "
+
+    for label in pretty_loners:
+        ch = label[0]
+        if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
+            prefix='an'
+        else:
+            prefix='a'
+        
+        label=prefix + ' ' + label
+
+    if(len(pretty_loners)>0):
+        last = pretty_loners.pop()
+        loners = 'Some other things we saw: ' + ', '.join(pretty_loners[:-1]) + ' and '+ last + ". "
+
+        summary+=loners
+        
     if textExtracted:
         text_str = ', '.join(textExtracted.split('\n'))
-        summary += 'The image has text, which says: ' + text_str + '.'
+        summary += 'The image has text, which says: ' + text_str + '. '
     # sort into locations
     # location_stuff(labels)
     # append
