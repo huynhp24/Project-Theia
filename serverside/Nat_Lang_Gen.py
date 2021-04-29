@@ -119,7 +119,7 @@ def GenerateSummary(labels,textExtracted):
         suffix = ''
 
         if(len(pretty_parents[label]['Instances'])>0):
-            prefix = 'are' + str(len(pretty_parents[label]['Instances']))
+            prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
             suffix = 's'
 
         kids=' or '.join(pretty_parents[label]['Children'])
