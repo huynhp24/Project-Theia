@@ -20,10 +20,14 @@ def LoadData(impLabels,text):
     textExtracted=" "
     for label in impLabels['Labels']:
         parents=[]
+        instances=[]
         if(len(label['Parents'])>0):
             for parent in label['Parents']:
                 parents.append(parent['Name'])
-        labels[label['Name']]={'Confidence': label['Confidence'], 'Parents': parents}
+        if(len(label['Instances'])>0):
+            for instance in label['Instances']:
+                instances.append(instance['Name'])
+        labels[label['Name']]={'Confidence': label['Confidence'], 'Parents': parents, 'Instances': label['Instances']}
     print(text)
     for reading in text['TextDetections']:
         if('ParentId' not in reading):
@@ -83,6 +87,8 @@ def GenerateSummary(labels,textExtracted):
     for label in labels:
         if(len(labels[label]['Parents'])>0):
             pretty_parents[labels[label]['Parents'][0]]={'Children': []}
+        if(len(labels[label]['Instances'])>0):
+            pretty_parents[labels[label]['Instances'][0]]={'Instances': []}
 
     pretty_loners = []
 
@@ -110,6 +116,9 @@ def GenerateSummary(labels,textExtracted):
             prefix='an'
         else:
             prefix='a'
+
+        if(len(pretty_parents[label]['Instances'])>0):
+            prefix = str(len(pretty_parents[label]['Instances']))
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
