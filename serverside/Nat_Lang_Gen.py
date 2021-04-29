@@ -9,16 +9,12 @@ PIC_TITLE = 'Detected labels for '
 END_LABEL = '----------'
 
 ###Variables###
+maxLevel = 0
+oldest = ""
+delete_list = defaultdict()
 
 def LoadData(impLabels,text):
-    '''
-    labels['Beverage']={'Confidence': 99.90109252929688, 'Parents': []}
-    labels['Cup']={'Confidence': 99.90109252929688, 'Parents': []}
-    labels['Latte']={'Confidence': 99.90109252929688, 'Parents': ['Coffee Cup','Beverage','Cup']}
-    labels['Drink']={'Confidence': 99.90109252929688, 'Parents': []}
-    labels['Coffee Cup']={'Confidence': 99.90109252929688, 'Parents': ['Cup']}
-    labels['Milk']={'Confidence': 89.26606750488281, 'Parents': ['Beverage']}
-    '''
+
     print(impLabels)
     labels=defaultdict()
     textExtracted=" "
@@ -35,15 +31,6 @@ def LoadData(impLabels,text):
     textExtracted=textExtracted[1:-1] 
     return labels, textExtracted
 
-'''def location_stuff(labels):
-    picMap = {"left": {"top": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}},
-                "middle": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}},
-                "bottom": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}}}
-'''
-
-maxLevel = 0
-oldest = ""
-delete_list = defaultdict()
 def oldestAncestor(labels, label, level):
         global oldest
         global maxLevel
@@ -67,7 +54,10 @@ def theCollapse(labels, label) :
     level = 0
     global maxLevel
     maxLevel = -1
-    oldestAncestor(labels, label, level)
+    if(labels[label]['Confidence']>90):
+        oldestAncestor(labels, label, level)
+    else:
+        delete_list[label]=""
     return oldest
 
 def GenerateSummary(labels,textExtracted):
