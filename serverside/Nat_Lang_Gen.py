@@ -86,6 +86,7 @@ def GenerateSummary(labels,textExtracted):
             labels[label]['Parents']=[collapsed]
     
     for label in delete_list:
+        print('DELETING: ' + label)
         del labels[label]
 
     pretty_parents = defaultdict()
@@ -104,33 +105,15 @@ def GenerateSummary(labels,textExtracted):
     print(labels)
     print(pretty_parents)
 
-    for label in labels:
-        par_str = ""
+    '''for label in labels:
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
             labels[label]['prefix']='an'
         else:
             labels[label]['prefix']='a'
 
-    '''for label in labels:
-        parents = labels[label]['Parents']
-        prefix = labels[label]['prefix']
-        if(len(parents)>0):
-            par_str=""
-            for ind,parent in enumerate(parents):
-                par_str+=parent
-                if ind+1 < len(parents):
-                    if ind+2 == len(parents):
-                        par_str+=', and/or '
-                    else:
-                        par_str+= ', '
-            finalLabels[label] = par_str
-            if(labels[label]['Confidence']<90):
-                summary += 'The '+finalLabels[label]+' might be '+prefix + ' ' + label+'. '
-            else:
-                summary += 'The '+finalLabels[label]+' is '+prefix + ' ' + label+'. '
-        else:
-            summary += 'The image contains '+ prefix +' ' + label+'. '''
+            summary += 'The image contains '+ labels[label]['prefix'] +' ' + label+'. '''
+
     for label in pretty_parents:
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
@@ -153,7 +136,10 @@ def GenerateSummary(labels,textExtracted):
 
     if(len(pretty_loners)>0):
         last = pretty_loners.pop()
-        loners = 'Some other things we saw: ' + ', '.join(pretty_loners[:-1]) + ' and '+ last + ". "
+        if(len(pretty_loners)>1):
+            loners = 'Some other things we saw: ' + ', '.join(pretty_loners[:-1]) + ' and '+ last + ". "
+        else:
+            loners = 'Another thing we saw: ' + last + ". "
 
         summary+=loners
         
