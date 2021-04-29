@@ -125,7 +125,7 @@ function reqListener() {
             url: `${path_uuid}`,
             method: "GET",
             headers: {'Content-Type': 'application/json'},
-            timeout: 20000,
+            timeout: 30000,
         })
         .then((res) => {
                 console.log(res);
@@ -155,7 +155,7 @@ function reqListener() {
                                 </div>
                             </div>
                         </center>;`
-                    //console.log(htmlContent);
+                    console.log(htmlContent);
                     document.getElementById('showResult').innerHTML = htmlContent;
                     }
                 renderResult();
