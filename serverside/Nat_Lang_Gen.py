@@ -26,7 +26,7 @@ def LoadData(impLabels,text):
                 parents.append(parent['Name'])
         if(len(label['Instances'])>0):
             for instance in label['Instances']:
-                instances.append(instance['Name'])
+                instances.append(instance)
         labels[label['Name']]={'Confidence': label['Confidence'], 'Parents': parents, 'Instances': label['Instances']}
     print(text)
     for reading in text['TextDetections']:
