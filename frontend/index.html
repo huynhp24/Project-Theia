@@ -9,8 +9,6 @@
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -30,14 +28,6 @@
     <!-- HEADER -->
     <header>
         <div class="header__content">
-            <!-- <p>THEIA</p> -->
-            <!-- <nav>
-                <ul id="mainNav">
-                    <li class="active"><a href="#">HOME</a></li>
-                    <li><a href="#services">SERVICES</a></li>
-                    <li><a href="#team">DEVELOPERS</a></li>
-                </ul>
-            </nav> -->
             <nav class="navInstruction navbar navbar-expand-md container">
                 <a class="navbar-brand text-center" href="#">
                     <p class="font-weight-bold mb-0"><i class="fa fa-file-audio"></i> THEIA</p>
@@ -63,6 +53,7 @@
                     </ul>
                 </div>
             </nav>
+        
         </div>
     </header>
 
@@ -79,7 +70,6 @@
                     <button id="custom-button">Choose File</button>
                     <span id="custom-text" style="color: white;">No file chosen</span>
                     <span id="error_uploadPhoto" class="text-danger"></span>
-                    <!-- <button onclick="return upload()">Upload image</button>   -->
                 </div>
                 <div class="carousel__item">
                     <form action="" method="" id="myForm">
@@ -91,7 +81,6 @@
                         <button id="btnSubmit" type="submit">Search by Image</button>
                     </form>
                 </div>
-                <!-- dropdown list for languages -->
                 <div class="dropdown carousel__item">
                     <label for="languages">Choose a language</label><br>
                     <select form="myForm" name="languages" id="languages">
@@ -109,7 +98,6 @@
                 </div>
             </div>
         </div>
-    </section>
     </section>
 
     <section id="showResult">
@@ -159,19 +147,19 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 services__col">
                     <div class="services__item">
-                        <i class="fa fa-envelope-open-text"></i>
-                        <h3>Text</h3>
-                        <p>Detect text in images: text in natural scenes (road signs, license plates), text over objects
-                            (t-shirts, mugs), and text on screen (captions, news)</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 services__col">
-                    <div class="services__item">
                         <i class="fa fa-city"></i>
                         <h3>Scenes and Objects</h3>
                         <p>Identify thousands of objects (such as building, vehicles, pets, furniture), and scenes (such
                             as
                             parking lot, sunset, beach, city)</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 services__col">
+                    <div class="services__item">
+                        <i class="fa fa-envelope-open-text"></i>
+                        <h3>Text</h3>
+                        <p>Detect text in images: text in natural scenes (road signs, license plates), text over objects
+                            (t-shirts, mugs), and text on screen (captions, news)</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 services__col">
@@ -201,25 +189,19 @@
             <div class="feedback__content">
                 <div class="owl-carousel owl-theme">
                     <div class="item">
-                        <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Maiores
-                            nostrum ab nobis voluptatum ullam repellat placeat enim illo ipsum. <i
-                                class="fa fa-quote-right"></i></p>
-                        <p class="feedback__name">KEVIN</p>
-                    </div>
-                    <div class="item">
-                        <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Maiores
-                            nostrum ab nobis voluptatum ullam repellat placeat enim illo ipsum. <i
+                        <p><i class="fa fa-quote-left"></i>I believe many people could benefit from this application. Not only does the application generates sentence from the images, but also provide user audio and translation in 9 different languages. On top of it, the application is free. This is an amazing application to have.<i
                                 class="fa fa-quote-right"></i></p>
                         <p class="feedback__name">SAKURA</p>
                     </div>
                     <div class="item">
-                        <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Maiores
-                            nostrum ab nobis voluptatum ullam repellat placeat enim illo ipsum. <i
+                        <p><i class="fa fa-quote-left"></i>This app is brilliant. I can look back and remember some of my favorite memories when I was dating my wife. I got to see my much-loved cat. Then I heard him described as sitting on a chair next to my wife. I'm amazed and burst into tears of joy. Thank you so much, Theia.<i
                                 class="fa fa-quote-right"></i></p>
                         <p class="feedback__name">KERO</p>
+                    </div>
+                    <div class="item">
+                        <p><i class="fa fa-quote-left"></i>I was fascinated when I discovered this app and how it would help my husband seeing our daughter who studied abroad and graduated in the United States. My husband has been visually impaired for the last 20 years due to an eyes injury. He was able to see his daughter on her graduation day thanks to the Theia app. He is a huge fan of this app. He really appreciates the fact that it can speak in his first tongue, Vietnamese.<i
+                                class="fa fa-quote-right"></i></p>
+                        <p class="feedback__name">SPINEL</p>
                     </div>
                 </div>
             </div>
@@ -231,82 +213,70 @@
         <h2>THE A TEAM</h2>
         <div class="team__content container">
             <div class="row">
-                <div
-                    class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
                     <div class="team__item">
                         <img src="./img/Nhi.jpg" alt="team 1">
                         <div class="team__title">
                             <h3>Nhi Truong</h3>
-                            <p>-FrontEnd Developer</p>
+                            <p>- FrontEnd Developer</p>
+                            <p>- UI/UX Designer</p>
                         </div>
                         <div class="team__details">
                             <h3>Nhi Truong</h3>
-                            <!-- <p class="team__text">-Front End Developer</p> -->
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p class="team__text">Frontend: HTML, CSS, Bootstrap, Javascript, and Python REST API Server</p>
                             <div class="team__socials">
-                                <i class="fab fa-facebook-f"></i>
-                                <i class="fab fa-twitter"></i>
-                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/nhitruong96" target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
                     <div class="team__item">
                         <img src="./img/Yenni.jpg" alt="team 3">
                         <div class="team__title">
                             <h3>Yenni Lam</h3>
-                            <p>-BackEnd Developer</p>
+                            <p>- BackEnd Developer</p>
+                            <p>- Project Architect</p>
                         </div>
                         <div class="team__details">
                             <h3>Yenni Lam</h3>
-                            <!-- <p class="team__text">-BackEnd Developer</p> -->
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p class="team__text">Backend services: RabbitMQ, Amazon Rekognition, Amazon S3, MySQL</p>
                             <div class="team__socials">
-                                <i class="fab fa-facebook-f"></i>
-                                <i class="fab fa-twitter"></i>
-                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/YenniLamb" target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
                     <div class="team__item">
                         <img src="./img/Tien.png" alt="team 2">
                         <div class="team__title">
                             <h3>Tien Pham</h3>
-                            <p>-Backend Developer</p>
+                            <p>- Backend Developer</p>
+                            <p>- Cloud Agnostic R&D</p>
                         </div>
                         <div class="team__details">
                             <h3>Tien Pham</h3>
-                            <!-- <p class="team__text">-Front End Developer</p> -->
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p class="team__text">Backend services: Microsoft Azure Text-to-Speech, Amazon Translation, Amazon S3</p>
                             <div class="team__socials">
-                                <i class="fab fa-facebook-f"></i>
-                                <i class="fab fa-twitter"></i>
-                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/tienpham0203" target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 team__col d-flex align-items-center justify-content-center container-fluid">
                     <div class="team__item">
                         <img src="./img/Huynh.jpg" alt="team 4">
                         <div class="team__title">
                             <h3>Huynh Phan</h3>
-                            <p>-BackEnd Developer</p>
+                            <p>- BackEnd Developer</p>
+                            <p>- Project Manager and SCRUM Master</p>
                         </div>
                         <div class="team__details">
                             <h3>Huynh Phan</h3>
-                            <!-- <p class="team__text">-BackEnd Developer</p> -->
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p class="team__text">Backend services: Natural Language Sentence Generation, Amazon EC2, AWS R&D</p>
                             <div class="team__socials">
-                                <i class="fab fa-facebook-f"></i>
-                                <i class="fab fa-twitter"></i>
-                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/huynhp24" target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -322,13 +292,9 @@
                 <div class="footer__grid row">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 footer__item">
                         <h3>About Us</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nihil blanditiis
-                            voluptatibus magni natus.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                        <p>We are a team of software engineering students who were inspired by cloud computing and want to put our knowledge into practice by assisting individuals with visual impairments to "see" their photographs by hearing detailed explanations. We want people who speak different languages to be able to experience it in various parts of the world. Therefore, our descriptive script can be spoken in a variety of languages. We're happy that we were able to finish the project and bring joy to people who are blind or visually disabled.</p>
                         <div class="footer__socials">
-                            <i class="fab fa-facebook-f"></i>
-                            <i class="fab fa-twitter"></i>
-                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/huynhp24/Project-Theia" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 footer__item">
@@ -344,35 +310,27 @@
                         <h3>Contact Info</h3>
                         <div class="footer__contact">
                             <i class="fa fa-map-marker-alt"></i>
-                            <a href="#"> 7th St, San Jose, CA</a>
+                            <a href="https://www.google.com/maps/place/San+Jos%C3%A9+State+University/@37.3351874,-121.8832602,17z/data=!3m1!4b1!4m5!3m4!1s0x808fccb864de43d5:0x397ffe721937340e!8m2!3d37.3351874!4d-121.8810715" target="_blank"> 7th St, San Jose, CA</a>
                         </div>
                         <div class="footer__contact">
                             <i class="far fa-envelope"></i>
-                            <a href="mailto:theia@levantine.io">theia@levantine.io</a>
+                            <a href="mailto:ಠ_ಠ@lolomgbbq.lmao">ಠ_ಠ@lolomgbbq.lmao</a>
                         </div>
                         <div class="footer__contact">
                             <i class="fas fa-phone-alt"></i>
-                            <a href="tel:4089241000">(408) 924-1000</a>
+                            <a href="tel:1234567890">1 (800) DONT-CALL-ME</a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 footer__item">
                         <h3>Subscribe Us</h3>
-                        <form class="footer__sub">
+                        <!-- <form class="footer__sub">
                             <input type="email" placeholder="name@example.com">
                             <button type="submit">Send</button>
-                        </form>
+                        </form> -->
+                        <img src="./img/qrcode.png" alt="QRCode" style="width: 100%;">
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="footer__contact">
-                    <i class="fa fa-envelope"></i>
-                    <p>theia.levantine.io@gmail.com</p>
-                    <br>
-                    <i class="fa fa-phone"></i>
-                    <p>(408) 924-1000</p>
-                </div> -->
-
         </div>
         <div class="footer__copyright">
             <div>
@@ -396,13 +354,6 @@
             <span>.</span>
         </div>
     </div>
-    <!-- <body>
-        <div class="spinner-border text-primary" 
-            id="spinner" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-        <div id="data"></div>
-    </body> -->
 
     <!-- BACK TO TOP -->
     <a href="#" class="backToTop cd-top text-replace js-cd-top">
@@ -430,12 +381,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
 
     <!-- Index.js -->
     <script src="./js/index.js"></script>

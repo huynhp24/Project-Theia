@@ -42,8 +42,6 @@ function submitPhoto(e) {
     var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
 
     language = document.querySelector('select[name="languages"]').value;
-    // const path_uuid = info_path + "?uuid=" + this.responseText + "?language=" + language;
-    // console.log(path_uuid);
 
     if (extFile == "jpg" || extFile == "jpeg" || extFile == "png") {
         //TO DO
@@ -96,7 +94,7 @@ var checkEmpty = function (idValue, idError) {
 
 var checkValidURL = function (idValue, idError) {
     var inputText = document.getElementById(idValue).value;
-    var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png)/ig;
+    var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png)/;
 
     if (regexURL.test(inputText)) {
         //Valid
@@ -120,8 +118,6 @@ function reqListener() {
 
     info_path = "/theia/api/v1.0/get_info";
     const path_uuid = info_path + "?uuid=" + this.responseText;
-    // language = document.querySelector('select[name="languages"]').value;
-    // const path_uuid = info_path + "?uuid=" + this.responseText + "?language=" + language;
     console.log(path_uuid);
 
     const fetchResult = () => {
@@ -146,14 +142,20 @@ function reqListener() {
                         `<center style="padding: 5rem 0;">
                             <div class="container">
                                 <h2 style="color:#191970;">RESULTS</h2>
-                                <img src="${img_file}" alt="${uuid}" class="container" style="width: 90vw; display:block;">
-                                <br>
-                                <p>${nat_sentence}</p> 
-                                <br>
-                                <audio controls><source src="${audio_file_location}"></audio>
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-center justify-content-center container-fluid">
+                                        <img src="${img_file}" alt="${uuid}" class="container"  display:block;">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                        <br><br>
+                                        <p>${nat_sentence}</p> 
+                                        <br>
+                                        <audio controls><source src="${audio_file_location}"></audio>
+                                    </div>
+                                </div>
                             </div>
                         </center>;`
-                    console.log(htmlContent);
+                    //console.log(htmlContent);
                     document.getElementById('showResult').innerHTML = htmlContent;
                     }
                 renderResult();
