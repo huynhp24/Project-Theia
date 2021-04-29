@@ -112,16 +112,19 @@ def GenerateSummary(labels,textExtracted):
     for label in pretty_parents:
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
-            prefix='an'
+            prefix='is an'
         else:
-            prefix='a'
+            prefix='is a'
+
+        suffix = ''
 
         if(len(pretty_parents[label]['Instances'])>0):
-            prefix = str(len(pretty_parents[label]['Instances']))
+            prefix = 'are' + str(len(pretty_parents[label]['Instances']))
+            suffix = 's'
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids+ ". "
+        summary+= "There "+ prefix +" " + label+ suffix+" in the image. Some description of the " + label + suffix+": " + kids+ ". "
 
     for label in pretty_loners:
         ch = label[0]
