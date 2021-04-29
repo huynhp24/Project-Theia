@@ -94,7 +94,7 @@ var checkEmpty = function (idValue, idError) {
 
 var checkValidURL = function (idValue, idError) {
     var inputText = document.getElementById(idValue).value;
-    var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png)/;
+    var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|JPG|JPEG|PNG)/;
 
     if (regexURL.test(inputText)) {
         //Valid
