@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <title>THEIA</title>
 
     <!-- BOOTSTRAP -->
@@ -63,6 +67,21 @@
             <h1>OBJECT DETECTION ASSISTANT</h1>
             <p>Automate your image analysis with machine learning</p>
             <div class="carousel__options">
+                <div class="dropdown carousel__item">
+                    <label for="languages">Choose a language</label><br>
+                    <select form="myForm" name="languages" id="languages">
+                        <option value="zh-CN-XiaoxiaoNeural">Chinese</option>
+                        <option selected value="en-US-JennyNeural">English</option>
+                        <option value="fr-FR-DeniseNeural">French</option>
+                        <option value="de-DE-KatjaNeural">German</option>
+                        <option value="hi-IN-SwaraNeural">Hindi</option>
+                        <option value="it-IT-ElsaNeural">Italian</option>
+                        <option value="ja-JP-NanamiNeural">Japanese</option>
+                        <option value="ko-KR-SunHiNeural">Korean</option>
+                        <option value="es-MX-DaliaNeural">Spanish</option>
+                        <option value="vi-VN-HoaiMyNeural">Vietnamese</option>
+                    </select>
+                </div>
                 <div class="carousel__item">
                     <label for="imageUpload">Upload an image</label> <br>
                     <input id="imageUpload" type="file" name="img_path" accept="image/jpg, image/jpeg, image/png"
@@ -80,21 +99,6 @@
                         <span id="error_correctURLImage" class="text-danger"></span>
                         <button id="btnSubmit" type="submit">Search by Image</button>
                     </form>
-                </div>
-                <div class="dropdown carousel__item">
-                    <label for="languages">Choose a language</label><br>
-                    <select form="myForm" name="languages" id="languages">
-                        <option value="zh-CN-XiaoxiaoNeural">Chinese</option>
-                        <option selected value="en-US-JennyNeural">English</option>
-                        <option value="fr-FR-DeniseNeural">French</option>
-                        <option value="de-DE-KatjaNeural">German</option>
-                        <option value="hi-IN-SwaraNeural">Hindi</option>
-                        <option value="it-IT-ElsaNeural">Italian</option>
-                        <option value="ja-JP-NanamiNeural">Japanese</option>
-                        <option value="ko-KR-SunHiNeural">Korean</option>
-                        <option value="es-MX-DaliaNeural">Spanish</option>
-                        <option value="vi-VN-HoaiMyNeural">Vietnamese</option>
-                    </select>
                 </div>
             </div>
         </div>
@@ -274,7 +278,7 @@
                         </div>
                         <div class="team__details">
                             <h3>Huynh Phan</h3>
-                            <p class="team__text">Backend services: Natural Language Sentence Generation, Amazon EC2, AWS R&D</p>
+                            <p class="team__text">Backend services: Natural Language Sentence Generation, Amazon EC2, AWS R&D, MySQL</p>
                             <div class="team__socials">
                                 <a href="https://github.com/huynhp24" target="_blank"><i class="fab fa-github"></i></a>
                             </div>

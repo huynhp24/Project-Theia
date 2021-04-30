@@ -170,7 +170,6 @@ header{
 .navInstructiont ul .active a{
     color: #ff0e83;
 }
-
 .navInstruction ul .active::after a{
     width: 100%;
 }
@@ -224,13 +223,13 @@ header{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 0px;
-    color: white;
+    color: #0d0d63;
 }
 .carousel__content label{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 12px 0;
-    color:#070735;
+    color: white;
 }
 .carousel__content button{
     padding: 12px 20px;
@@ -721,6 +720,9 @@ footer{
 
 @media screen and (max-width: 767.98px){ 
     /* HEADER */
+    .navInstruction .navbar-brand p{
+        font-size: 4vw;
+    }
     #navbarInstruction .navbar-nav{
         background-color: #191970;
         text-align: center;
@@ -776,7 +778,7 @@ footer{
 @media screen and (max-width: 575.98px){
     /* HEADER */
     .navInstruction .navbar-brand p{
-        font-size: 2.5vw;
+        font-size: 5vw;
     }
     /* CAROUSEL */
     .carousel__content h2{
@@ -785,7 +787,7 @@ footer{
     .carousel__content p{
         padding: 0;
         margin-bottom: 15px;
-        font-size: 2.5vw;
+        font-size: 2.7vw;
     } 
     .carousel__item label{
         padding: 0;
@@ -821,6 +823,6 @@ footer{
 @media screen and (max-width: 414px){
     /* HEADER */
     .navInstruction .navbar-brand p{
-        font-size: 5vw;
+        font-size: 6vw;
     }
 }

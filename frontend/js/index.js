@@ -56,6 +56,7 @@ function submitPhoto(e) {
         xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
         xhr.addEventListener("load", reqListener);
         xhr.open("POST", "/theia/api/v1.0/img_path", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.setRequestHeader("language", language);
         xhr.send(formData);
     } else {
@@ -94,7 +95,7 @@ var checkEmpty = function (idValue, idError) {
 
 var checkValidURL = function (idValue, idError) {
     var inputText = document.getElementById(idValue).value;
-    var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png)/;
+    var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|JPG|JPEG|PNG)/;
 
     if (regexURL.test(inputText)) {
         //Valid
@@ -125,7 +126,7 @@ function reqListener() {
             url: `${path_uuid}`,
             method: "GET",
             headers: {'Content-Type': 'application/json'},
-            timeout: 20000,
+            timeout: 30000,
         })
         .then((res) => {
                 console.log(res);
@@ -155,7 +156,7 @@ function reqListener() {
                                 </div>
                             </div>
                         </center>;`
-                    //console.log(htmlContent);
+                    console.log(htmlContent);
                     document.getElementById('showResult').innerHTML = htmlContent;
                     }
                 renderResult();
@@ -188,7 +189,7 @@ function submitURL() {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener("load", reqListener);
     xhr.open('POST', '/theia/api/v1.0/img_url', true);
-    xhr.setRequestHeader('Content-Type', 'plain/text');
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader("language", language);
     xhr.send(img_url);
 }
