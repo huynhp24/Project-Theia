@@ -128,7 +128,7 @@ def GenerateSummary(labels,textExtracted):
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "There "+ prefix +" " + label+ suffix+" in the image."
+        summary+= "There "+ prefix +" " + label+ suffix+" in the image. "
         if(len(pretty_parents[label]['Children'])>0):
             summary+="Some description of the " + label + suffix+": " + kids+ ". "
 
