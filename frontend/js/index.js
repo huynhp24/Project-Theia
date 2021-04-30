@@ -1,3 +1,14 @@
+//Loader animation while waiting for result
+function showSpinner() {
+    var spinner = $('#loader');
+    spinner.show();
+}
+function hideSpinner() {
+    var spinner = $('#loader');
+    spinner.hide();
+}
+
+
 // JS to show name of photo uploaded
 const imageUploadBtn = document.getElementById("imageUpload");
 const customBtn = document.getElementById("custom-button");
@@ -18,53 +29,8 @@ imageUploadBtn.addEventListener("change", function () {
     }
 });
 
-//Loader animation while waiting for result
-function showSpinner() {
-    var spinner = $('#loader');
-    spinner.show();
-}
-function hideSpinner() {
-    var spinner = $('#loader');
-    spinner.hide();
-}
 
-
-// JS to submit photo
-function reqListener() {
-    console.log(this.responseText);
-}
-
-function submitPhoto(e) {
-
-    // JS to validate the photo file
-    var fileName = document.getElementById("imageUpload").value;
-    var idxDot = fileName.lastIndexOf(".") + 1;
-    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
-
-    language = document.querySelector('select[name="languages"]').value;
-
-    if (extFile == "jpg" || extFile == "jpeg" || extFile == "png") {
-        //TO DO
-        showSpinner();
-        //Send data to RMQ
-        let xhr = new XMLHttpRequest();
-        let formData = new FormData();
-        let photo = e.files[0];
-
-        formData.append("file", photo);
-
-        xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
-        xhr.addEventListener("load", reqListener);
-        xhr.open("POST", "/theia/api/v1.0/img_path", true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader("language", language);
-        xhr.send(formData);
-    } else {
-        alert("Invalid image format: Images must be either .jpg or .png");
-    }
-}
-
-// JS to validate the image URL
+// JS to validate image URL
 var checkValidation = function () {
     var valid = true;
     valid &= checkEmpty('pasteURL', 'error_pasteURL') & checkValidURL('pasteURL', 'error_correctURLImage');
@@ -75,7 +41,7 @@ var checkValidation = function () {
         return false;
     }
 }
-
+//URL cannot be empty
 var checkEmpty = function (idValue, idError) {
     var inputText = document.getElementById(idValue).value;
 
@@ -92,7 +58,7 @@ var checkEmpty = function (idValue, idError) {
         return true;
     }
 }
-
+//URL need to be an image link
 var checkValidURL = function (idValue, idError) {
     var inputText = document.getElementById(idValue).value;
     var regexURL = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|JPG|JPEG|PNG)/;
@@ -113,7 +79,8 @@ var checkValidURL = function (idValue, idError) {
 
 document.getElementById('btnSubmit').onclick = checkValidation;
 
-// JS to submit image URL
+
+//JS to render and display results
 function reqListener() {
     console.log(this.responseText);
 
@@ -174,13 +141,48 @@ function reqListener() {
 }
 
 
+// JS to submit photo
+function submitPhoto(e) {
+    //Get the user chosen languge
+    language = document.querySelector('select[name="languages"]').value;
+
+    // JS to validate the photo file
+    var fileName = document.getElementById("imageUpload").value;
+    var idxDot = fileName.lastIndexOf(".") + 1;
+    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+    
+    if (extFile == "jpg" || extFile == "jpeg" || extFile == "png") {
+        //TO DO
+        showSpinner();
+        //Send data to RMQ
+        let xhr = new XMLHttpRequest();
+        let formData = new FormData();
+        let photo = e.files[0];
+
+        formData.append("file", photo);
+
+        xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
+        xhr.addEventListener("load", reqListener);
+        xhr.open("POST", "/theia/api/v1.0/img_path", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader("language", language);
+        xhr.send(formData);
+    } else {
+        alert("Invalid image format: Images must be either .jpg or .png");
+    }
+}
+
+
+// JS to submit image URL
 function submitURL() {
+    //Get the user chosen languge
     language = document.querySelector('select[name="languages"]').value;
 
     //Prevent the form from submitting and refreshing page on submit
     var form = document.getElementById("myForm");
     function handleForm(event) { event.preventDefault(); }
     form.addEventListener('submit', handleForm);
+    
     showSpinner();
 
     //Send data to RMQ
@@ -193,6 +195,10 @@ function submitURL() {
     xhr.setRequestHeader("language", language);
     xhr.send(img_url);
 }
+
+
+
+
     
 
 
