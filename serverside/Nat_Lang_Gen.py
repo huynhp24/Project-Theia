@@ -89,9 +89,6 @@ def GenerateSummary(labels,textExtracted):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]={'Children': []}
                 pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
-            else:
-                pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
-                pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
 
     pretty_loners = defaultdict()
 
