@@ -9,25 +9,25 @@ PIC_TITLE = 'Detected labels for '
 END_LABEL = '----------'
 
 ###Variables###
+maxLevel = 0
+oldest = ""
+delete_list = defaultdict()
 
 def LoadData(impLabels,text):
-    '''
-    labels['Beverage']={'Confidence': 99.90109252929688, 'Parents': []}
-    labels['Cup']={'Confidence': 99.90109252929688, 'Parents': []}
-    labels['Latte']={'Confidence': 99.90109252929688, 'Parents': ['Coffee Cup','Beverage','Cup']}
-    labels['Drink']={'Confidence': 99.90109252929688, 'Parents': []}
-    labels['Coffee Cup']={'Confidence': 99.90109252929688, 'Parents': ['Cup']}
-    labels['Milk']={'Confidence': 89.26606750488281, 'Parents': ['Beverage']}
-    '''
+
     print(impLabels)
     labels=defaultdict()
     textExtracted=" "
     for label in impLabels['Labels']:
         parents=[]
+        instances=[]
         if(len(label['Parents'])>0):
             for parent in label['Parents']:
                 parents.append(parent['Name'])
-        labels[label['Name']]={'Confidence': label['Confidence'], 'Parents': parents}
+        if(len(label['Instances'])>0):
+            for instance in label['Instances']:
+                instances.append(instance)
+        labels[label['Name']]={'Confidence': label['Confidence'], 'Parents': parents, 'Instances': label['Instances']}
     print(text)
     for reading in text['TextDetections']:
         if('ParentId' not in reading):
@@ -35,30 +35,21 @@ def LoadData(impLabels,text):
     textExtracted=textExtracted[1:-1] 
     return labels, textExtracted
 
-'''def location_stuff(labels):
-    picMap = {"left": {"top": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}},
-                "middle": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}},
-                "bottom": {"labels": [], "coordinates": {"left_coordinate": 0, "right_coordinate": .33, "top_coordinate": 1, "bottom_coordinate": .67}}}}
-'''
-
-maxLevel = 0
-oldest = ""
-delete_list = defaultdict()
 def oldestAncestor(labels, label, level):
-        global oldest
-        global maxLevel
-        level += 1
-        print(level)
-        print("looking at " + label)
-        parents = labels[label]['Parents']
-        if(labels[label]['Confidence']>90):
-            if (level > maxLevel):
-                oldest = label
-                print('deepest so far is :' + label)
-                maxLevel = level
-            for parent in parents:
-                delete_list[parent]=""
-                oldestAncestor(labels, parent, level)
+    global oldest
+    global maxLevel
+    level += 1
+    print(level)
+    print("looking at " + label)
+    parents = labels[label]['Parents']
+    if(labels[label]['Confidence']>90):
+        if (level > maxLevel):
+            oldest = label
+            print('deepest so far is :' + label)
+            maxLevel = level
+        for parent in parents:
+            delete_list[parent]=""
+            oldestAncestor(labels, parent, level)
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
@@ -67,12 +58,14 @@ def theCollapse(labels, label) :
     level = 0
     global maxLevel
     maxLevel = -1
-    oldestAncestor(labels, label, level)
+    if(labels[label]['Confidence']>90):
+        oldestAncestor(labels, label, level)
+    else:
+        delete_list[label]=""
     return oldest
 
 def GenerateSummary(labels,textExtracted):
     summary=""
-    finalLabels = defaultdict()
     # collapse into parent
 
     global delete_list
@@ -86,74 +79,74 @@ def GenerateSummary(labels,textExtracted):
             labels[label]['Parents']=[collapsed]
     
     for label in delete_list:
+        print('DELETING: ' + label)
         del labels[label]
 
     pretty_parents = defaultdict()
     for label in labels:
         if(len(labels[label]['Parents'])>0):
-            pretty_parents[labels[label]['Parents'][0]]={'Children': []}
+            if(labels[label]['Parents'][0] != label):
+                pretty_parents[labels[label]['Parents'][0]]={'Children': []}
+                pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
 
-    pretty_loners = []
+    pretty_loners = defaultdict()
 
     for label in labels:
         if(len(labels[label]['Parents'])>0):
-            pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
+            if(labels[label]['Parents'][0] != label):
+                pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
+            else:
+                pretty_loners[label]={'Confidence': labels[label]['Confidence'], 'Instances': labels[label]['Instances']}
         else:
-            pretty_loners.append(label)
+            pretty_loners[label]={'Confidence': labels[label]['Confidence'], 'Instances': labels[label]['Instances']}
 
     print(labels)
     print(pretty_parents)
+    print(pretty_loners)
 
-    for label in labels:
-        par_str = ""
-        ch = label[0]
-        if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
-            labels[label]['prefix']='an'
-        else:
-            labels[label]['prefix']='a'
-
-    '''for label in labels:
-        parents = labels[label]['Parents']
-        prefix = labels[label]['prefix']
-        if(len(parents)>0):
-            par_str=""
-            for ind,parent in enumerate(parents):
-                par_str+=parent
-                if ind+1 < len(parents):
-                    if ind+2 == len(parents):
-                        par_str+=', and/or '
-                    else:
-                        par_str+= ', '
-            finalLabels[label] = par_str
-            if(labels[label]['Confidence']<90):
-                summary += 'The '+finalLabels[label]+' might be '+prefix + ' ' + label+'. '
-            else:
-                summary += 'The '+finalLabels[label]+' is '+prefix + ' ' + label+'. '
-        else:
-            summary += 'The image contains '+ prefix +' ' + label+'. '''
     for label in pretty_parents:
+        print("pretty parent: " + label)
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
-            prefix='an'
+            prefix='is an'
         else:
-            prefix='a'
+            prefix='is a'
+
+        suffix = ''
+
+        if(len(pretty_parents[label]['Instances'])>1):
+            prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
+            suffix = 's'
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "There is "+ prefix +" " + label+ " in the image. Some description of the " + label + ": " + kids+ ". "
+        summary+= "There "+ prefix +" " + label+ suffix+" in the image. "
+        if(len(pretty_parents[label]['Children'])>0):
+            summary+="Some description of the " + label + suffix+": " + kids+ ". "
+
+    loner_list=[]
 
     for label in pretty_loners:
+        print("pretty loner: " + label)
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
             prefix='an'
         else:
             prefix='a'
         
-        label=prefix + ' ' + label
+        suffix = ''
+
+        if(len(pretty_loners[label]['Instances'])>1):
+            prefix = str(len(pretty_loners[label]['Instances']))
+            suffix = 's'
+        
+        loner_list.append(prefix +" " + label+ suffix)
 
     if(len(pretty_loners)>0):
-        last = pretty_loners.pop()
-        loners = 'Some other things we saw: ' + ', '.join(pretty_loners[:-1]) + ' and '+ last + ". "
+        if(len(loner_list)>1):
+            loners = 'Some other things we saw: ' + ', '.join(loner_list[:-1]) + ' and '+ loner_list[-1] + ". "
+        else:
+            loners = 'Another thing we saw: ' + loner_list[0] + ". "
 
         summary+=loners
         
