@@ -150,7 +150,7 @@ def GenerateSummary(labels,textExtracted):
 
     if(len(pretty_loners)>0):
         last = loner_list.pop()
-        if(len(pretty_loners)>1):
+        if(len(loner_list)>0):
             loners = 'Some other things we saw: ' + ', '.join(loner_list[:-1]) + ' and '+ last + ". "
         else:
             loners = 'Another thing we saw: ' + last + ". "
