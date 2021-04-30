@@ -114,6 +114,7 @@ def GenerateSummary(labels,textExtracted):
             summary += 'The image contains '+ labels[label]['prefix'] +' ' + label+'. '''
 
     for label in pretty_parents:
+        print("pretty parent: " + label)
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
             prefix='is an'
@@ -135,6 +136,7 @@ def GenerateSummary(labels,textExtracted):
     loner_list=[]
 
     for label in pretty_loners:
+        print("pretty loner: " + label)
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
             prefix='an'
