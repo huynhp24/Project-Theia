@@ -89,17 +89,20 @@ def GenerateSummary(labels,textExtracted):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]={'Children': []}
                 pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
+            else:
+                pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
+                pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
 
-    pretty_loners = []
+    pretty_loners = defaultdict()
 
     for label in labels:
         if(len(labels[label]['Parents'])>0):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
             else:
-                pretty_loners.append(label)
+                pretty_loners[label]=labels[label]
         else:
-            pretty_loners.append(label)
+            pretty_loners[label]=labels[label]
 
     print(labels)
     print(pretty_parents)
@@ -132,6 +135,8 @@ def GenerateSummary(labels,textExtracted):
         if(len(pretty_parents[label]['Children'])>0):
             summary+="Some description of the " + label + suffix+": " + kids+ ". "
 
+    loner_list=""
+
     for label in pretty_loners:
         ch = label[0]
         if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
@@ -139,12 +144,18 @@ def GenerateSummary(labels,textExtracted):
         else:
             prefix='a'
         
-        label=prefix + ' ' + label
+        suffix = ''
+
+        if(len(pretty_loners[label]['Instances'])>0):
+            prefix = 'are ' + str(len(pretty_loners[label]['Instances']))
+            suffix = 's'
+        
+        loner_list+= prefix +" " + label+ suffix
 
     if(len(pretty_loners)>0):
-        last = pretty_loners.pop()
+        last = loner_list.pop()
         if(len(pretty_loners)>1):
-            loners = 'Some other things we saw: ' + ', '.join(pretty_loners[:-1]) + ' and '+ last + ". "
+            loners = 'Some other things we saw: ' + ', '.join(loner_list[:-1]) + ' and '+ last + ". "
         else:
             loners = 'Another thing we saw: ' + last + ". "
 
