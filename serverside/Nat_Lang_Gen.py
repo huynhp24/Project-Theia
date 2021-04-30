@@ -36,20 +36,20 @@ def LoadData(impLabels,text):
     return labels, textExtracted
 
 def oldestAncestor(labels, label, level):
-        global oldest
-        global maxLevel
-        level += 1
-        print(level)
-        print("looking at " + label)
-        parents = labels[label]['Parents']
-        if(labels[label]['Confidence']>90):
-            if (level > maxLevel):
-                oldest = label
-                print('deepest so far is :' + label)
-                maxLevel = level
-            for parent in parents:
-                delete_list[parent]=""
-                oldestAncestor(labels, parent, level)
+    global oldest
+    global maxLevel
+    level += 1
+    print(level)
+    print("looking at " + label)
+    parents = labels[label]['Parents']
+    if(labels[label]['Confidence']>90):
+        if (level > maxLevel):
+            oldest = label
+            print('deepest so far is :' + label)
+            maxLevel = level
+        for parent in parents:
+            delete_list[parent]=""
+            oldestAncestor(labels, parent, level)
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
@@ -66,7 +66,6 @@ def theCollapse(labels, label) :
 
 def GenerateSummary(labels,textExtracted):
     summary=""
-    finalLabels = defaultdict()
     # collapse into parent
 
     global delete_list
@@ -132,7 +131,7 @@ def GenerateSummary(labels,textExtracted):
         if(len(pretty_parents[label]['Children'])>0):
             summary+="Some description of the " + label + suffix+": " + kids+ ". "
 
-    loner_list=""
+    loner_list=[]
 
     for label in pretty_loners:
         ch = label[0]
@@ -147,7 +146,7 @@ def GenerateSummary(labels,textExtracted):
             prefix = 'are ' + str(len(pretty_loners[label]['Instances']))
             suffix = 's'
         
-        loner_list+= prefix +" " + label+ suffix
+        loner_list.append(prefix +" " + label+ suffix)
 
     if(len(pretty_loners)>0):
         last = loner_list.pop()
