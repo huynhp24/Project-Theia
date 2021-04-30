@@ -114,7 +114,7 @@ def GenerateSummary(labels,textExtracted):
 
         suffix = ''
 
-        if(len(pretty_parents[label]['Instances'])>0):
+        if(len(pretty_parents[label]['Instances'])>2):
             prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
             suffix = 's'
 
@@ -136,7 +136,7 @@ def GenerateSummary(labels,textExtracted):
         
         suffix = ''
 
-        if(len(pretty_loners[label]['Instances'])>0):
+        if(len(pretty_loners[label]['Instances'])>2):
             prefix = str(len(pretty_loners[label]['Instances']))
             suffix = 's'
         
