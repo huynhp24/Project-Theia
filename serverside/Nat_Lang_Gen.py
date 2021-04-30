@@ -102,6 +102,7 @@ def GenerateSummary(labels,textExtracted):
 
     print(labels)
     print(pretty_parents)
+    print(pretty_loners)
 
     '''for label in labels:
         ch = label[0]
