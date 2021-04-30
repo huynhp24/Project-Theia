@@ -146,7 +146,7 @@ def GenerateSummary(labels,textExtracted):
         suffix = ''
 
         if(len(pretty_loners[label]['Instances'])>0):
-            prefix = 'are ' + str(len(pretty_loners[label]['Instances']))
+            prefix = str(len(pretty_loners[label]['Instances']))
             suffix = 's'
         
         loner_list.append(prefix +" " + label+ suffix)
