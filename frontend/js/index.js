@@ -56,6 +56,7 @@ function submitPhoto(e) {
         xhr.onreadystatechange = state => { console.log(xhr.status); } // err handling
         xhr.addEventListener("load", reqListener);
         xhr.open("POST", "/theia/api/v1.0/img_path", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.setRequestHeader("language", language);
         xhr.send(formData);
     } else {
@@ -188,7 +189,7 @@ function submitURL() {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener("load", reqListener);
     xhr.open('POST', '/theia/api/v1.0/img_url', true);
-    xhr.setRequestHeader('Content-Type', 'plain/text');
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader("language", language);
     xhr.send(img_url);
 }
