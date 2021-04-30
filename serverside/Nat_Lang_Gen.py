@@ -96,22 +96,13 @@ def GenerateSummary(labels,textExtracted):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
             else:
-                pretty_loners[label]=labels[label]
+                pretty_loners[label]={'Confidence': labels[label]['Confidence'], 'Instances': labels[label]['Instances']}
         else:
-            pretty_loners[label]=labels[label]
+            pretty_loners[label]={'Confidence': labels[label]['Confidence'], 'Instances': labels[label]['Instances']}
 
     print(labels)
     print(pretty_parents)
     print(pretty_loners)
-
-    '''for label in labels:
-        ch = label[0]
-        if(ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u' or ch == 'A' or ch == 'E' or ch == 'I' or ch == 'O' or ch == 'U'):
-            labels[label]['prefix']='an'
-        else:
-            labels[label]['prefix']='a'
-
-            summary += 'The image contains '+ labels[label]['prefix'] +' ' + label+'. '''
 
     for label in pretty_parents:
         print("pretty parent: " + label)
