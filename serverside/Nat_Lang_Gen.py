@@ -30,7 +30,7 @@ def LoadData(impLabels,text):
         labels[label['Name']]={'Confidence': label['Confidence'], 'Parents': parents, 'Instances': label['Instances']}
     print(text)
     for reading in text['TextDetections']:
-        if('ParentId' not in reading):
+        if('ParentId' not in reading): # i can piggy back on the label??
             textExtracted+=reading["DetectedText"] + " "
     textExtracted=textExtracted[1:-1] 
     return labels, textExtracted
@@ -48,6 +48,11 @@ def oldestAncestor(labels, label, level):
             print('deepest so far is :' + label)
             maxLevel = level
         for parent in parents:
+            if(len(parent['Instances'])>0):
+                instances=[]
+                for instance in parent['Instances']:
+                    instances.append(instance)
+                labels[label]["instances"]=instances
             delete_list[parent]=""
             oldestAncestor(labels, parent, level)
 
