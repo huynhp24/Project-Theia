@@ -48,7 +48,7 @@ def oldestAncestor(labels, label, level):
             print('deepest so far is :' + label)
             maxLevel = level
         for parent in parents:
-            if(len(parent['Instances'])>0):
+            if(len(labels[parent]['Instances'])>0):
                 instances=[]
                 for instance in labels[parent]['Instances']:
                     instances.append(instance)
