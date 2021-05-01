@@ -253,7 +253,7 @@ def GenerateSummary(labels,textExtracted):
                     for it in set(loc):
                         pretty_loc.append(str(loc.count(it)) + ' ' + it)
                     locs+= ' and '.join(pretty_loc)+'. '
-            prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
+            prefix = 'are ' + str(pretty_parents[label]['Instances'].count("BoundingBox"))
             suffix = 's'
 
         kids=' or '.join(pretty_parents[label]['Children'])
