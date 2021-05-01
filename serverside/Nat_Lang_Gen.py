@@ -50,6 +50,11 @@ def oldestAncestor(labels, label, level):
         for parent in parents:
             delete_list[parent]=""
             oldestAncestor(labels, parent, level)
+
+def location(labels, label):
+    for instance in labels[label]['Instances']:
+        if(labels[label]['Instances'][instance]=="Bounding Box"):
+            print(labels[label]['Instances'][instance])
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
@@ -115,6 +120,7 @@ def GenerateSummary(labels,textExtracted):
         suffix = ''
 
         if(len(pretty_parents[label]['Instances'])>1):
+            location(pretty_parents,label)
             prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
             suffix = 's'
 
