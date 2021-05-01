@@ -140,7 +140,7 @@ def location(labels, label):
                         if(theBox["right"]>=.33 and theBox["right"]<.66):
                             location.append("at the bottom center")
                         elif(theBox["right"]>=.66):
-                            location.append("along the bottom right")
+                            location.append("along center right")
             elif(theBox["left"]>=.66):
                 if(theBox["top"]<.33):
                     if(theBox["bottom"]<.33):
