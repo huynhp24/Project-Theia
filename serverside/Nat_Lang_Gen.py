@@ -212,7 +212,7 @@ def GenerateSummary(labels,textExtracted):
         if(len(labels[label]['Parents'])>0):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]={'Children': []}
-                pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
+                pretty_parents[labels[label]['Parents'][0]]['Instances']=[] #labels[label]['Instances']]
 
     pretty_loners = defaultdict()
 
@@ -220,6 +220,8 @@ def GenerateSummary(labels,textExtracted):
         if(len(labels[label]['Parents'])>0):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
+                for instance in labels[label]['Instances']:
+                    pretty_parents[labels[label]['Parents'][0]]['Instances'].append(instance)      
             else:
                 pretty_loners[label]={'Confidence': labels[label]['Confidence'], 'Instances': labels[label]['Instances']}
         else:
