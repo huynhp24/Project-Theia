@@ -281,17 +281,18 @@ def GenerateSummary(labels,textExtracted):
             loc = location(pretty_loners,label)
             if(len(loc)>0):
                 if(len(set(loc))>4):
-                    locs="(located throughout the image"
+                    locs=", (located throughout the image"
                 else:
-                    locs="(their locations: "
+                    locs=", (their locations: "
                     pretty_loc = []
                     for it in set(loc):
                         pretty_loc.append(str(loc.count(it)) + ' ' + it)
                     locs+= ' and '.join(pretty_loc)
+            locs+=') '
             prefix = 'are ' + str(len(pretty_loners[label]['Instances']))
             suffix = 's'
         
-        loner_list.append(prefix +" " + label+ suffix+', ' + locs+ ') ')
+        loner_list.append(prefix +" " + label+ suffix+ locs)
 
     if(len(pretty_loners)>0):
         if(len(loner_list)>1):
