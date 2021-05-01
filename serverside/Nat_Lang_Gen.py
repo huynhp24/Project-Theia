@@ -53,7 +53,7 @@ def oldestAncestor(labels, label, level):
 
 def location(labels, label):
     for instance in labels[label]['Instances']:
-        if(instance.has("Bounding Box")):
+        if("Bounding Box" in instance):
             theBox = defaultdict()
             theBox["left"] = instance["Bounding Box"]["Left"]
             theBox["top"] = instance["Bounding Box"]["Top"]
