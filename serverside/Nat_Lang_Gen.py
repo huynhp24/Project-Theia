@@ -50,7 +50,7 @@ def oldestAncestor(labels, label, level):
         for parent in parents:
             if(len(parent['Instances'])>0):
                 instances=[]
-                for instance in parent['Instances']:
+                for instance in labels[parent]['Instances']:
                     instances.append(instance)
                 labels[label]["instances"]=instances
             delete_list[parent]=""
