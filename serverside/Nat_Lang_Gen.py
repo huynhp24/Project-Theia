@@ -53,8 +53,7 @@ def oldestAncestor(labels, label, level):
 
 def location(labels, label):
     for instance in labels[label]['Instances']:
-        if(labels[label]['Instances'][instance]=="Bounding Box"):
-            print(labels[label]['Instances'][instance])
+        print(labels[label]['Instances'][instance])
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
