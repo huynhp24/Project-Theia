@@ -53,7 +53,7 @@ def oldestAncestor(labels, label, level):
 
 def location(labels, label):
     for instance in labels[label]['Instances']:
-        print(labels[label]['Instances'][instance])
+        print(instance)
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
