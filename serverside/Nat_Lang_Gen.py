@@ -249,7 +249,7 @@ def GenerateSummary(labels,textExtracted):
                     locs="Their locations: "
                     pretty_loc = []
                     for it in set(loc):
-                        pretty_loc.append(str(loc.count(it)) + ' ' + loc)
+                        pretty_loc.append(str(loc.count(it)) + ' ' + it)
                     locs+= ' and '.join(pretty_loc)+'. '
             prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
             suffix = 's'
