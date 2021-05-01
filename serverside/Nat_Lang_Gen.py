@@ -291,7 +291,7 @@ def GenerateSummary(labels,textExtracted):
                         pretty_loc.append(str(loc.count(it)) + ' ' + it)
                     locs+= ' and '.join(pretty_loc)
             locs+=') '
-            prefix = 'are ' + str(len(pretty_loners[label]['Instances']))
+            prefix = str(len(pretty_loners[label]['Instances']))
             suffix = 's'
         
         loner_list.append(prefix +" " + label+ suffix+ locs)
