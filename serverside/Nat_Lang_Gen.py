@@ -48,11 +48,6 @@ def oldestAncestor(labels, label, level):
             print('deepest so far is :' + label)
             maxLevel = level
         for parent in parents:
-            if(len(labels[parent]['Instances'])>0):
-                instances=[]
-                for instance in labels[parent]['Instances']:
-                    instances.append(instance)
-                labels[label]["instances"]=instances
             delete_list[parent]=""
             oldestAncestor(labels, parent, level)
 
@@ -199,6 +194,14 @@ def GenerateSummary(labels,textExtracted):
         print(label + " <---- " + collapsed)
         if(len(collapsed)>0):
             labels[label]['Parents']=[collapsed]
+            instances = labels[label]['Instances']
+            current_big = len(instances)
+            for parent in ref_labels[label]['Parents']:
+                if(len(labels[parent]['Instances'])>current_big):
+                    instances=[]
+                    for instance in labels[parent]['Instances']:
+                        instances.append(instance)
+            labels[label]["instances"]=instances
     
     for label in delete_list:
         print('DELETING: ' + label)
