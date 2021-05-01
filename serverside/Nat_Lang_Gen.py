@@ -165,6 +165,7 @@ def location(labels, label):
                             location.append("in the bottom right corner")
 
             print(theBox)
+            print(location)
     return location
 
          
