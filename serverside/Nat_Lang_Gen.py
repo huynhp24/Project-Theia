@@ -194,12 +194,12 @@ def GenerateSummary(labels,textExtracted):
         print(label + " <---- " + collapsed)
         if(len(collapsed)>0):
             labels[label]['Parents']=[collapsed]
-            instances = labels[label]['Instances']
+            instances = ref_labels[label]['Instances']
             current_big = len(instances)
             for parent in ref_labels[label]['Parents']:
-                if(len(labels[parent]['Instances'])>current_big):
+                if(len(ref_labels[parent]['Instances'])>current_big):
                     instances=[]
-                    for instance in labels[parent]['Instances']:
+                    for instance in ref_labels[parent]['Instances']:
                         instances.append(instance)
             labels[label]["instances"]=instances
     
