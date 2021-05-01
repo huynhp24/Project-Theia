@@ -52,6 +52,7 @@ def oldestAncestor(labels, label, level):
             oldestAncestor(labels, parent, level)
 
 def location(labels, label):
+    location = ""
     for instance in labels[label]['Instances']:
         if("BoundingBox" in instance):
             theBox = defaultdict()
@@ -59,7 +60,12 @@ def location(labels, label):
             theBox["top"] = instance["BoundingBox"]["Top"]
             theBox["right"] = instance["BoundingBox"]["Left"] + instance["BoundingBox"]["Width"]
             theBox["bottom"] = instance["BoundingBox"]["Left"] + instance["BoundingBox"]["Height"]
+
+            if(theBox["left"]<.25 and theBox["right"]<.25 and theBox["top"]<.25 and theBox["bottom"]<.25):
+                location="In the top left corner: "
             print(theBox)
+    return location
+
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
@@ -125,7 +131,8 @@ def GenerateSummary(labels,textExtracted):
         suffix = ''
 
         if(len(pretty_parents[label]['Instances'])>1):
-            location(pretty_parents,label)
+            loc = location(pretty_parents,label)
+            print("loc is " + loc)
             prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
             suffix = 's'
 
