@@ -281,9 +281,9 @@ def GenerateSummary(labels,textExtracted):
             loc = location(pretty_loners,label)
             if(len(loc)>0):
                 if(len(set(loc))>4):
-                    locs=", (located throughout the image"
+                    locs=" (located throughout the image"
                 else:
-                    locs=", (their locations: "
+                    locs=" (their locations: "
                     pretty_loc = []
                     for it in set(loc):
                         pretty_loc.append(str(loc.count(it)) + ' ' + it)
