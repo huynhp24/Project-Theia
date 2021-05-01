@@ -201,7 +201,7 @@ def GenerateSummary(labels,textExtracted):
                     instances=[]
                     for instance in ref_labels[parent]['Instances']:
                         instances.append(instance)
-            labels[label]["instances"]=instances
+            labels[label]["Instances"]=instances
     
     for label in delete_list:
         print('DELETING: ' + label)
