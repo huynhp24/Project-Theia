@@ -242,9 +242,10 @@ def GenerateSummary(labels,textExtracted):
         locs = ""
         if(len(pretty_parents[label]['Instances'])>1):
             loc = location(pretty_parents,label)
+            loc = set(loc)
             if(len(loc)>0):
-                if(len(set(loc))>5):
-                    locs="They are located all over the image. "
+                if(len(loc)>4):
+                    locs="They are located throughout the image. "
                 else:
                     locs="They are located " + ' and '.join(loc)+'. '
             prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
