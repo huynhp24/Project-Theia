@@ -251,7 +251,7 @@ def GenerateSummary(labels,textExtracted):
                     locs="Their locations: "
                     pretty_loc = []
                     for it in set(loc):
-                        pretty_loc.append(str(loc.count(it)) + ' ' + it)
+                        pretty_loc.append(it)
                     locs+= ' and '.join(pretty_loc)+'. '
             prefix = 'are ' + str(len(loc))
             suffix = 's'
@@ -273,10 +273,6 @@ def GenerateSummary(labels,textExtracted):
             prefix='a'
         
         suffix = ''
-
-        if(len(pretty_loners[label]['Instances'])>1):
-            prefix = str(len(pretty_loners[label]['Instances']))
-            suffix = 's'
         
         locs = ""
         if(len(pretty_loners[label]['Instances'])>1):
@@ -288,7 +284,7 @@ def GenerateSummary(labels,textExtracted):
                     locs=" (their locations: "
                     pretty_loc = []
                     for it in set(loc):
-                        pretty_loc.append(str(loc.count(it)) + ' ' + it)
+                        pretty_loc.append(it)
                     locs+= ' and '.join(pretty_loc)
             locs+=') '
             prefix = str(len(pretty_loners[label]['Instances']))
