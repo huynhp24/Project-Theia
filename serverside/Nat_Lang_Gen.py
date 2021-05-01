@@ -53,7 +53,13 @@ def oldestAncestor(labels, label, level):
 
 def location(labels, label):
     for instance in labels[label]['Instances']:
-        print(instance)
+        if(instance.has("Bounding Box")):
+            theBox = defaultdict()
+            theBox["left"] = instance["Bounding Box"]["Left"]
+            theBox["top"] = instance["Bounding Box"]["Top"]
+            theBox["right"] = instance["Bounding Box"]["Left"] + instance["Bounding Box"]["Width"]
+            theBox["bottom"] = instance["Bounding Box"]["Left"] + instance["Bounding Box"]["Height"]
+            print(theBox)
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
