@@ -52,7 +52,7 @@ def oldestAncestor(labels, label, level):
             oldestAncestor(labels, parent, level)
 
 def location(labels, label):
-    location = ""
+    location +=""
     for instance in labels[label]['Instances']:
         if("BoundingBox" in instance):
             theBox = defaultdict()
@@ -61,8 +61,109 @@ def location(labels, label):
             theBox["right"] = instance["BoundingBox"]["Left"] + instance["BoundingBox"]["Width"]
             theBox["bottom"] = instance["BoundingBox"]["Left"] + instance["BoundingBox"]["Height"]
 
-            if(theBox["left"]<.25 and theBox["right"]<.25 and theBox["top"]<.25 and theBox["bottom"]<.25):
-                location="In the top left corner: "
+            if(theBox["left"]<.33):
+                if(theBox["top"]<.33):
+                    if(theBox["bottom"]<.33):
+                        if(theBox["right"]<.33):
+                            location +="In the top left corner: "
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="Along the top left: "
+                        elif(theBox["right"]>=.66):
+                            location +="Across the top: "
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]<.33):
+                            location +="In the upper left hand side: "
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="In the center left area: "
+                        elif(theBox["right"]>=.66):
+                            location +="Across the upper middle: "
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]<.33):
+                            location +="Along the left side: "
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="On the left side: "
+                        elif(theBox["right"]>=.66):
+                            location +="Across the whole image: "
+                if(theBox["top"]>=.33 and theBox["top"]<.66):
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]<.33):
+                            location +="In the very middle of the left: "
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="Through the middle left area: "
+                        elif(theBox["right"]>=.66):
+                            location +="Horizontally across the middle: "
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]<.33):
+                            location +="Along the left side: "
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="In the lower left side: "
+                        elif(theBox["right"]>=.66):
+                            location +="Across the lower middle: "
+                if(theBox["top"]>=.66):
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]<.33):
+                            location +="In the lower left corner: "
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="On the lower left: "
+                        elif(theBox["right"]>=.66):
+                            location +="Across the bottom: "
+            elif(theBox["left"]>=.33 and theBox["left"]<.66):
+                if(theBox["top"]<.33):
+                    if(theBox["bottom"]<.33):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="At the top middle: "
+                        elif(theBox["right"]>=.66):
+                            location +="At the top right side: "
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="At the upper center: "
+                        elif(theBox["right"]>=.66):
+                            location +="In the upper right area: "
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="Vertically across the middle: "
+                        elif(theBox["right"]>=.66):
+                            location +="On the right side: "
+                if(theBox["top"]>=.33 and theBox["top"]<.66):
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="In the very middle: "
+                        elif(theBox["right"]>=.66):
+                            location +="On the middle right: "
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="At the bottom middle: "
+                        elif(theBox["right"]>=.66):
+                            location +="In the lower right: "
+                if(theBox["top"]>=.66):
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location +="At the bottom center: "
+                        elif(theBox["right"]>=.66):
+                            location +="Along the bottom right: "
+            elif(theBox["left"]>=.66):
+                if(theBox["top"]<.33):
+                    if(theBox["bottom"]<.33):
+                        if(theBox["right"]>=.66):
+                            location +="In the top right corner: "
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.66):
+                            location +="At the top right: "
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.66):
+                            location +="Along the right side: "
+                if(theBox["top"]>=.33 and theBox["top"]<.66):
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.66):
+                            location +="In the middle of the right side: "
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.66):
+                            location +="In the lower right: "
+                if(theBox["top"]>=.66):
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.66):
+                            location +="In the bottom right corner: "
+
             print(theBox)
     return location
 
