@@ -164,11 +164,12 @@ def location(labels, label):
                         if(theBox["right"]>=.66):
                             location.append("in the bottom right corner")
 
-            if labels[label]['Instances'].index(instance) > len(location)-1:
+            i= labels[label]['Instances'].index(instance)
+            if i > len(location)-1:
                 print("BAD BOX: ")
                 print(theBox)
             else:
-                print("GOOD BOX: " + location[instance])
+                print("GOOD BOX: " + location[i])
                 print(theBox)
     return location
 
