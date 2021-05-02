@@ -261,7 +261,7 @@ def GenerateSummary(labels,textExtracted):
                     locs+= ', '.join(pretty_loc)+'. '
             prefix = 'are ' + str(len(loc))
             suffix = 's'
-            [s + suffix for s in pretty_parents[label]['Children']]
+            (s + suffix for s in pretty_parents[label]['Children'])
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
