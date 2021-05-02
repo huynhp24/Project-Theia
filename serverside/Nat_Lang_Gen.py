@@ -261,8 +261,9 @@ def GenerateSummary(labels,textExtracted):
                     locs+= ', '.join(pretty_loc)+'. '
             prefix = 'are ' + str(len(loc))
             suffix = 's'
-
-        kids=' or '.join(pretty_parents[label]['Children']).join(suffix)
+        for kid in pretty_parents[label]['Children']:
+            kid.append(suffix)
+        kids=' or '.join(pretty_parents[label]['Children'])
 
         summary+= "There "+ prefix +" " + label+ suffix+" in the image. "+ locs
         if(len(pretty_parents[label]['Children'])>0):
