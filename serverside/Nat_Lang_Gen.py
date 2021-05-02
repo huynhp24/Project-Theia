@@ -252,7 +252,7 @@ def GenerateSummary(labels,textExtracted):
             loc = location(pretty_parents,label)
             if(len(loc)>0):
                 if(len(set(loc))>4):
-                    locs="They are located throughout the image. "
+                    locs="They are located throughout. "
                 else:
                     locs="Their locations: "
                     pretty_loc = []
@@ -285,7 +285,7 @@ def GenerateSummary(labels,textExtracted):
             loc = location(pretty_loners,label)
             if(len(loc)>0):
                 if(len(set(loc))>4):
-                    locs=" (located throughout the image"
+                    locs=" (located throughout"
                 else:
                     locs=" (their locations: "
                     pretty_loc = []
