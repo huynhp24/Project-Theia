@@ -59,7 +59,7 @@ def location(labels, label):
             theBox["left"] = instance["BoundingBox"]["Left"]
             theBox["top"] = instance["BoundingBox"]["Top"]
             theBox["right"] = instance["BoundingBox"]["Left"] + instance["BoundingBox"]["Width"]
-            theBox["bottom"] = instance["BoundingBox"]["Left"] + instance["BoundingBox"]["Height"]
+            theBox["bottom"] = instance["BoundingBox"]["Top"] + instance["BoundingBox"]["Height"]
 
             if(theBox["left"]<.33):
                 if(theBox["top"]<.33):
