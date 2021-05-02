@@ -149,14 +149,14 @@ def checkingImgURL(img, uuid, lan):
         l.info(" Responsing url request: " +str(response))
         url = Image.open(BytesIO(response.content))
     except:
-        # print(" It is not a image file. Please double check. Only accept .png and .jpg ")
+        # print(" It is not a image file. Please double check. Only accept .png, .jpg, and .jpeg ")
         l.warning(" Not image file. Double check")
     else:
         webpage = urlopen(req).read()
-        # this if statement is to strip any string after url format (.jpg/.png)
-        if (img.find('.png') or img.find('.jpg')):
+        # this if statement is to strip any string after url format (.jpg/.jpeg/.png)
+        if (img.find('.png') or img.find('.jpg') or img.find('.jpeg')):
             # this function make the url as a list
-            url = re.findall(r'(?:http\:|https\:)?\/\/.*\.(?:png|jpg)', img)
+            url = re.findall(r'(?:http\:|https\:)?\/\/.*\.(?:png|jpg|jpeg)', img)
             # print(url)
             imURL = ''.join(url)
             print(imURL)
@@ -169,7 +169,7 @@ def checkingImgURL(img, uuid, lan):
             imgPathToS3(imgFile, uuid, lan)
 
         else:
-            l.error(" Not an image file. Only accpet URL ends with .png or .jpg")
+            l.error(" Not an image file. Only accpet URL ends with .jpg, .jpeg, or .png")
 
 
 def receive(rmq_q):
