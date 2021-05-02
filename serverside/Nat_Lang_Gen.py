@@ -30,7 +30,7 @@ def LoadData(impLabels,text):
         labels[label['Name']]={'Confidence': label['Confidence'], 'Parents': parents, 'Instances': label['Instances']}
     print(text)
     for reading in text['TextDetections']:
-        if('ParentId' not in reading):
+        if('ParentId' not in reading): # i can piggy back on the label??
             textExtracted+=reading["DetectedText"] + " "
     textExtracted=textExtracted[1:-1] 
     return labels, textExtracted
@@ -50,6 +50,129 @@ def oldestAncestor(labels, label, level):
         for parent in parents:
             delete_list[parent]=""
             oldestAncestor(labels, parent, level)
+
+def location(labels, label):
+    location =[]
+    for instance in labels[label]['Instances']:
+        if("BoundingBox" in instance):
+            theBox = defaultdict()
+            theBox["left"] = instance["BoundingBox"]["Left"]
+            theBox["top"] = instance["BoundingBox"]["Top"]
+            theBox["right"] = instance["BoundingBox"]["Left"] + instance["BoundingBox"]["Width"]
+            theBox["bottom"] = instance["BoundingBox"]["Top"] + instance["BoundingBox"]["Height"]
+
+            if(theBox["left"]<.33):
+                if(theBox["top"]<.33):
+                    if(theBox["bottom"]<.33):
+                        if(theBox["right"]<.33):
+                            location.append("near the top left corner")
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("along the top left")
+                        elif(theBox["right"]>=.66):
+                            location.append("across the top")
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]<.33):
+                            location.append("near the upper left hand side")
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the center left area")
+                        elif(theBox["right"]>=.66):
+                            location.append("across the upper middle")
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]<.33):
+                            location.append("along the left side")
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the left side")
+                        elif(theBox["right"]>=.66):
+                            location.append("across the whole image")
+                if(theBox["top"]>=.33 and theBox["top"]<.66):
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]<.33):
+                            location.append("near the very middle of the left")
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("through the middle left area")
+                        elif(theBox["right"]>=.66):
+                            location.append("horizontally across the middle")
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]<.33):
+                            location.append("along the left side")
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the lower left side")
+                        elif(theBox["right"]>=.66):
+                            location.append("across the lower middle")
+                if(theBox["top"]>=.66):
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]<.33):
+                            location.append("near the lower left corner")
+                        elif(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the lower left")
+                        elif(theBox["right"]>=.66):
+                            location.append("across the bottom")
+            elif(theBox["left"]>=.33 and theBox["left"]<.66):
+                if(theBox["top"]<.33):
+                    if(theBox["bottom"]<.33):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the top middle")
+                        elif(theBox["right"]>=.66):
+                            location.append("near the top right side")
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the upper center")
+                        elif(theBox["right"]>=.66):
+                            location.append("near the upper right area")
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("vertically across the middle")
+                        elif(theBox["right"]>=.66):
+                            location.append("near the right side")
+                if(theBox["top"]>=.33 and theBox["top"]<.66):
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the very middle")
+                        elif(theBox["right"]>=.66):
+                            location.append("near the middle right")
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the bottom middle")
+                        elif(theBox["right"]>=.66):
+                            location.append("near the middle right area")
+                if(theBox["top"]>=.66):
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.33 and theBox["right"]<.66):
+                            location.append("near the bottom center")
+                        elif(theBox["right"]>=.66):
+                            location.append("along center right")
+            elif(theBox["left"]>=.66):
+                if(theBox["top"]<.33):
+                    if(theBox["bottom"]<.33):
+                        if(theBox["right"]>=.66):
+                            location.append("near the top right corner")
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.66):
+                            location.append("near the top right")
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.66):
+                            location.append("along the right side")
+                if(theBox["top"]>=.33 and theBox["top"]<.66):
+                    if(theBox["bottom"]>=.33 and theBox["bottom"]<.66):
+                        if(theBox["right"]>=.66):
+                            location.append("near the middle of the right side")
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.66):
+                            location.append("near the lower right")
+                if(theBox["top"]>=.66):
+                    if(theBox["bottom"]>=.66):
+                        if(theBox["right"]>=.66):
+                            location.append("near the bottom right corner")
+
+            i= labels[label]['Instances'].index(instance)
+            if i > len(location)-1:
+                print("BAD BOX: ")
+                print(theBox)
+            else:
+                print("GOOD BOX: " + location[i])
+                print(theBox)
+    return location
+
          
 def theCollapse(labels, label) :
     print("The quest for: " + label)
@@ -77,6 +200,14 @@ def GenerateSummary(labels,textExtracted):
         print(label + " <---- " + collapsed)
         if(len(collapsed)>0):
             labels[label]['Parents']=[collapsed]
+            instances = ref_labels[label]['Instances']
+            current_big = len(instances)
+            for parent in ref_labels[label]['Parents']:
+                if(len(ref_labels[parent]['Instances'])>current_big):
+                    instances=[]
+                    for instance in ref_labels[parent]['Instances']:
+                        instances.append(instance)
+            labels[label]["Instances"]=instances
     
     for label in delete_list:
         print('DELETING: ' + label)
@@ -87,7 +218,7 @@ def GenerateSummary(labels,textExtracted):
         if(len(labels[label]['Parents'])>0):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]={'Children': []}
-                pretty_parents[labels[label]['Parents'][0]]['Instances']=labels[label]['Instances']
+                pretty_parents[labels[label]['Parents'][0]]['Instances']=[] #labels[label]['Instances']]
 
     pretty_loners = defaultdict()
 
@@ -95,6 +226,8 @@ def GenerateSummary(labels,textExtracted):
         if(len(labels[label]['Parents'])>0):
             if(labels[label]['Parents'][0] != label):
                 pretty_parents[labels[label]['Parents'][0]]['Children'].append(label)
+                for instance in labels[label]['Instances']:
+                    pretty_parents[labels[label]['Parents'][0]]['Instances'].append(instance)      
             else:
                 pretty_loners[label]={'Confidence': labels[label]['Confidence'], 'Instances': labels[label]['Instances']}
         else:
@@ -114,15 +247,26 @@ def GenerateSummary(labels,textExtracted):
 
         suffix = ''
 
+        locs = ""
         if(len(pretty_parents[label]['Instances'])>1):
-            prefix = 'are ' + str(len(pretty_parents[label]['Instances']))
+            loc = location(pretty_parents,label)
+            if(len(loc)>0):
+                if(len(set(loc))>4):
+                    locs="They are located throughout. "
+                else:
+                    locs="Their locations: "
+                    pretty_loc = []
+                    for it in set(loc):
+                        pretty_loc.append(str(loc.count(it)) + ' ' + it)
+                    locs+= ', '.join(pretty_loc)+'. '
+            prefix = 'are ' + str(len(loc))
             suffix = 's'
 
         kids=' or '.join(pretty_parents[label]['Children'])
 
-        summary+= "There "+ prefix +" " + label+ suffix+" in the image. "
+        summary+= "There "+ prefix +" " + label+ suffix+" in the image. "+ locs
         if(len(pretty_parents[label]['Children'])>0):
-            summary+="Some description of the " + label + suffix+": " + kids+ ". "
+            summary+="Some description of the " + label + suffix+": " + kids+suffix+". "
 
     loner_list=[]
 
@@ -135,16 +279,28 @@ def GenerateSummary(labels,textExtracted):
             prefix='a'
         
         suffix = ''
-
+        
+        locs = ""
         if(len(pretty_loners[label]['Instances'])>1):
+            loc = location(pretty_loners,label)
+            if(len(loc)>0):
+                if(len(set(loc))>4):
+                    locs=" (located throughout"
+                else:
+                    locs=" (their locations: "
+                    pretty_loc = []
+                    for it in set(loc):
+                        pretty_loc.append(str(loc.count(it)) + ' ' + it)
+                    locs+= ', '.join(pretty_loc)
+            locs+=')'
             prefix = str(len(pretty_loners[label]['Instances']))
             suffix = 's'
         
-        loner_list.append(prefix +" " + label+ suffix)
+        loner_list.append(prefix +" " + label+ suffix+ locs)
 
     if(len(pretty_loners)>0):
         if(len(loner_list)>1):
-            loners = 'Some other things we saw: ' + ', '.join(loner_list[:-1]) + ' and '+ loner_list[-1] + ". "
+            loners = 'Some other things we saw: ' + ', '.join(loner_list[:-1]) + ', and '+ loner_list[-1] + ". "
         else:
             loners = 'Another thing we saw: ' + loner_list[0] + ". "
 
