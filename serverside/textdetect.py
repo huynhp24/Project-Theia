@@ -36,8 +36,8 @@ def detect_text(photo, bucket):
 
     except:
         # raise
-        if (photo.endswith('png') or photo.endswith('jpg')):
-            print("The photo is jpg and png format")
+        if (photo.endswith('png') or photo.endswith('jpg') or photo.endswith('jpeg')):
+            print("The photo is jpg, png and jpeg format")
             textDetections = imageBinary(photo, client)
             return textDetections
         else:

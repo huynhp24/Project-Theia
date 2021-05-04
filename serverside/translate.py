@@ -4,6 +4,7 @@ from requests.structures import CaseInsensitiveDict
 import configparser,logging, sys, os
 from os import path
 from logging.handlers import RotatingFileHandler
+from google_trans_new import google_translator
 import uuid
 # Reading config file
 config = configparser.ConfigParser()
@@ -72,22 +73,18 @@ def get_audio_file(access_token, language, voice, expression, out_file, tts_stri
             s3.upload_fileobj(f, S3PATH, os.path.basename(out_file))
         url = "https://%s.s3-%s.amazonaws.com/%s" % (S3PATH, REGION, os.path.basename(out_file))
         l.info('printing URL : ' + url)
+        os.remove(out_file)
         return url
     else:
         l.error("Error generating audio file: " + str(r.status_code) + " " + str(r.content))
         return False
 
-# translating
+# using google translate service
 def translator(text_to_translate, target):
-    trl = boto3.client('translate', region_name='us-west-1', use_ssl=True)
-    result = trl.translate_text(Text=text_to_translate,
-                                      SourceLanguageCode="en",
-                                      TargetLanguageCode=target
-                                      )
-    print(f'TranslatedText: {result["TranslatedText"]}')
-    print('SourceLanguageCode: ' + result.get('SourceLanguageCode'))
-    return result["TranslatedText"]
+    tr = google_translator()
 
+    lan = tr.translate(text_to_translate, lang_tgt=target)
+    return lan
 
 def textToSpeech( tts_string, uuid ,voice):
     subscription_key = config['azure']['subscription_key']
@@ -99,8 +96,8 @@ def textToSpeech( tts_string, uuid ,voice):
     target_lan = language[:2]
 
     print('language: ' + language)
-    print('target language to translate' + target_lan)
-    # getting the trasnlated text back
+    print('target language to translate: ' + target_lan)
+    # getting the translated text back from google translate
     result1= translator(tts_string, target_lan)
 
     l.info("Getting translating result "+ result1)

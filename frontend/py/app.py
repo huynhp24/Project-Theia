@@ -178,7 +178,6 @@ def get_data():
 "img_file": "''' + imgLocation + '''",
 "nat_sentence": "''' + sen + '''",
 "audio_file_location": "''' + audio_Location + '''"}'''
-            # "https://project-theia-test.s3-us-west-1.amazonaws.com/BeautifulGoblinOSTBeat-Crush-4709474.mp3"
             l.info(sample_json)
             return sample_json
         except:
