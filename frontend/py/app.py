@@ -124,31 +124,24 @@ def upload_file():  # What to do when it uploads a file
     '''
     l.info("Incoming request: " + str(request))
     if request.method == 'POST':
-        if 'file' not in request.files:
-            l.warning("No file part")
-            return FileNotFoundError
 
         file = request.files['file']
-        if file.filename == '':
-            l.warning("No file selected")
-            return FileNotFoundError
+        
+        filename = secure_filename(file.filename)
+        lan = request.headers.get('language')
+        l.info("Incoming language from upload file: " + str(lan))
+        l.info("Incoming file: " + filename + " verified. Saving and sending to RMQ")
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            lan = request.headers.get('language')
-            l.info("Incoming language from upload file: " + str(lan))
-            l.info("Incoming file: " + filename + " verified. Saving and sending to RMQ")
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        image_location = UPLOAD_FOLDER + "/" + filename
+        new_uuid = str(uuid.uuid4())
+        print(image_location)
+        print(new_uuid)
 
-            image_location = UPLOAD_FOLDER + "/" + filename
-            new_uuid = str(uuid.uuid4())
-            print(image_location)
-            print(new_uuid)
+        json_data = json.dumps({'msg': image_location, 'uuid': new_uuid, 'language': lan})
 
-            json_data = json.dumps({'msg': image_location, 'uuid': new_uuid, 'language': lan})
-
-            send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=json_data)
-            return new_uuid
+        send_rabbitmq(rmq_queue=rmq_image_upload_q, msg=json_data)
+        return new_uuid
 
 
 @app.route(info_path, methods=['GET'])
