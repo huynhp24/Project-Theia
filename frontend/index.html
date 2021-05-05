@@ -88,13 +88,12 @@
                         max-size=15728640 hidden="hidden" onchange="submitPhoto(this)">
                     <button id="custom-button">Choose File</button>
                     <span id="custom-text" style="color: white;">No file chosen</span>
-                    <span id="error_uploadPhoto" class="text-danger"></span>
                 </div>
                 <div class="carousel__item">
                     <form action="" method="" id="myForm">
                         <label for="pasteURL">Paste image URL</label> <br>
-                        <input type="text" id="pasteURL" name="URL"
-                            placeholder="http://example.jpeg OR http://example.png" required>
+                        <input type="text" id="pasteURL" name="URL" onfocus="this.value=''" 
+                            placeholder="http://example.jpg OR http://example.png" required>
                         <span id="error_pasteURL" class="text-danger"></span>
                         <span id="error_correctURLImage" class="text-danger"></span>
                         <button id="btnSubmit" type="submit">Search by Image</button>
