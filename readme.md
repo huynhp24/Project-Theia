@@ -113,16 +113,23 @@ _____________________________________________
 
 ### Our Expectations:
 #### Essential/ Functional Requirements
-* The user can upload images to the webserver
-* The tool should be able to perform image recognition
-* The web application should be translate image into text
-* Output text and read the output strings to the user(s)
-
+* Upload image by choosing file from their device
+* Upload image by taking picture using their device
+* Upload image by pasting image URL
+* Read & Listen the description of the iamge they uploaded.
+* Read & Listen to text if the text appears in the image.
+* Read & Listen the description of the image in different languages.
 #### Desired/ Non-functional Requirements
-* Store user images on the Amazon database  
-* Front End : EC2 Server - Amazon Web Services
-* Back End: Python
-* Database: Amazon S3
+Accessibility
+* The app must be accessibility on any web browsing platform
+* The app had a user friendly UI which is a simple and accessible interface that easy to use
+Capacity:
+* The number of images to be uploaded per user per day was up to several dozen
+Capability:
+* The format of image needed to be JPEG or PNG
+* The upload image file sizes was up to 15MB
+Performance:
+* Uploading image must be 
 
 #### Optional Requirements
 * The user can save to images to the database that the engineer team is hosting
