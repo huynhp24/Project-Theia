@@ -14,6 +14,11 @@ typically the disabilities. The team of engineers are innovating in solutions to
  the convenience of blind and visually impaired users. The purpose of this project is to 
  create an app to make use of an AI service in order to describe images to the blind.
  
+### Modify variables in config.ini file:
+image_upload_folder = ..../rabbitMQ (... is the directory where you save rabbitMQ file)
+host, port, user, password, dbname under [database]
+rmq_username, rmq_password under [rabbitMQ]
+
 ### Our Expectations:
 #### Essential/ Functional Requirements
 * The user can upload images to the webserver
