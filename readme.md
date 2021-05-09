@@ -78,7 +78,10 @@ ln -s /opt/theia/frontend/ /var/www/html
        * ProxyPass /theia/api/v1.0/img_url http://127.0.0.1:5000/theia/api/v1.0/img_url
        * ProxyPassReverse /theia/api/v1.0/img_url http://127.0.0.1:5000/theia/api/v1.0/img_url
        * ProxyPass /theia/api/v1.0/img_path http://127.0.0.1:5000/theia/api/v1.0/img_path
-   * ProxyPassReverse /theia/api/v1.0/img_path http://127.0.0.1:5000/theia/api/v1.0/img_path
+       * ProxyPassReverse /theia/api/v1.0/img_path http://127.0.0.1:5000/theia/api/v1.0/img_path
+       * ProxyPass /theia/api/v1.0/get_info http://127.0.0.1:5000/theia/api/v1.0/get_info
+       * ProxyPassReverse /theia/api/v1.0/get_info http://127.0.0.1:5000/theia/api/v1.0/get_info
+
  
 * https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension.
    * sudo service apache2 restart.
