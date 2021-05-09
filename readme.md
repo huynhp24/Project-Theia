@@ -129,7 +129,14 @@ Capability:
 * The format of image needed to be JPEG or PNG
 * The upload image file sizes was up to 15MB
 Performance:
-* Uploading image must be 
+* Uploading image must be executed instantaneously
+* Recognition and delivering fast in less than 30s
+Reliabiliy:
+* The app must be available at least 99% of the time
+* The app must have no data loss when downtime
+Security:
+* User's uploaded image myst be secure, undisclosed and inaccessible to other users or programs that are not authorized to have access to that information.
+* Users must not be able to downloaded images uploaded by other users.
 
 #### Optional Requirements
 * The user can save to images to the database that the engineer team is hosting
