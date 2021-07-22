@@ -3,7 +3,8 @@
 ## Senior Project - CMPE 195A/E  Fall 2020 - Spring 2021
 ## Authors: Tien Pham, Huynh Phan, Nhi Truong, Yenni Lam
 ## Team mentor: Kevin Nguyen
-## Project adviser: Ronald Mak 
+## Project adviser: Ronald Mak
+
 
 
 ### Project Introduction:
@@ -14,6 +15,7 @@ typically the disabilities. The team of engineers are innovating in solutions to
  the convenience of blind and visually impaired users. The purpose of this project is to 
  create an app to make use of an AI service in order to describe images to the blind.
  
+ ![Poster Template pptx](https://user-images.githubusercontent.com/47261678/126586562-c53a924a-e106-4525-a5ee-ab3fb6287a3c.png)
  
  ### Set up system environment:
  * apt install
