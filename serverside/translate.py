@@ -34,6 +34,7 @@ l.info("Running Azure TTS")
 
 #set up amazon
 s3 = boto3.client('s3')
+aws_translate = boto3.client('translate')
 S3PATH = config['amazon']['bucket']
 REGION = config['amazon']['region']
 
@@ -81,9 +82,11 @@ def get_audio_file(access_token, language, voice, expression, out_file, tts_stri
 
 # using google translate service
 def translator(text_to_translate, target):
-    tr = google_translator()
+    # tr = google_translator()
+    # lan = tr.translate(text_to_translate, lang_tgt=target)
 
-    lan = tr.translate(text_to_translate, lang_tgt=target)
+    lan = aws_translate.translate_text(target, text_to_translate)
+
     return lan
 
 def textToSpeech( tts_string, uuid ,voice):
