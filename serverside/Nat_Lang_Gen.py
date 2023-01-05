@@ -322,7 +322,10 @@ def PrettyPrint(summary):
     print(pretty)
 
 def Run(impLabels,text):
-    lab, ext = LoadData(impLabels,text)
-    summary = GenerateSummary(lab,ext)
-    PrettyPrint(summary)
+    labels, text_extracted = LoadData(impLabels,text)
+    try:
+        summary = GenerateSummary(labels, text_extracted)
+        PrettyPrint(summary)
+    except KeyError:
+        summary = "We were unable to generate human results. Here are texts found in the image" + str(text_extracted) + " And here are things we found in the image " + str(labels)
     return summary
