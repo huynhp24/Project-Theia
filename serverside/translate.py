@@ -101,10 +101,11 @@ def textToSpeech( tts_string, uuid ,voice):
     print('language: ' + language)
     print('target language to translate: ' + target_lan)
     # getting the translated text back from google translate
-    result1= translator(tts_string, target_lan)
+    translation = translator(tts_string, target_lan)
+    translation_string = translation["TranslatedText"]
 
-    l.info("Getting translating result "+ result1)
+    l.info("Getting translating result "+ translation_string)
     expression = "calm"
     access_token = get_token(subscription_key, fetch_token_url)
-    url = get_audio_file(access_token, language, voice, expression, out_file, result1, api_url)
-    return url, result1
+    url = get_audio_file(access_token, language, voice, expression, out_file, translation_string, api_url)
+    return url, translation_string
