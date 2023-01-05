@@ -327,5 +327,5 @@ def Run(impLabels,text):
         summary = GenerateSummary(labels, text_extracted)
         PrettyPrint(summary)
     except KeyError:
-        summary = "We were unable to generate human results. Here are texts found in the image: " + str(text_extracted) + " --- And here are things we found in the image: " + str(labels)
-    return summary[:300]
+        summary = "We were unable to generate a natural language string, you should try another picture but for now here's the raw data. Here are texts found in the image: " + str(text_extracted) + " --- And here are things we found in the image: " + str(labels)
+    return summary[:500]
