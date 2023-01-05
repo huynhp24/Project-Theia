@@ -4,7 +4,7 @@ from requests.structures import CaseInsensitiveDict
 import configparser,logging, sys, os
 from os import path
 from logging.handlers import RotatingFileHandler
-from google_trans_new import google_translator
+# from google_trans_new import google_translator
 import uuid
 # Reading config file
 config = configparser.ConfigParser()
@@ -85,7 +85,7 @@ def translator(text_to_translate, target):
     # tr = google_translator()
     # lan = tr.translate(text_to_translate, lang_tgt=target)
 
-    lan = aws_translate.translate_text(target, text_to_translate)
+    lan = aws_translate.translate_text(SourceLanguageCode="en", TargetLanguageCode=target, Text=text_to_translate)
 
     return lan
 
