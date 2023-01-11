@@ -113,6 +113,9 @@ _____________________________________________
  
 - start rbt.py Have the index.html and app.py inside Pycharm/frontend/py file running, and then run rbt.py in Pycharm/rabbitMQ file.
 
+pm2 start /opt/theia/rabbitMQ/rbt.py --interpreter python3
+pm2 start /opt/theia/frontend/py/app.py --interpreter python3
+
 ### Our Expectations:
 #### Essential/ Functional Requirements
 * Upload image by choosing file from their device
