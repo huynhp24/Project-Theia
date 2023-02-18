@@ -112,7 +112,7 @@ def imgPathToS3(imgPath, uuid, lan):
     print('--------')
     path = os.path.join(SOURCEDIR, imgFile)
     l.info('Joining the path for img upload to rabbitMQ dir: ' + path)
-    with open(imgFile, "rb") as f:
+    with open(imgPath, "rb") as f:
         s3.upload_fileobj(f, S3PATH, imgFile)
         l.info('Had successfully upload ' + imgPath + " to s3 bucket : " + S3PATH)
     textInImage = textdetect.detect_text(imgFile, S3PATH)
