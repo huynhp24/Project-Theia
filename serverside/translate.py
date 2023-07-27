@@ -33,10 +33,10 @@ if log_out.upper() == 'TRUE':
 l.info("Running Azure TTS")
 
 #set up amazon
-s3 = boto3.client('s3')
-aws_translate = boto3.client('translate')
 S3PATH = config['amazon']['bucket']
 REGION = config['amazon']['region']
+s3 = boto3.client('s3', region_name=REGION
+aws_translate = boto3.client('translate', region_name=REGION)
 
 
 def get_token(subscription_key, fetch_token_url):

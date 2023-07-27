@@ -3,7 +3,8 @@ import boto3
 import json
 
 def detect_labels(photo, bucket):
-    client = boto3.client('rekognition', 'us-west-1')
+    REGION = config['amazon']['region']
+    client = boto3.client('rekognition', region_name=REGION)
 
     response = client.detect_labels(Image={'S3Object': {'Bucket': bucket, 'Name': photo}},
                                     MaxLabels=10)

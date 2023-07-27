@@ -30,7 +30,8 @@ def imageBinary(photo,client):
 
 
 def detect_text(photo, bucket):
-    client = boto3.client('rekognition')
+    REGION = config['amazon']['region']
+    client = boto3.client('rekognition', region_name=REGION)
     try:
         response = client.detect_text(Image={'S3Object': {'Bucket': bucket, 'Name': photo}})
 
