@@ -1,7 +1,12 @@
+import configparser
 import boto3
 from PIL import Image
 from io import BytesIO
 import io
+
+
+config = configparser.ConfigParser()
+config.sections()
 
 def printText(textDetections):
     sen = ''
