@@ -3,10 +3,23 @@ import boto3
 from PIL import Image
 from io import BytesIO
 import io
+from os import path
+import sys
 
 
 config = configparser.ConfigParser()
 config.sections()
+
+try:
+    if path.exists(sys.argv[1]):
+        config.read(sys.argv[1])
+except IndexError:
+    if path.exists('/opt/theia/config.ini'):
+        config.read('/opt/theia/config.ini')
+    elif path.exists('config.ini'):
+        config.read('config.ini')
+    else:
+        print("No config file found")
 
 def printText(textDetections):
     sen = ''
