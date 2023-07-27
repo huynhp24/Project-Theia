@@ -35,7 +35,7 @@ l.info("Running Azure TTS")
 #set up amazon
 S3PATH = config['amazon']['bucket']
 REGION = config['amazon']['region']
-s3 = boto3.client('s3', region_name=REGION
+s3 = boto3.client('s3', region_name=REGION)
 aws_translate = boto3.client('translate', region_name=REGION)
 
 
