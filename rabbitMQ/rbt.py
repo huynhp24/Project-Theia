@@ -98,7 +98,7 @@ def storeToDB(imgFile, id, lan):
         l.info('Storing into database: ' + str(id) + ', ' + str(url) + ', ' + str(translate_text) + ', ' + str(audio_file ))
         conn.commit()
         # removing the image file on server once uploads to S3 bucket, so it won't overload the server
-        os.remove(imgFile)
+        os.remove("/opt/theia/rabbitMQ/" + imgFile)
 
     else:
         l.error("Database connection unsuccesful.")
